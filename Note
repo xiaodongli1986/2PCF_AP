@@ -1,0 +1,2 @@
+DSMapping(smutabstd, nums1, nummu1, smutab2, &
+	  nums2, nummu2, DAstd, DAnew, Hstd, Hnew, deltas1,  deltas2,  smin_mapping, smax_mapping )

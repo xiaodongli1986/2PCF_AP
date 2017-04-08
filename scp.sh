@@ -11,7 +11,7 @@ for catname in DR12v4-CMASS DR12v4-LOWZ
 do
 	mkdir -p $catname/xyzw.binsplitted/
 	#sshpass -p lx821118 scp -r xiaodongli@baekdu.kias.re.kr:~/boss2pcf/data/$catname/xyzw.binsplitted/data.xyzw.${ibin}of3.cosmo-converted.om${om}_w${w}.rmax51.51rbins.120mubins.2pcf /home/xiaodongli/SparseFilaments/data/local_input/boss2pcf/data/$catname/xyzw.binsplitted/
-	sshpass -p lx821118 scp -r xiaodongli@baekdu.kias.re.kr:~/boss2pcf/data/$catname/xyzw.binsplitted/data.xyzw.${ibin}of3.cosmo-converted.om${om}_w${w}.rmax*.*rbins.*mubins.2pcf /home/xiaodongli/SparseFilaments/data/input/boss2pcf/data/${catname}_local/xyzw.binsplitted/
+	sshpass -p lx821118 scp -r xiaodongli@baekdu.kias.re.kr:~/boss2pcf/data/$catname/xyzw.binsplitted/data.xyzw.${ibin}of3.cosmo-converted.om${om}_w${w}.rmax*.*rbins.*mubins.2pcf /home/xiaodongli/SparseFilaments/data/input/boss2pcf/data/${catname}_Files/xyzw.binsplitted/
 done
 done
 done
