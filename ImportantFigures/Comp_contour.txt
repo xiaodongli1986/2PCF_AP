@@ -1,0 +1,5 @@
+
+* Comp_contour_nbins... .png:
+
+	* Plots made using #-bins = 25-35, mumin = 0.01, ..., 0.15
+	* Plots are made from Fortran code
