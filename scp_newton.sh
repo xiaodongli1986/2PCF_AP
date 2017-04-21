@@ -7,10 +7,11 @@
 #do
 #for ibin in 1 2 3
 #do
-for kw in om0.1100_w-2.0000.rmax150.750rbins.600mubins om0.1100_w-1.0000.rmax150.750rbins.600mubins
+for kw in om0.3100* om0.4100* om0.2600* #om0.1100_w-2.0000.rmax150.750rbins.600mubins om0.1100_w-1.0000.rmax150.750rbins.600mubins
 do
 for catname in DR12v4-CMASS DR12v4-LOWZ
 do
+	echo $kw : $catname
 	mkdir -p $catname/xyzw.binsplitted/
 	#sshpass -p lx821118 scp -r xiaodongli@baekdu.kias.re.kr:~/boss2pcf/data/$catname/xyzw.binsplitted/data.xyzw.${ibin}of3.cosmo-converted.om${om}_w${w}.rmax51.51rbins.120mubins.2pcf /home/xiaodongli/SparseFilaments/data/local_input/boss2pcf/data/$catname/xyzw.binsplitted/
 	#sshpass -p lx821118 scp -r xiaodongli@baekdu.kias.re.kr:~/boss2pcf/data/$catname/xyzw.binsplitted/data.xyzw.${ibin}of3.cosmo-converted.om${om}_w${w}.rmax*.*rbins.*mubins.2pcf /home/xiaodongli/SparseFilaments/data/input/boss2pcf/data/${catname}_Files/xyzw.binsplitted/

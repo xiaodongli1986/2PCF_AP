@@ -10,4 +10,5 @@
 #scp -r xiaodongli@baekdu.kias.re.kr:/home/xiaodongli/SparseFilaments/data/input/boss2pcf/data//ximu/cov_chisqs//Dense1subscanPatchyV6CMocks_Mapping_170314Debug_int--xi.*mu*to1.00.s6.00to40.00.CovMock_2000_PatchyV6C_RSD*polyfit_dxi_deg*txt ./cov_chisqs/
 #scp -r xiaodongli@baekdu.kias.re.kr:/home/xiaodongli/SparseFilaments/data/input/boss2pcf/data//ximu/cov_chisqs//Dense1subscanPatchyV6CMocks_Mapping_170314Debug_int--xi.*mu*to1.00.s6.00to40.00.CovMock_2000_PatchyV6C_RSD*polyfit_dxi_deg*txt ./cov_chisqs/
 #scp -r xiaodongli@baekdu.kias.re.kr:/home/xiaodongli/SparseFilaments/data/input/boss2pcf/data//ximu/cov_chisqs//Dense1subscanPatchyV6CMocks_Mapping_170314Debug_int--xi.*mu*to1.00.s6.00to40.00.CovMock_2000_PatchyV6C_RSD*replace*txt ./cov_chisqs/
-scp -r xiaodongli@baekdu.kias.re.kr:/home/xiaodongli/SparseFilaments/data/input/boss2pcf/data//ximu/cov_chisqs//Dense1subscanPatchyV6CMocks_Mapping_DenseMappingScan_int--xi.*mu*to1.00.s6.00to40.00.CovMock_2000_PatchyV6C_RSD*DenseMapping*txt ./cov_chisqs/
+#scp -r xiaodongli@baekdu.kias.re.kr:/home/xiaodongli/SparseFilaments/data/input/boss2pcf/data//ximu/cov_chisqs//Dense1subscanPatchyV6CMocks_Mapping_DenseMappingScan_int--xi.*mu*to1.00.s6.00to40.00.CovMock_2000_PatchyV6C_RSD*DenseMapping*txt ./cov_chisqs/
+scp -r xiaodongli@newton.kias.re.kr:/home3/xiaodongli/Dense2Contours/* ./cov_chisqs/
