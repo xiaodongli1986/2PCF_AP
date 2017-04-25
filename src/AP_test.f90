@@ -3,7 +3,7 @@ use LSS_ximu_tests
 implicit none
   
   integer :: i,j,k,i1,i2,iz, nom,nw, imins(10)
-  integer, parameter :: numom=71, numw=45, numomwstds = 2
+  integer, parameter :: numom=71, numw=45, numomwstds = 6
   real(rt) :: omlist(numom), wlist(numw), ommin, ommax, wmin, wmax, omstds(numomwstds), wstds(numomwstds), DAs(nz), Hs(nz), & 
     chisqs_nosyscor(n1,n2,nz-1), chisqs_syscor(n1,n2,nz-1), chisqs_nosyscor_all(nz-1), chisqs_syscor_all(nz-1), &
     smutabstds(nbins_database,mubins_database,3,nz,numomwstds)
@@ -63,10 +63,10 @@ implicit none
 !  call check_load_files()
   omstds(1)  = 0.26_rt;  wstds(1)  = -1.00_rt
   omstds(2)  = 0.31_rt;  wstds(2)  = -1.00_rt
-!  omstds(3)  = 0.26_rt;  wstds(3)  = -1.40_rt
-!  omstds(4)  = 0.26_rt;  wstds(4)  = -0.60_rt
-!  omstds(5)  = 0.31_rt;  wstds(5)  = -1.40_rt
-!  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
+  omstds(3)  = 0.26_rt;  wstds(3)  = -1.40_rt
+  omstds(4)  = 0.26_rt;  wstds(4)  = -0.60_rt
+  omstds(5)  = 0.31_rt;  wstds(5)  = -1.40_rt
+  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
 !  omstds(7)  = 0.31_rt;  wstds(7)  = -1.00_rt
   if(.true.) then
    call smu_ximu_CalcOmWChisqs(&
@@ -78,7 +78,7 @@ implicit none
 !    omstd=0.31_rt, wstd=-1.0_rt & ! "standard" values of omegam, w: baseline cosmology for (s,mu) mapping. Stored in data2pcffile_base)
 !    omstds=0.31_rt, wstd=-0.6_rt & ! "standard" values of omegam, w: baseline cosmology for (s,mu) mapping. Stored in data2pcffile_base)
     omstds = omstds(1:numomwstds), wstds=wstds(1:numomwstds), numomwstds=numomwstds, & ! "standard" values of omegam, w: baseline cosmology for (s,mu) mapping. 
-    weightedstds = .true. &
+    weightedstds = .true., avg_counts=.true. &
     )
   endif
   
