@@ -18,7 +18,7 @@ implicit none
   real(rt), allocatable :: APlnlikes(:), smutabstds(:,:,:,:,:)
   character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr
   type(omwpar) :: nowpar
-  logical :: smutabstds_inited, debug=.false., avg_counts = .true.
+  logical :: smutabstds_inited 
 
 
 
@@ -26,7 +26,7 @@ implicit none
   !--------------------------------
   ! Settings of the model
   
-  de_model_lab  = de_wcdm_lab
+  de_model_lab  = de_CPL_lab
 
   mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
 !  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA_post_lensing'
@@ -45,13 +45,9 @@ implicit none
   !--------------------------------
   ! Preparation for the compute of AP likelihood
   
-  numomwstds = 2
+  numomwstds = 1
   omstds(1)  = 0.26_rt;  wstds(1)  = -1.00_rt
-  omstds(2)  = 0.31_rt;  wstds(2)  = -1.00_rt
-!  omstds(3)  = 0.26_rt;  wstds(3)  = -1.40_rt
-!  omstds(4)  = 0.26_rt;  wstds(4)  = -0.60_rt
-!  omstds(5)  = 0.31_rt;  wstds(5)  = -1.40_rt
-!  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
+!  omstds(2)  = 0.31_rt;  wstds(2)  = -1.00_rt
 
   print *, '(Begin) Load in necessary files.'
   print *, '* Load in covmats:'
@@ -74,11 +70,9 @@ implicit none
     write(fileindexstr,*) ifile
     fileindexstr = '_'//trim(adjustl(fileindexstr))//'.txt'
     inputMCMCfile = trim(adjustl(mcmcdir))//'/'//trim(adjustl(MCMCfilestr))//trim(adjustl(fileindexstr))
-    if(avg_counts) fileindexstr = '_avg_counts'//trim(adjustl(fileindexstr)) 
     outputMCMCfile = trim(adjustl(mcmcdir))//'/'//trim(adjustl(MCMCfilestr))//'___'//&
-      trim(adjustl( AP_MCMCstr(numomwstds, omstds(1:numomwstds), wstds(1:numomwstds)) ))//&
+      trim(adjustl( AP_MCMCstr(numomwstds, omstds(1:numomwstds), wstds(1:numomwstds)) ))//'_no4OVER5fact'//&
       trim(adjustl(fileindexstr))
-
     print *
     print *, '###################################################'
     print *, '** Compuate AP chisqs from file: '
@@ -113,11 +107,7 @@ implicit none
       do iz = 1, nz
         DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
         Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
-        if(debug) then
-          nowpar%omegam = 0.06_rt; nowpar%w=-1.5_rt
-          DAs(iz) = DAz_wcdm(nowpar,zeffs(iz))
-          Hs(iz)  = Hz_wcdm(nowpar,zeffs(iz))
-        endif
+        !nowpar%omegam = nowom; nowpar%w=noww0
         !print *, 'Check DA: ', DAz_wcdm(nowpar,zeffs(iz)), DAs(iz)
         !print *, 'Check H:  ', Hz_wcdm(nowpar,zeffs(iz)), Hs(iz)
         !Hs(iz) = Hz_wcdm(nowpar, zeffs(iz))
@@ -132,19 +122,11 @@ implicit none
           smutabstds, smutabstds_inited, & ! xi(s,mu) table of baseline cosmologies
           chisqs_nosyscor, chisqs_syscor, & ! values of chisqs, separate schemes
           chisqs_nosyscor_all, chisqs_syscor_all, & ! values of chisqs, averaged over all schemes, correction factor for covmat (D, m1, m2) considered
-          weightedstds = .false., avg_counts = avg_counts &
+          weightedstds = .false. &
           ) 
         APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
       else
         APlnlikes(iline) = 0.0d0
-      endif
-
-      if(debug) then
-        print *, 'chisqs_nosyscor(1,1):', real(chisqs_nosyscor(1,1,:)), real(sum(chisqs_nosyscor(1,1,:)))
-        print *, 'chisqs_syscor(1,1):  ', real(chisqs_syscor(1,1,:)), real(sum(chisqs_syscor(1,1,:)))
-        print *, 'chisqs_nosyscor_all:', real(chisqs_nosyscor_all)
-        print *, 'chisqs_syscor_all:  ', real(chisqs_syscor_all)
-        stop
       endif
       
       call cpu_time(t2)
