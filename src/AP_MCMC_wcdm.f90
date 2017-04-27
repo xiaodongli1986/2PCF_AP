@@ -18,25 +18,36 @@ implicit none
   real(rt), allocatable :: APlnlikes(:), smutabstds(:,:,:,:,:)
   character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr
   type(omwpar) :: nowpar
+  integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6
+  integer :: nowmodel
   logical :: smutabstds_inited, debug=.false., avg_counts = .true.
 
 
-
+!  nowmodel = model_wcdm
+  nowmodel = model_cpl
+  
 !---------------------------------------------------------
   !--------------------------------
   ! Settings of the model
   
-  de_model_lab  = de_wcdm_lab
+  if(nowmodel .eq. model_wcdm) then! .or. nowmodel .eq. model_owcdm) then
+	  de_model_lab  = de_wcdm_lab
+          MCMCfilestr = 'base_w_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'	  
+          iw0col=5; iH0col=37; iomcol=39; 
+  elseif(nowmodel .eq. model_cpl ) then
+  	  de_model_lab = de_CPL_lab
+  	  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'
+  	  iw0col=5; iwacol=6; iH0col=38; iomcol=40; 
+  else
+          print *, 'Wrong model : ', nowmodel
+          stop
+  endif
 
   mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
 !  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA_post_lensing'
-  MCMCfilestr = 'base_w_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'
 
-  iw0col=5; iH0col=37; iomcol=39; maxcol=max(iw0col,iH0col,iomcol,iwacol,iomkcol)+2
-  
+  maxcol=max(iw0col,iwacol,iH0col,iomcol,iomkcol)+2
   num_MCMCchain = 4
-
-  noww0=-1.0; nowwa=0.0; nowomk=0.0    
 
   ! End of settings
   !--------------------------------
@@ -98,14 +109,19 @@ implicit none
       
       ! Begin model dependent
       nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2)
+      nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
+      if(nowmodel .eq. model_wcdm .or. nowmodel .eq. model_owcdm) nowwa = 0.0; 
+      if(nowmodel .eq. model_wcdm .or. nowmodel .eq. model_cpl) nowomk = 0.0; 
       ! Values of parameters
       de_CP%Ob0hsq  =  0.02253
       de_CP%h	    =  0.711833E+00
       de_CP%alpha   =  0.142125E+01
       de_CP%beta    =  0.325121E+01  
       de_CP%Odm0    =  nowom - de_CP%Ob0hsq/de_CP%h**2.0
-      de_CP%Ok0	    =  0.0
+      de_CP%Ok0	    =  nowomk
       de_CP%wcdm%w  =  noww0 !! model dependent
+      de_CP%CPL%w0  =  noww0 !! model dependent
+      de_CP%CPL%wa  =  nowwa !! model dependent
       call de_init()
       ! End model dependent
       
@@ -172,9 +188,12 @@ implicit none
     do while(.true.)
       read(3293,*,end=101) tmpX(1:maxcol)
       nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2) ! model dependent
+      nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
+      if(nowmodel .eq. model_wcdm .or. nowmodel .eq. model_owcdm) nowwa = 0.0; 
+      if(nowmodel .eq. model_wcdm .or. nowmodel .eq. model_cpl) nowomk = 0.0; 
       nowAPlnlike = APlnlikes(iline)
       nowweight = nowweight * exp(APlnlikemin - nowAPlnlike)
-      write(3294,'(7(e13.5,1x))') nowweight, nowlnlike+nowAPlnlike, &
+      write(3294,'(7(e14.7,1x))') nowweight, nowlnlike+nowAPlnlike, &
         nowom, nowH0/100.0, noww0, nowwa, nowomk !model dependent
       iline = iline+1
       cycle

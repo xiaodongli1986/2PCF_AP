@@ -26,7 +26,7 @@ implicit none
   !--------------------------------
   ! Settings of the model
   
-  de_model_lab  = de_CPL_lab
+  de_model_lab  = de_wcdm_lab
 
   mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
 !  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA_post_lensing'
@@ -46,7 +46,7 @@ implicit none
   ! Preparation for the compute of AP likelihood
   
   numomwstds = 1
-  omstds(1)  = 0.26_rt;  wstds(1)  = -1.00_rt
+  omstds(1)  = 0.26_rt;  wstds(1)  = -1.40_rt
 !  omstds(2)  = 0.31_rt;  wstds(2)  = -1.00_rt
 
   print *, '(Begin) Load in necessary files.'
