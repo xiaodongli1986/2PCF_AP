@@ -88,12 +88,7 @@ For the removal of fiber collision and the strong FoG near the LOS cut we take a
 The result is insensitive to the choices of $n_\mu$ and $\mu_{\rm max}$.
 
 
-
-
-\section{Input-Output Test}
-
-
-\section{Reproducing wCDM}
+\section{Reproducing wCDM Constraints}
 
 We firstly try to reproduce the constraints on $\Omega_m$ and $w$ in \citep{Li2016}:
 \begin{equation}\label{eq:wcdm_constrain_default}
@@ -101,7 +96,7 @@ We firstly try to reproduce the constraints on $\Omega_m$ and $w$ in \citep{Li20
 \end{equation}
 Using the technique of approximate 2pCF and taking a fiducial of $\Omega_m=0.26, w=-1$, we obtains
 \begin{equation}
-\Omega_m = 0.301 \pm 0.006,\ w=-1.053\pm 0.034,
+\Omega_m = 0.301 \pm 0.008,\ w=-1.053\pm 0.034\ (\Omega_m=0.26, w=-0.6).
 %    1  0.3010870E+00  0.7818562E-02  0.2973018E+00  0.3045011E+00  0.2883318E+00  0.3150334E+00   \Omega_m
 %    2  0.6886453E+00  0.8507156E-02  0.6802557E+00  0.6975813E+00  0.6708444E+00  0.7047652E+00   h
 %    3 -0.1053343E+01  0.3395215E-01 -0.1087474E+01 -0.1020395E+01 -0.1121890E+01 -0.9819443E+00   w
@@ -113,7 +108,7 @@ while taking a different fiducial cosmology yields
 %    1  0.3000053E+00  0.7703564E-02  0.2956289E+00  0.3032603E+00  0.2886989E+00  0.3142216E+00   \Omega_m
 %   2  0.6898875E+00  0.8383848E-02  0.6805430E+00  0.6979808E+00  0.6721509E+00  0.7035974E+00   h
 %    3 -0.1057455E+01  0.3363486E-01 -0.1090917E+01 -0.1020533E+01 -0.1116405E+01 -0.9873376E+00   w
-\Omega_m = 0.304 \pm 0.007,\ w=-1.040\pm 0.030\ (\Omega_m=0.26, w=-1.4),\\
+%\Omega_m = 0.304 \pm 0.007,\ w=-1.040\pm 0.030\ (\Omega_m=0.26, w=-1.4),\\
 %    1  0.3037843E+00  0.7243439E-02  0.3005621E+00  0.3073846E+00  0.2911318E+00  0.3154794E+00   \Omega_m
 %    2  0.6852584E+00  0.7600452E-02  0.6780053E+00  0.6935965E+00  0.6714114E+00  0.7010620E+00   h
 %    3 -0.1040019E+01  0.3026509E-01 -0.1069579E+01 -0.1011192E+01 -0.1105126E+01 -0.9823171E+00   w
@@ -125,12 +120,18 @@ while taking a different fiducial cosmology yields
 %    1  0.3015603E+00  0.8075695E-02  0.2970461E+00  0.3054528E+00  0.2890849E+00  0.3157329E+00   \Omega_m
 %    2  0.6879760E+00  0.8903611E-02  0.6783486E+00  0.6972412E+00  0.6704429E+00  0.7035974E+00   h
 %    3 -0.1050127E+01  0.3579852E-01 -0.1087200E+01 -0.1012397E+01 -0.1116100E+01 -0.9792085E+00   w
-\Omega_m = 0.301 \pm 0.009,\ w=-1.052\pm 0.038\ (\Omega_m=0.31, w=-1.4).\\    
+\Omega_m = 0.301 \pm 0.009,\ w=-1.052\pm 0.038\ (\Omega_m=0.31, w=-1.4),\\    
 %    1  0.3010573E+00  0.8626961E-02  0.2960266E+00  0.3049617E+00  0.2883365E+00  0.3169329E+00   \Omega_m
 %    2  0.6886086E+00  0.9597560E-02  0.6785247E+00  0.6981217E+00  0.6679604E+00  0.7046714E+00   h
 %    3 -0.1052455E+01  0.3836365E-01 -0.1091669E+01 -0.1013558E+01 -0.1123257E+01 -0.9702918E+00   w
+\Omega_m = 0.304 \pm 0.008,\ w=-1.037\pm 0.034\ (\Omega_m=0.11, w=-2.0).\\    
+%    1  0.3042033E+00  0.7885861E-02  0.2999004E+00  0.3075644E+00  0.2920431E+00  0.3184511E+00   \Omega_m
+%    2  0.6846982E+00  0.8425114E-02  0.6751794E+00  0.6930507E+00  0.6671152E+00  0.6988545E+00   h
+%    3 -0.1037306E+01  0.3351825E-01 -0.1069483E+01 -0.1000567E+01 -0.1095984E+01 -0.9663453E+00   w
+% 
 \end{eqnarray}
 so the derived constraints are rather insensitive to the fiducial cosmology.
+Even the extremely wrong fiducial cosmology $\Omega_m=0.11, w=-2.0$ yields correct estimation of parameters.
 
 We will use two fiducial cosmologies,
 the $\Omega_m=0.26,\ 0.31$ $\Lambda$CDM models which are the best-fit cosmologies of WMAP5 \cite{WMAP5} and \cite{Planck}.
@@ -144,10 +145,14 @@ Averaging the 2pCFs inferred from the two fiducial cosmologies we get
 The constraints are well consistent with Equation \ref{eq:wcdm_constrain_default},
 except a slightly larger error bar due to the limitation of approximation method
 \footnote{Equation \ref{eq:wcdm_constrain_default} was derived using $n_{\mu}$=25-35.
-For constraints from the approximate 2pCF we use $n_{\mu}$=20-25.
-We could get a tighter constraint with similar means values of $\Omega_m$ and $w$ by using larger $n_\mu$.
-However, due to the limited accuray of the approximation, the contour becomes noisy if $n_\mu$ is larger.
-So we use $n_\mu<25$ for a consideration of safty. }.
+Using the approximate 2pCF the contour becomes noisy if using such a large number of $n_\mu$,
+so we adopts $n_\mu$=20-25 for consideration of safty, although the derived constraints on $\Omega_m$ and $w$ are still consistent with 
+Equation \ref{eq:wcdm_constrain_default}.
+%%For constraints from the approximate 2pCF we use $n_{\mu}$=20-25.
+%We could get a tighter constraint with similar means values of $\Omega_m$ and $w$ by using larger $n_\mu$.
+%However, due to the limited accuray of the approximation, the contour becomes noisy if $n_\mu$ is larger.
+%So we use $n_\mu<25$ for a consideration of safty. 
+}.
 %from the 
 %The approximate 2pCF may not be accurate enough }
 
@@ -155,16 +160,28 @@ So we use $n_\mu<25$ for a consideration of safty. }.
 %Using other fiducial cosmologies we derive similar cosmological constraints...
 %We simply adopt the $\Omega_m=0.26, w=-1$ as the fiducial cosmology in the following analysis...
 
+\section{Input-Output Test}
+
+We did an input-output test on four realizations of HR4 mocks \cite{hr4}.
+Figure \ref{fig_IO} shows the input cosmology (marker by green plus) is recovered at $\sim$0.5$\sigma$.
+I.e., it is recovered at $\sim$1$\sigma$ in case of using 1 realisation.
+
+\begin{figure*}
+   \centering{
+   \includegraphics[width=6cm]{figIO.eps}
+   %\includegraphics[width=9cm,natwidth=4,natheight=4]{fig2b.pdf}
+   %\includegraphics[height=8cm]{fig2b.pdf}
+%   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
+%    \includegraphics[height=8cm]{smu.eps}
+   }
+   \caption{\label{fig_IO}
+   Input-output test of our method.
+   }
+\end{figure*}
+
 \section{Constraints on CPL}
 
-Combining our method with CMB+BAO+JLA+$H_0$ we derive the following constraints on CPL parameters
-\begin{equation}
-\Omega_m = 0.300 \pm 0.076, w_0 = -1.056 \pm 0.061, w_a = -0.04 \pm 0.27,
-    %1  0.2999656E+00  0.7616334E-02  0.2958745E+00  0.3035033E+00  0.2878169E+00  0.3132870E+00   \Omega_m
-    %2  0.6904801E+00  0.8675444E-02  0.6808558E+00  0.6993898E+00  0.6722945E+00  0.7052207E+00   h
-    %3 -0.1056468E+01  0.6096323E-01 -0.1116874E+01 -0.9965903E+00 -0.1175041E+01 -0.9287388E+00   w
-    %4 -0.3808376E-01  0.2716607E+00 -0.3105235E+00  0.2321461E+00 -0.6033103E+00  0.4782076E+00   w_a    
-\end{equation}
+
 whose error bars are $~30-40\%$ smaller than the result without adding our method
 \begin{equation}
 \Omega_m = 0.309 \pm 0.096, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41.
@@ -174,10 +191,16 @@ whose error bars are $~30-40\%$ smaller than the result without adding our metho
 %    4 -0.3777249E+00  0.4069512E+00 -0.7694896E+00  0.1941066E-01 -0.1285417E+01  0.3473089E+00   w_a
 \end{equation}
 
+Combining our method with CMB+BAO+JLA+$H_0$ we derive the following constraints on CPL parameters
+\begin{equation}
+\Omega_m = 0.300 \pm 0.076, w_0 = -1.056 \pm 0.061, w_a = -0.04 \pm 0.27,
+    %1  0.2999656E+00  0.7616334E-02  0.2958745E+00  0.3035033E+00  0.2878169E+00  0.3132870E+00   \Omega_m
+    %2  0.6904801E+00  0.8675444E-02  0.6808558E+00  0.6993898E+00  0.6722945E+00  0.7052207E+00   h
+    %3 -0.1056468E+01  0.6096323E-01 -0.1116874E+01 -0.9965903E+00 -0.1175041E+01 -0.9287388E+00   w
+    %4 -0.3808376E-01  0.2716607E+00 -0.3105235E+00  0.2321461E+00 -0.6033103E+00  0.4782076E+00   w_a    
+\end{equation}
+
 The result is fully consistent with a dark energy component having no evolution.
-
-
-
 
 %\subsection{Some Plottings, Discussions, Definition of $\chi^2$, ...}
 
@@ -185,12 +208,17 @@ The result is fully consistent with a dark energy component having no evolution.
 
 \begin{figure*}
    \centering{
-%   \includegraphics[height=8cm]{Tpcf--plot--UnNorm.eps}
+   \includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
+   \includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_b.pdf}
+   %\includegraphics[height=8cm]{fig2b.pdf}
 %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_TpCF}
-   Haha
+   68.3\%, 95.4\% CL likelihood contours in the $\Omega_m-w_0$ and $w_0-w_a$ plane.
+   Results are consistent with $\Lambda$CDM.
+   The constrained area is significantly reduced after adding the AP method.
+   This shows the power of the method in constraining dynamical dark energy.
    }
 \end{figure*}
 
@@ -205,37 +233,74 @@ We thank Seokcheon Lee and Graziano Rossi for many helpful discussions.
 
 \begin{thebibliography}{}
 
+
+\bibitem[Ade et al. (2015)]{Planck2015}
+Ade, P.A.R., Aghanim, N., \& Arnaud, M., et al. arXiv:1502.01589
+
+\bibitem[Alam et al.(2016)]{Alam2016}
+Alam, S., Ata, M., \& Bailey, S., et al. 2016,
+submitted to MNRAS (arXiv:1607.03155)
+
+\bibitem[{{Alam} {et~al}\mbox{.}(2015{\natexlab{a}}){Alam}, {Albareti},
+  {Allende Prieto}, {Anders}, {Anderson}, {Anderton}, {Andrews}, {Armengaud},
+  {Aubourg}, {Bailey}, \& et~al.}]{dr12}
+{Alam} S., Albareti, F.D.,\& Allende Prieto, C., {et~al.}, 2015,  ApJS, 219, 12
+
 \bibitem[Alcock \& Paczynski(1979)]{AP1979}
 Alcock, C., \& Paczynski, B. 1979, Nature, 281, 358  
 
+%\bibitem[Anderson et al.(2012)]{2012MNRAS.427.3435A} 
+%Anderson, L., Aubourg, E., Bailey, S., et al.\ 2012, MNRAS, 427, 3435
+
 \bibitem[Anderson et al.(2013)]{Anderson2013}
-Anderson, L., Aubourg, \'E., Bailey, S. et al. 2014, MNRAS, 441, 24  
-
-
-\bibitem[Bassett et al.(2002)]{Bassett2002}
-Bassett, B.A., Kunz, M., Silk, J., \& Ungarelli, C. 2002, MNRAS, 336, 1217
+Anderson, L., Aubourg, \'E., \& Bailey, S. et al. 2014, MNRAS, 441, 24  
+  
+%\bibitem[Bassett et al.(2002)]{Bassett2002}
+%Bassett, B.A., Kunz, M., Silk, J., \& Ungarelli, C. 2002, MNRAS, 336, 1217
 
 \bibitem[Ballinger, Peacock \& Heavens 1996]{Ballinger1996}
 Ballinger, W.E., Peacock, J.A., \& Heavens, A.F. 1996, MNRAS, 282, 877  
 
+\bibitem[Betoule et al.(2014)]{JLA}
+Betoule, M., Kessler, R., \& Guy, J., et al. 2014, A\&A, 568, 32
+
+
+\bibitem[Beutler et al.(2011)]{6dFGS}
+Beutler, F., Blake, C., \& Colless, M., et al. 2011, MNRAS, 416, 3017
 
 \bibitem[Beutler et al.(2013)]{Beutler2013}
-Beutler, F., Saito, S., Seo, H.-J., et al. 2013, MNRAS, 443, 1065
+Beutler, F., Saito, S., \& Seo, H.-J., et al. 2013, MNRAS, 443, 1065
+
+\bibitem[Beutler et al.(2016)]{Beutler2016}
+Beutler, F., Seo, H.-J., \& Saito, S., et al. 2016,
+arXiv:1607.03150
 
 \bibitem[Blake et al.(2011)]{Blake2011}
-Blake, C., Glazebrook, K., Davis, T. M., 2011, MNRAS, 418, 1725  
+Blake, C., Glazebrook, K., \& Davis, T. M., 2011, MNRAS, 418, 1725  
+
+\bibitem[Blake et al.(2013)]{WiggleZtopoloy}
+Blake, C., James, J.B., \& Poole, G.B. 2013, MNRAS, 437, 2488
+
+\bibitem[Bolton et al.(2012)]{Bolton2012}
+Bolton, A.S., Schlegel, \& D.J., Aubourg E., et al. 2012, AJ, 144, 144
+
+\bibitem[Boylan-Kolchin et al.(2008)]{B08}
+Boylan-Kolchin, M., Ma, C.-P., \& Quataert, E. 2008, MNRAS, 383, 93
 
 
-\bibitem[Bueno Belloso et al. (2012)]{BB2012}
-Bueno Belloso, A., Pettinari, G.W., Meures, N., \& Percival, W.J. 2012, Phys. Rev. D, 86, 023530
+%\bibitem[Bueno Belloso et al. (2012)]{BB2012}
+%Bueno Belloso, A., Pettinari, G.W., Meures, N., \& Percival, W.J. 2012, Phys. Rev. D, 86, 023530
 
-\bibitem[Chevallier \& Polarski(2001)]{CP2001}
-Chevallier, M., Polarski, D. 2001, Int. J. Mod. Phys. D, 10, 213
+%\bibitem[Chevallier \& Polarski(2001)]{CP2001}
+%Chevallier, M., Polarski, D. 2001, Int. J. Mod. Phys. D, 10, 213
 
 
-\bibitem[Choi et al.(2010)]{choi 2010}
-Choi, Y.-Y., Park, C., Kim, J., Gott, J.R., 
-Weinberg, D.H., Vogeley, M.S., \& Kim, S.S. 2010, ApJS, 190, 181  
+%\bibitem[Choi et al.(2010)]{choi 2010}
+%Choi, Y.-Y., Park, C., Kim, J., Gott, J.R., 
+%Weinberg, D.H., Vogeley, M.S., \& Kim, S.S. 2010, ApJS, 190, 181
+
+\bibitem[Christensen et al.(2001)]{Bayesian}
+Christensen, N., Meyer, R., Knox, L., \& Luey, B. 2001, Class. Quant. Grav., 18, 2677
 
 %\bibitem[Chuang et al.(2013)]{Chuang2013}
 %Chuang, C.-H., Prada, F., Beutler, F., et al. 2013, arXiv:1312.4889  
@@ -243,47 +308,116 @@ Weinberg, D.H., Vogeley, M.S., \& Kim, S.S. 2010, ApJS, 190, 181
 \bibitem[Chuang \& Wang(2012)]{ChuangWang2012}
 Chuang, C.-H., \& Wang, Y. 2012, MNRAS, 426, 226  
 
-\bibitem[Corasaniti \& Copeland(2003)]{Corasaniti2003}
-Corasaniti, P.S., Copeland, E.J. 2003, Phys. Rev. D, 67, 063521
+
+%\bibitem[Corasaniti \& Copeland(2003)]{Corasaniti2003}
+%Corasaniti, P.S., Copeland, E.J. 2003, Phys. Rev. D, 67, 063521
+
+%eBOSS: 
+%http://arxiv.org/abs/1508.04473
+\bibitem[Dawson et al.(2015)]{eBOSS}
+Dawson, K.S., Kneib, J.P., \& Percival, W.J., et al. 2015, accepted AJ
+
+\bibitem[Dawson et al.(2012)]{Dawson et al. 2012}
+Dawson, K.S., Schlegel, D.J., \& Ahn, C.P., et al. 2012, AJ, 145, 10
+
+\bibitem[Efstathiou (2014)]{E14H0}
+Efstathiou, G. 2014, MNRAS, 440, 1138
+
+\bibitem[Eisenstein et al.(2011)]{Eisenstein et al. 2011}
+Eisenstein, D.J.,  Weinberg, D.H., \& Agolet, E., et al. 2011, AJ, 142, 72
+
+\bibitem[Feldman, Kaiser \& Peacock (1994)]{1994ApJ...426...23F} 
+Feldman, H.A., Kaiser, N., \& Peacock, J.A.\ 1994, ApJ, 426, 23 
+
+\bibitem[Fukugita et al. (1996)]{Fukugita1996}
+Fukugita, M., Ichikawa, T., \& Gunn, J.E., et al. 1996, AJ, 111, 1748
+%Publication:	
+%Astronomical Journal v.111, p.1748 
 
 %\bibitem[Gingold \& Monaghan(1977)]{GM1977}
 %Gingold, R.A., \& Monaghan, J.J. 1977, MNRAS, 181, 375  
 
-\bibitem[Gott et al.(2009)]{gott 2009}
-Gott, J.R., Choi, Y.-Y., Park, C., \& Kim, J. 2009, ApJ, 695, L45  
+%\bibitem[Gott et al.(2009)]{gott 2009}
+%Gott, J.R., Choi, Y.-Y., Park, C., \& Kim, J. 2009, ApJ, 695, L45  
 
-\bibitem[Gott et al.(2008)]{gott 2008}
-Gott, J.R., Hambrick, D.C., Vogeley, M.S., Kim, J., Park, C., Choi, Y.-Y.,
-Cen, R., Ostriker, J.P., \& Nagamine, K. 2008, ApJ, 675, 16  
+%\bibitem[Gott et al.(2008)]{gott 2008}
+%Gott, J.R., Hambrick, D.C., Vogeley, M.S., Kim, J., Park, C., Choi, Y.-Y.,
+%Cen, R., Ostriker, J.P., \& Nagamine, K. 2008, ApJ, 675, 16  
 
-\bibitem[Jackson (1972)]{FoG}
-Jackson J., 1972, MNRAS, 156, 1
+
+\bibitem[Gunn et al. (1998)]{Gunn1998}	
+Gunn, J.E., Carr, M., \& Rockosi, C. et al. 1998, AJ, 116, 3040
+
+\bibitem[Gunn et al.(2006)]{Gunn et al. 2006}
+Gunn, J.E., Siegmund, W.A., \& Mannery, E.J., et al. 2006, AJ, 131, 2332
+
+\bibitem[Guzzo et al.(2008)]{Guzzo2008}
+Guzzo, L., Pierleoni, M., \& Meneux, B., et al. 2008, Nature, 451, 541
+
+\bibitem[Hartlap et al.(2006)]{Hartlap}
+Hartlap J., Simon P. \& Schneider P. [astro-ph/0608064].
+
+
+\bibitem[Hong et al.(2016)]{hong2016}
+Hong, S.E., Park, C.,\&  Kim, J. 2016, ApJ, 823, 103
+
+\bibitem[Jackson (1972)]{FOG}
+Jackson, J., 1972, MNRAS, 156, 1
 
 \bibitem[Jennings et al.(2011)]{Jennings2011}
 Jennings, E., Baugh, C.M., \& Pascoli, S. 2011, MNRAS, 420, 1079  
 
-\bibitem[Jeong et al.(2014)]{Jeong2014}
-Jeong, D., Dai, L., Kamionkowski, M., \& Szalay, A.S. 2014, arXiv:1408.4648
+%\bibitem[Jeong et al.(2014)]{Jeong2014}
+%Jeong, D., Dai, L., Kamionkowski, M., \& Szalay, A.S. 2014, arXiv:1408.4648
+
+\bibitem[Jiang et al.(2008)]{jiang2008}
+Jiang, C.Y., Jing, Y. P., \& Faltenbacher, A., et al. 2008, ApJ, 675, 1095
+
+\bibitem[Kaiser (1987)]{Kaiser1987}
+Kaiser, N. 1987, MNRAS, 227, 1
+
 
 \bibitem[Kim \& Park(2006)]{kim and park 2006}
 Kim, J., \& Park, C. 2006, ApJ, 639, 600  
 
-\bibitem[Kim et al.(2009)]{2009ApJ...701.1547K} Kim, J., Park, C., Gott, 
-J.~R., III, \& Dubinski, J.\ 2009, ApJ, 701, 1547 
+\bibitem[Kim et al.(2009)]{2009ApJ...701.1547K} 
+Kim, J., Park, C., Gott, J.R., III, \& Dubinski, J.\ 2009, ApJ, 701, 1547 
+
+\bibitem[Kim et al.(2015)]{hr4}
+Kim, J., Park, C., L'Huillier, B., \& Hong, S. E. 2015, JKAS, 48, 213
 
 \bibitem[Kim et al.(2011)]{horizonrun}
-Kim, J., Park, C., Rossi, G., Lee, S.M., \& Gott, J.R., 2011, JKAS, 44, 217  
+Kim, J., Park, C., Rossi, G., Lee, S.M., \& Gott, J.R. 2011, JKAS, 44, 217  
+
+\bibitem[Kitaura et al.(2015)]{MDPATCHY}
+Kitaura, F.S., Rodrı\'{i}guez-Torres, S., Chuang, C.-H., et al. arXiv:1509.06400
 
 \bibitem[Komatsu et al.(2011)]{komatsu 2011}
-Komatsu, E., Smith, K. M., Dunkley, J., et al. 2011, ApJS, 192, 18  
+Komatsu, E., Smith, K. M., \& Dunkley, J., et al. 2011, ApJS, 192, 18  
 
-\bibitem[Landy \& Szalay(1993)]{1993ApJ...412...64L} S.~D. Landy, \& A.~S. Szalay, \ 1993, ApJ, 412, 64 
+\bibitem[Lacey \& Cole(1993)]{LC93}
+Lacey, C., \& Cole, S. 1993, MNRAS, 262, 627
+
+
+\bibitem[Landy \& Szalay(1993)]{1993ApJ...412...64L} 
+Landy, S.D., \& Szalay, A.S.\ 1993, ApJ, 412, 64 
+
+%EUCLID:
+%http://arxiv.org/abs/1110.3193
+\bibitem[Laureijs et al.(2011)]{EUCLID}
+Laureijs, R., Amiaux, J., \& Arduini, S., et al. 2011, arXiv:1110.3193
 
 \bibitem[Lavaux \& Wandelt(2012)]{LavausWandelt1995}
 Lavaux, G., \& Wandelt, B.D. 2012, ApJ, 754, 109  
 
-\bibitem[Levi et al.(2013)]{2013arXiv1308.0847L} 
-Levi, M., Bebek, C., Beers, T., et al.\ 2013, arXiv:1308.0847 
+%\bibitem[Levi et al.(2013)]{2013arXiv1308.0847L} 
+%Levi, M., Bebek, C., Beers, T., et al.\ 2013, arXiv:1308.0847 
+
+\bibitem[Lewis \& Bridle (2002)]{LB2002}
+Lewis, A., \& Bridle, S. 2002, Phys. Rev. D, 66, 103511
+
+\bibitem[L'Huillier et al.(2014)]{2014NewA...30...79L} 
+L'Huillier, B., Park, C., \& Kim, J.\ 2014, New Astronomy, 30, 79 
 
 \bibitem[Li et al.(2011)]{Li2011}
 Li, M., Li, X.-D., Wang, S., \& Wang, Y. 2011, Commun. Theor. Phys., 56, 525
@@ -294,12 +428,11 @@ Li, X.-D., Park, C., Forero-Romero, J., \& Kim, J. 2014, ApJ, 796, 137
 \bibitem[Li et al.(2015)]{Li2015}
 Li, X.-D., Park, C., Sabiu, C.G., \& Kim, J. 2015, MNRAS, 450, 807 
 
-\bibitem[Li et al.(2016)]{Li2016}
-Li, X.-D., Park, C., Sabiu, C.G., \& Kim, J. 2016, submitted to ApJ
+\bibitem[Li et al.(2015)]{Li2016}
+Li, X.-D., Park, C., Sabiu, C.G., \& Kim, J. 2015, MNRAS, 450, 807 
 
-
-\bibitem[Linder(2003)]{Linder2003}
-Linder, E.V. 2003, Phys. Rev. Lett., 90, 091301
+%\bibitem[Linder(2003)]{Linder2003}
+%Linder, E.V. 2003, Phys. Rev. Lett., 90, 091301
 
 \bibitem[Linder et al.(2014)]{Linder2013}
 Linder, E.V., Minji, O., Okumura, T., Sabiu, C.G., \& Song, Y.-S. 2014, Phys. Rev. D, 89, 063525  
@@ -307,11 +440,22 @@ Linder, E.V., Minji, O., Okumura, T., Sabiu, C.G., \& Song, Y.-S. 2014, Phys. Re
 \bibitem[L{\'o}pez-Corredoira(2014)]{2014ApJ...781...96L} 
 L{\'o}pez-Corredoira, M.\ 2014, ApJ, 781, 96 
 
+\bibitem[Mao et al. (2016)]{Qingqing2016}
+Mao, Q., Berlind, A.A., Scherrer, R.J., et al. 2016, submitted to ApJ
+
 \bibitem[Marinoni \& Buzzi(2010)]{Marinoni2010}
 Marinoni, C., \& Buzzi, A. 2010, Nature, 468, 539  
 
 \bibitem[Matsubara \& Suto(1996)]{Matsubara1996}
 Matsubara T., \& Suto, Y. 1996, ApJ, 470, L1  
+
+\bibitem[McCavana et al.(2012)]{M12}
+McCavana, T., Micic, M., Lewis, G. F., et al. 2012, MNRAS, 424, 361
+
+
+\bibitem[Morandi \& Sun (2016)]{MS2016}
+Morandi, A., \& Sun, M. arXiv:1601.03741
+
 
 \bibitem[Outram et al.(2004)]{Outram2004}
 Outram, P.J., Shanks, T., Boyle, B.J., Croom, S.M., Hoyle, F., Loaring, N.S., 
@@ -320,26 +464,58 @@ Miller, L., \& Smith, R.J. 2004, MNRAS, 348, 745
 %\bibitem[Parejko et al.(2013)]{Parejko2013}
 %Parejko, J. K., Sunayama, T., Padmanabhan, N., et al. 2013, MNRAS, 429, 98  
 
+\bibitem[Parejko et al.(2013)]{Parejko2013}
+Parejko J.K., et al., 2013, MNRAS, 429, 98
+
+\bibitem[Parihar et al. (2014)]{CMASSLSS2014}
+Parihar, P., Vogeley, M.S., \& Gott, J.R., et al. 2014, ApJ, 796, 86
+
 \bibitem[Park et al.(2005)]{park 2005}
 Park, C., Kim, J., \& Gott, J.R. 2005, ApJ, 633, 1  
 
 \bibitem[Park \& Kim(2010)]{topology}
 Park, C., \& Kim, Y.-R. 2010, ApJL, 715, L185  
 
+\bibitem[Park et al. (2012)]{Park2012}
+Park, C., Choi, Y.-Y., Kim, J., Gott, J.R., Kim, S.S., \&
+Kim, K.-S. 2012, ApJ, 759, 7
+
+\bibitem[Park et al. (2015)]{Park2015}
+Park, C., Song, H., Einasto, M., Lietzen, H., \&
+Heinamaki, P. 2015, JKAS, 48, 75
+
+\bibitem[Peebles \& Ratra(2003)]{PR2003}
+Peebles, P.J.E., \& Ratra, B. 2003, Reviews of Modern Physics, 75, 559
+
+\bibitem[Percival et al.(2014)]{Percival2014}
+Percival, W.J., Ross, A.J., \& S\'{a}nchez, A.G., et al. 2014, MNRAS, 439, 2531
+
+\bibitem[Perlmutter et al.(1999)]{Perl1999}
+Perlmutter, S., Aldering, G., \& Goldhaber, G., et al. 1999, ApJ, 517, 565  
+
 \bibitem[Press \& Shechter(1974)]{PS1974}
 Press, W.H., \& Schechter, P.L. 1974, ApJ, 187, 425
 
-\bibitem[Perlmutter et al.(1999)]{Perl1999}
-Perlmutter, S., Aldering, G., Goldhaber, G., et al. 1999, ApJ, 517, 565  
+
 
 \bibitem[Reid et al.(2012)]{Reid2012}
-Reid, B. A., Samushia, L., White, M., et al. 2012, MNRAS, 426, 2719  
+Reid, B., Samushia, L., \& White, M., et al. 2012, MNRAS, 426, 2719  
+
+\bibitem[Reid et al.(2016)]{Reidetal:2016}
+Reid, B., Ho, S., \& Padmanabhan, N., et al.  2016, MNRAS, 455, 1553
 
 \bibitem[Riess et al.(1998)]{Riess1998}
-Riess, A. G., Filippenko, A. V., Challis, P., et al. 1998, AJ, 116, 1009  
+Riess, A.G., Filippenko, A.V., \& Challis, P., et al. 1998, AJ, 116, 1009  
 
- %\bibitem[Ross et al.(2012)]{2012MNRAS.424..564R} A.~J. Ross, W.~J. Percival, 
-%A.~G. S{\'a}nchez, et al.\ 2012, MNRAS, 424, 564 
+\bibitem[Riess et al.(2011)]{Riess2011}
+Riess, A.G., Macri, L., \& Casertano, S., et al. 2011, ApJ, 730, 119
+%A 3\% Solution: Determination of the Hubble Constant with the Hubble Space Telescope and Wide Field Camera
+
+\bibitem[Ross et al.(2012)]{2012MNRAS.424..564R} 
+Ross, A.J., Percival, W.J., \& S{\'a}nchez, A.G. et al.\ 2012, MNRAS, 424, 564 
+
+\bibitem[Ross et al.(2015)]{MGS}
+Ross, A.J., Samushia, L., \& Howlett, C., et al. 2015, MNRAS, 449, 835
 
 \bibitem[Ryden(1995)]{Ryden1995}
 Ryden, B.S. 1995, ApJ, 452, 25  
@@ -347,14 +523,39 @@ Ryden, B.S. 1995, ApJ, 452, 25
 %\bibitem[Samushia et al.(2014)]{Samushia2014}
 %Samushia, L., Reid, B. A., White, M., et al. 2014, MNRAS, 439, 3504  
 
-\bibitem[Sanchez et al.(2013)]{Sanchez2013}
-Sanchez, A. G., Kazin, E. A., Beutler, F., et al. 2013, MNRAS, 433, 1202  
+%\bibitem[Sanchez et al.(2013)]{Sanchez2013}
+%Sanchez, A. G., Kazin, E. A., Beutler, F., et al. 2013, MNRAS, 433, 1202  
 
-\bibitem[Sutter et al.(2014)]{Sutter2014}
-Sutter, P.M., Pisani, A., Wandelt, B.D., \& Weinberg, D.H. 2014, MNRAS, 443, 2983
+%\bibitem[Sutter et al.(2014)]{Sutter2014}
+%Sutter, P.M., Pisani, A., Wandelt, B.D., \& Weinberg, D.H. 2014, MNRAS, 443, 2983
 
-\bibitem[Song et al.(2014)]{2014arXiv1407.2257S} Song, Y.-S., Sabiu, C.~G., 
-Okumura, T., Oh, M., \& Linder, E.~V.\ 2014, JCAP, 12, 005 
+
+\bibitem[Sanchez et al.(2016)]{Sanchez2016}
+Sanchez, A. G., Scoccimarro, R., \& Crocce, M., et al.
+arXiv:1607.03147
+
+\bibitem[Schlafly et al.(2010)]{Schlafly2010}
+Schlafly E.F., Finkbeiner D.P., Schlegel D.J., et al. 2010, ApJ, 725, 1175
+
+\bibitem[Schlafly \& Finkbeiner(2011)]{SF2011}
+Schlafly E.F., \& Finkbeiner D.P. 2011, ApJ, 737, 103
+
+
+%DESI:
+%http://arxiv.org/abs/1106.1706
+\bibitem[Schlegel et al.(2011)]{DESI}
+Schlegel, D., Abdalla, F., \& Abraham, T., et al. 2011, arXiv:1106.1706
+
+\bibitem[Smee et al.(2013)]{Smee2013}
+Smee, S.A., Gunn, J.E., \& Uomoto, A., et al. 2013, AJ, 146, 32
+
+\bibitem[Song et al.(2014)]{2014arXiv1407.2257S} 
+Song, Y.S., Sabiu, C.G., 
+Okumura, T., Oh, M., \& Linder, E.V.\ 2014, JCAP, 12, 005 
+
+\bibitem[Speare et al. (2015)]{Speare2015}
+Speare, R., Gott, J.R., Kim, J., \& Park, C.
+2015, ApJ, 799, 176
 
 %\bibitem[Tojeiro \& Percival(2011)]{Tojeiro2011}
 %Tojeiro R., \& Percivial W.J. 2011, MNRAS, 417, 1114  
@@ -364,6 +565,22 @@ Okumura, T., Oh, M., \& Linder, E.~V.\ 2014, JCAP, 12, 005
 
 \bibitem[Viana \& Liddle(1996)]{VL1996}
 Viana, P.T.P., \& Liddle, A.R. 1996, MNRAS, 281, 323
+
+\bibitem[Villalobos et al.(2013)]{V13}
+Villalobos, \'{A}., ́De Lucia, G., Weinmann, S.M., Borgani, S., \& Murante, G. 2013, MNRAS, 433, L49
+
+
+\bibitem[Weinberg (1989)]{SW1989}
+Weinberg, S. 1989, Reviews of Modern Physics, 61, 1
+
+\bibitem[White (2011)]{White2011}
+White M., et al. 2011, ApJ, 728, 126
+
+\bibitem[York et al.(2000)]{York et al. 2000}
+York, D.G., Adelman, J., \& Anderson, J.E., et al. 2000, AJ, 120, 1579
+
+\bibitem[Zehavi et al.(2011)]{zehavi2011}
+Zehavi, I., Zheng, Z., \& Weinberg, D.H., et al. 2011, ApJ, 736, 59
 
 
 \end{thebibliography}

@@ -1,5 +1,6 @@
 git pull
 git add *.sh
+git add *.wz.txt
 git add *.py
 git add *.ipynb
 git add src/*.f90
