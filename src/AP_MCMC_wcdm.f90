@@ -16,15 +16,22 @@ implicit none
     tmpX(1000),nowlnlike,nowAPlnlike,nowweight,nowom,noww0,nowH0,nowwa,nowomk,APlnlikemin,&
     t0,t1,t2,dt
   real(rt), allocatable :: APlnlikes(:), smutabstds(:,:,:,:,:)
-  character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr
+  character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr, suffixstr=''
   type(omwpar) :: nowpar
   integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6
   integer :: nowmodel
-  logical :: smutabstds_inited, debug=.false., avg_counts = .true.
+  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false.
 
 
 !  nowmodel = model_wcdm
   nowmodel = model_cpl
+  suffixstr = 'base1omws_om0.2600_w-1.0000'
+!  suffixstr = 'base1omws_om0.2600_w-1.0000_ExcludeLastThreeBins_B'
+!  suffixstr = 'base1omws_om0.2600_w-1.0000_nbins35to40'
+!  suffixstr = 'base1omws_om0.2600_w-1.0000_smax40'
+!  suffixstr = 'base1omws_om0.3100_w-1.0000_smax40'
+!  suffixstr = 'base1omws_om0.1100_w-2.0000'
+!  print_allinfo = .true.
   
 !---------------------------------------------------------
   !--------------------------------
@@ -56,17 +63,19 @@ implicit none
   !--------------------------------
   ! Preparation for the compute of AP likelihood
   
-  numomwstds = 2
+  numomwstds = 1
+!  omstds(1)  = 0.11_rt;  wstds(1)  = -2.0_rt
   omstds(1)  = 0.26_rt;  wstds(1)  = -1.00_rt
-  omstds(2)  = 0.31_rt;  wstds(2)  = -1.00_rt
+  omstds(2)  = 0.26_rt;  wstds(2)  = -0.60_rt
 !  omstds(3)  = 0.26_rt;  wstds(3)  = -1.40_rt
 !  omstds(4)  = 0.26_rt;  wstds(4)  = -0.60_rt
 !  omstds(5)  = 0.31_rt;  wstds(5)  = -1.40_rt
 !  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
 
   print *, '(Begin) Load in necessary files.'
+!  call system('sleep 2000'); print *, 'Compute/output covmats...';call calc_covmats();call output_covmats()
   print *, '* Load in covmats:'
-  call load_covmats('')
+  call load_covmats()
   print *, '* Invert covmats:'
   call invert_covmats()
   print *, '* Compute systematic correction:'
@@ -86,9 +95,10 @@ implicit none
     fileindexstr = '_'//trim(adjustl(fileindexstr))//'.txt'
     inputMCMCfile = trim(adjustl(mcmcdir))//'/'//trim(adjustl(MCMCfilestr))//trim(adjustl(fileindexstr))
     if(avg_counts) fileindexstr = '_avg_counts'//trim(adjustl(fileindexstr)) 
+    if(trim(adjustl(suffixstr)).eq.'') &
+      suffixstr = trim(adjustl( AP_MCMCstr(numomwstds, omstds(1:numomwstds), wstds(1:numomwstds)) ))
     outputMCMCfile = trim(adjustl(mcmcdir))//'/'//trim(adjustl(MCMCfilestr))//'___'//&
-      trim(adjustl( AP_MCMCstr(numomwstds, omstds(1:numomwstds), wstds(1:numomwstds)) ))//&
-      trim(adjustl(fileindexstr))
+      trim(adjustl(suffixstr))//trim(adjustl(fileindexstr))
 
     print *
     print *, '###################################################'
@@ -96,6 +106,8 @@ implicit none
     print *, '   ', trim(adjustl(inputMCMCfile))
     print *, '** Key-word: '
     print *, '   ', trim(adjustl( AP_MCMCstr(numomwstds, omstds(1:numomwstds), wstds(1:numomwstds)) ))
+    print *, '** outputfile name: '
+    print *, '   ', trim(adjustl(outputMCMCfile))
     
     ! Open file and compute likelihoods...
     call de_count_line_number (trim(adjustl(inputMCMCfile)), nlines); allocate(APlnlikes(nlines))
@@ -151,6 +163,7 @@ implicit none
           weightedstds = .false., avg_counts = avg_counts &
           ) 
         APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
+!        APlnlikes(iline) = sum(chisqs_nosyscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
       else
         APlnlikes(iline) = 0.0d0
       endif
@@ -164,7 +177,7 @@ implicit none
       endif
       
       call cpu_time(t2)
-      if (t2-t1.gt.dt) then
+      if (t2-t1.gt.dt.or.print_allinfo) then
         write(*,'(f10.1,A,i5,A,f4.1,A)') (t2-t0)/dt, ' minutes passed.   #-parameters = ', &
            iline, ' (',100*float(iline)/float(nlines),'%)'
         write(*,'(A,e12.4,1x,f10.3,1x,6(f9.4))') '             Current set of wei / chi2 / APchi2 / par:  ', &
