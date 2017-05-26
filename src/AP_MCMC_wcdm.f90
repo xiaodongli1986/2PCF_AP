@@ -20,7 +20,7 @@ implicit none
   type(omwpar) :: nowpar
   integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6
   integer :: nowmodel
-  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false.
+  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.true.
 
 
 !  nowmodel = model_wcdm
@@ -50,7 +50,10 @@ implicit none
           stop
   endif
 
-  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
+!  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
+   ! Special setting for CMB+BAO chain
+   mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO/'
+   MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO'; iw0col=5; iwacol=6; iH0col=36; iomcol=38; 
 !  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA_post_lensing'
 
   maxcol=max(iw0col,iwacol,iH0col,iomcol,iomkcol)+2
