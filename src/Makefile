@@ -6,13 +6,14 @@
 #lib = lib/libde.a
 EXE1 = AP_test
 EXE2 = AP_MCMC_wcdm
+EXE3 = AP_grid
 
 OBJS = AP_tools.o
 
 F90C = gfortran  
 F90FLAGS = 
 
-default: $(EXE1) $(EXE2)
+default: $(EXE1) $(EXE2) $(EXE3)
 
 AP_test.o : $(OBJS) 
 AP_MCMC_wcdm.o : $(OBJS) 
@@ -24,11 +25,13 @@ $(EXE1): $(OBJS) AP_test.o
 	$(F90C)  -o $(EXE1) $(OBJS) AP_test.o 
 $(EXE2): $(OBJS) AP_MCMC_wcdm.o
 	$(F90C)  -o $(EXE2) $(OBJS) AP_MCMC_wcdm.o -I/home/xiaodongli/software/delib/mods -lde
+$(EXE3): $(OBJS) AP_grid.o
+	$(F90C)  -o $(EXE3) $(OBJS) AP_grid.o -I/home/xiaodongli/software/delib/mods -lde
 
 %.o: %.f90
 	$(F90C) -c $*.f90 -lde -I/home/xiaodongli/software/delib/mods 
 clean :
-	rm -rf *.o *.mod *.a *.so  $(EXE1) $(EXE2)
+	rm -rf *.o *.mod *.a *.so  $(EXE1) $(EXE2) $(EXE3)
 	
 #$(EXE1): $(OBJS) AP_test.f90
 #	$(F90C)   $(OBJS) AP_test.f90 -lde -I/home/xiaodongli/software/delib/mods 
