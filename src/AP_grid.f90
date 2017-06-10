@@ -25,13 +25,16 @@ implicit none
   ommin=0.1;  ommax=0.4; 
   w0min=-1.4; w0max=-0.3; 
   wamin=-2.5; wamax=0.9;
-  numom=120; numw0=120; numwa=120  
+  numom=100; numw0=100; numwa=100  
 
 !  nowmodel = model_wcdm;   wamin=0.0;wamax=0.0;numwa=1
-  nowmodel = model_cpl; ommin=0.31; ommax=0.31; numom=1
+  nowmodel = model_cpl; !ommin=0.31; ommax=0.31; numom=1
 !  nowmodel = model_olcdm
 
-  suffixstr = 'base1omws_om0.2600_w-1.0000_fixom0.31'
+ 
+  !ommin=0.1; ommax=0.2; numom=34; suffixstr = 'base1omws_om0.2600_w-1.0000_1'!_fixom0.31'
+  !ommin=0.20303030303d0; ommax=0.3; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_2'!_fixom0.31'
+  !ommin=0.30303030303d0; ommax=0.4; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_3'!_fixom0.31'
 !  suffixstr = 'base1omws_om0.2600_w-1.0000_ExcludeLastThreeBins_B'
 !  suffixstr = 'base1omws_om0.2600_w-1.0000_nbins35to40'
 !  suffixstr = 'base1omws_om0.2600_w-1.0000_smax40'

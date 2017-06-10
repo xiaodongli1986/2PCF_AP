@@ -20,7 +20,7 @@
 constraining the Chevallier-Polarski-Linder parametrization using the SDSS-III BOSS data}
 
 \author[Xiao-Dong~Li, Yuting Wang, Gong-bo Zhao, Changbom Park, Hyunbae Park, Cristiano G. Sabiu]
-{ Xiao-Dong Li$^{1,2,\dagger}$,  Yuting Wang$^{2}$, Gong-bo Zhao$^{2}$, Changbom Park$^{1}$, Hyunbae Park$^{2}$, 
+{ Xiao-Dong Li$^{1,2,\dagger}$,  Yuting Wang$^{2}$, Gong-bo Zhao$^{2}$, Changbom Park$^{1}$, Hyunbae Park$^{2}$, Arman Shafieloo$^{2}$,
 Cristiano G. Sabiu$^{2,\star}$, Juhan Kim$^{3,1}$\\
 $^1$School of Physics, Korea Institute for Advanced Study, 85 Heogi-ro, Dongdaemun-gu, Seoul 130-722, Korea\\
 $^2$Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 305-348, Korea\\
@@ -173,7 +173,7 @@ while the results without adding our method are
 
 The result is fully consistent with a dark energy component having no evolution.
 Adding the AP likelihood reduced the statistical errors by $\sim$30-40\%,
-reduced the 95.4\% CL $w_0-w_a$ contour by 51\%.
+reduced the 95.4\% CL $w_0-w_a$ contour by 47\%.
 This reveals the power of the our method in constraining the redshift evolution of dark energy.
 
 \begin{figure*}
@@ -246,19 +246,18 @@ Figure \ref{fig_IO} shows the input cosmology (marker by green plus) is recovere
 Finally, we did a thourough test of all the our options in our method.
 Figure \ref{fig_contest} shows that,
 the result almost does not change if 
-we adopt $\mu_{\rm max}=0.99$ to include more FoG effect,
-decrease number of bins to $n_{\rm bin}=15-20$ to be more conservative,
-change $s_{\rm max}$ to 35 or 45 $\rm Mpc/h$,
+we adopt $\mu_{\rm max}=0.99\ (0.85)$ to include more (less) near-LOS region in the analysis,
+decrease number of bins to $n_{\rm bin}=15-20$,
+change the range of clustering to $8-30 \rm Mpc/h$,
 change the fiducial cosmology to $\Omega_m=0.26,\ w=-0.6$,
 exclude 1 or 2 high redshift bins,
 or reduce the number of mocks to 1000.
-Constraints get weaker if increase $s_{\rm min}$,
-but are consistent with the original one.
+%Constraints get weaker if increase $s_{\rm min}$,
+%but are consistent with the original one.
 Even if we choose the fiducial cosmology as a very ridiculous one,
 say $\Omega_m=0.11,\ w=-2.0$, the change in contour is still mild.
 The very good point is that, 
-if we discard the systematic correction,
-the shift in contour position is very small.
+the shift in contour position is very small if we discard the systematic correction.
 
 %We measure the evolution of $\hat\xi_{\Delta s}$ in six redshift bins.
 %on scales of $s_{\rm min}=6$, $s_{\rm max}=40$.
@@ -277,6 +276,51 @@ the shift in contour position is very small.
    Robustness test of our method.
    }
 \end{figure*}
+
+\section{Conclusion}
+
+In \cite{Li2016} we proposed to constrain cosmological parameters via the redshift depence of galaxy clustering.
+This enables a robust Alcock-Paczynski test on relatively small scales.
+In this paper we improved the methodology and obtained tight constraints of the CPL parametrization.
+Adding our method to the CMB+SNIa+BAO+$H_0$ combination, the $w_0-w_a$ contour was reduced by 50\%.
+
+In sum, our AP method have many advantages:
+\begin{itemize}
+ \item {\it It leads to very tight cosmological constraints (powerful)}. The 
+ \item {\it Focusing on the redshift evolution of anisotropy it successfully overcome the problem of RSD, 
+ which has long time been a limitation to the application of AP to LSS (successful).}
+ In traditional approaches it is very challenging to model the RSD and enable a robust AP test.
+ \item {\it It is robust against systematics (reliable)}. 
+ \cite{Li2016} shows that $\hat\xi_{\Delta s}$ is insensitive to RSD or galaxy bias.
+ Figure \ref{fig_con_tests} shows that the change in results is small even if we do not correct the systematics at all.
+ \item {\it It is a major advance in extracting cosmological information on relatively small scales clustering (unique).} 
+ Clustering of galaxies happen on all scales,
+but the size and shape of BAO ring only captures information mostly on scales of $s=100-120 {\rm Mpc/h}$.
+In the analysis of correlation function shape, people mostly use $s\gtrsim 40$ Mpc/h.
+Our AP method enters much smaller scales.
+%Actually, there are more structures formed on smaller scales.
+%Surely cosmologists should find one method to $reliably$ utilize these scales.
+%Our method could be one solution.
+ \item {\it It does not require complicate modeling of non-linear structure growth and RSD (simple).}
+ \item {\it It is complimentary to BAO (useful).}
+ The method explores much smaller clustering scales than BAO. 
+ \cite{Li2016} shows that, actually the directions of $\Omega_m-w$ contours of the two methods are orthogonal to each other.
+\end{itemize}
+
+
+While it is of essential importance to build larger experiments to 
+explore more of our Universe,
+the physical interpration of the data is of equal importance.
+Considering our method enables {\it twice as much as before} information about the cosmic expansion history extracted from LSS data.
+This, in a way, significantly enhances the valuable data obtained from the very expensive experiments costing billions of dollars.
+
+The method can be applied to many future spectroscopic surveys. 
+We expect it play an important role in in helping us unveiling the dark energy.
+
+
+
+
+
 
 \section*{Acknowledgments}
 
