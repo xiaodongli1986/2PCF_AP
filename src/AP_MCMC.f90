@@ -1,15 +1,83 @@
 
-module vol_avg_DAH
+module redbin_weights_bossdr12_6bins
+use types_constants
 implicit none
 
-contains
 
-end module
+  real(rt) :: dr12v4_cmass_N_numgal(3,1000),dr12v4_cmass_S_numgal(3,1000),&
+            dr12v4_lowz_N_numgal(3,1000),dr12v4_lowz_S_numgal(3,1000)
+  character(charlen) :: dr12v4_cmass_N_numgal_file = '../datfiles/nbar-cmass-dr12v4-N-Reid.dat',&
+                      dr12v4_cmass_S_numgal_file = '../datfiles/nbar-cmass-dr12v4-S-Reid.dat',&
+                      dr12v4_lowz_N_numgal_file = '../datfiles/nbar-lowz-dr12v4-N-Reid.dat',&
+                      dr12v4_lowz_S_numgal_file = '../datfiles/nbar-lowz-dr12v4-S-Reid.dat'
+  real(rt), parameter :: numgal_zmin=0.0, numgal_zmax=1.0
+  integer, parameter  :: numgal_nbin = 200
+  real(rt), parameter :: numgal_dz = (numgal_zmax-numgal_zmin) / dble(numgal_nbin)
+  real(rt) :: numgals(numgal_nbin), numgal_zcenters(numgal_nbin), redbin_weights(6,numgal_nbin)
+  logical :: numgal_inited = .false.
+  real(rt) :: redbin_edges(7) = (/ 0.15_rt,  0.2741_rt, 0.3510_rt, 0.43_rt, 0.51_rt,  0.5720_rt, 0.6929_rt  /)
 
-!!!
+  contains
+
+  subroutine numgal_init()
+    integer  :: i,j,iredbin,i1,i2
+    character:: tmpchar
+    real(rt) :: zcen,zlow,zhigh,nbar,wfkp,shell_vol,numgal
+    
+    numgals = 0.0_rt
+    do i = 1, 4
+      if(i.eq.1) open(82785,file=dr12v4_lowz_N_numgal_file,action='read')
+      if(i.eq.2) open(82785,file=dr12v4_lowz_S_numgal_file,action='read')
+      if(i.eq.3) open(82785,file=dr12v4_cmass_N_numgal_file,action='read')
+      if(i.eq.4) open(82785,file=dr12v4_cmass_S_numgal_file,action='read')
+      do j = 1, 2
+        read(82785,*) tmpchar
+      enddo
+      do j = 1, numgal_nbin
+        read(82785,*)zcen,zlow,zhigh,nbar,wfkp,shell_vol,numgal
+        if(zcen .gt. 0.43 .and. (i.eq.1.or.i.eq.2)) cycle
+        if(zcen .lt. 0.43 .and. (i.eq.3.or.i.eq.4)) cycle
+        numgals(j) = numgals(j) + numgal
+      enddo
+    enddo
+
+    print *, 'Finishing initialization of #-gal.'
+    do j = 1, numgal_nbin
+      numgal_zcenters(j) = numgal_zmin+numgal_dz*(j-0.5)
+      !print *, real(numgal_zmin+numgal_dz*(j-1)), real(numgal_zmin+numgal_dz*j), numgals(j)
+    enddo
+
+    redbin_weights = 0.0_rt
+    do iredbin = 1, 6
+      zlow=redbin_edges(iredbin); zhigh = redbin_edges(iredbin+1)
+      i1=floor(zlow/numgal_dz+0.0001)+1; i2=ceiling(zhigh/numgal_dz-0.00001)
+      do i = i1+1,i2-1
+        redbin_weights(iredbin,i) = numgals(i)
+      enddo
+      redbin_weights(iredbin,i1) = (numgal_zmin+(i1)*numgal_dz - zlow) / numgal_dz * numgals(i1)
+      redbin_weights(iredbin,i2) = (zhigh - (numgal_zmin+(i2-1)*numgal_dz)) / numgal_dz * numgals(i2)
+      print *, 'iredbin = ', iredbin
+      print *, zlow, numgal_zmin+(i1)*numgal_dz,  (numgal_zmin+(i2-1)*numgal_dz), zhigh
+      print *, 'redbinweights: '
+      do i = 1, numgal_nbin
+        if (redbin_weights(iredbin,i) .ge. 0.00001) &
+          print *,  numgal_zcenters(i), real(redbin_weights(iredbin,i))
+      enddo
+    enddo
+    numgal_inited = .true.
+  end subroutine numgal_init
+
+
+  
+
+end module redbin_weights_bossdr12_6bins
+
 program main
 use LSS_ximu_tests
-USE de_model_init
+use redbin_weights_bossdr12_6bins
+USE de_model_init !!! Xiao-Dong: This is an outer package which compute DA, H of theoretical models.
+                  !!!            In your case, you may comment this line, and just write your own
+                  !!!            subroutines to compute DA, H in your model 
 !USE de_chisqs_JLA
 implicit none
   
@@ -21,24 +89,22 @@ implicit none
   real(rt) :: omegam, omstds(1000), wstds(1000), DAs(nz), Hs(nz), & 
     chisqs_nosyscor(n1,n2,nz-1), chisqs_syscor(n1,n2,nz-1), chisqs_nosyscor_all(nz-1), chisqs_syscor_all(nz-1), &
     tmpX(1000),nowlnlike,nowAPlnlike,nowweight,nowom,noww0,nowH0,nowwa,nowomk,APlnlikemin,&
+    DAarray(numgal_nbin),Harray(numgal_nbin),&
     t0,t1,t2,dt
   real(rt), allocatable :: APlnlikes(:), smutabstds(:,:,:,:,:)
   character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr, suffixstr=''
   type(omwpar) :: nowpar
   integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6, model_lcdm=7, model_olcdm=8
   integer :: nowmodel
-  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false.
+  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false., numgal_weighted=.true.
 
+  if(.not. numgal_inited) call numgal_init()
+  !stop
 
 !  nowmodel = model_wcdm
   nowmodel = model_cpl
 !  nowmodel = model_olcdm
   suffixstr = 'base1omws_om0.2600_w-1.0000_nbins26to27'
-!  suffixstr = 'base1omws_om0.2600_w-1.0000_ExcludeLastThreeBins_B'
-!  suffixstr = 'base1omws_om0.2600_w-1.0000_nbins35to40'
-!  suffixstr = 'base1omws_om0.2600_w-1.0000_smax40'
-!  suffixstr = 'base1omws_om0.3100_w-1.0000_smax40'
-!  suffixstr = 'base1omws_om0.1100_w-2.0000'
 !  print_allinfo = .true.
   
 !---------------------------------------------------------
@@ -169,19 +235,37 @@ implicit none
       ! End model dependent
       
       ! DAs & Hzs
-      do iz = 1, nz
-        DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
-        Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
-        if(debug) then
-          nowpar%omegam = 0.06_rt; nowpar%w=-1.5_rt
-          DAs(iz) = DAz_wcdm(nowpar,zeffs(iz))
-          Hs(iz)  = Hz_wcdm(nowpar,zeffs(iz))
-        endif
-        !print *, 'Check DA: ', DAz_wcdm(nowpar,zeffs(iz)), DAs(iz)
-        !print *, 'Check H:  ', Hz_wcdm(nowpar,zeffs(iz)), Hs(iz)
-        !Hs(iz) = Hz_wcdm(nowpar, zeffs(iz))
-      enddo
-!      stop
+      if(.not.numgal_weighted) then
+        do iz = 1, nz
+         DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
+         Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
+         if(debug) then
+           nowpar%omegam = 0.06_rt; nowpar%w=-1.5_rt
+           DAs(iz) = DAz_wcdm(nowpar,zeffs(iz))
+           Hs(iz)  = Hz_wcdm(nowpar,zeffs(iz))
+         endif
+         !print *, 'Check DA: ', DAz_wcdm(nowpar,zeffs(iz)), DAs(iz)
+         !print *, 'Check H:  ', Hz_wcdm(nowpar,zeffs(iz)), Hs(iz)
+         !Hs(iz) = Hz_wcdm(nowpar, zeffs(iz))
+        enddo
+      else
+        do iz = 1, nz
+          do i = 1, numgal_nbin
+            DAarray(i) = de_Inte(numgal_zcenters(i))*CONST_C/100.d0 / (1.0+numgal_zcenters(i))
+            Harray(i) = 100.0 / de_inv_e(numgal_zcenters(i))
+          enddo
+          DAarray = DAarray(1:numgal_nbin)*redbin_weights(iz,1:numgal_nbin)
+          DAs(iz) = sum(DAarray) / sum(redbin_weights(iz,1:numgal_nbin))
+          Harray = Harray(1:numgal_nbin)*redbin_weights(iz,1:numgal_nbin)
+          Hs(iz) = sum(Harray) / sum(redbin_weights(iz,1:numgal_nbin))
+          print *, 'weighted redshift: ', iz
+          print *, DAs(iz), de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
+          print *, Hs(iz), 100.0 / de_inv_e(zeffs(iz))
+        enddo
+      endif
+      stop !!! We stop here. We shall consider using *more precisely zeff* for wcdm model.
+           !!!  Or, we shall use *weighted DA, H* also for wcdm model.
+           !!!  (for this, too complicated. We can add an option "input DAs, Hs", and cmpute wcdm DAs, Hs and input
       
       ! AP likelihood
       if(.true.) then
