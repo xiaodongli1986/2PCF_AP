@@ -5,7 +5,7 @@
 
 #lib = lib/libde.a
 EXE1 = AP_test
-EXE2 = AP_MCMC_wcdm
+EXE2 = AP_MCMC
 EXE3 = AP_grid
 
 OBJS = AP_tools.o
@@ -16,15 +16,15 @@ F90FLAGS =
 default: $(EXE1) $(EXE2) $(EXE3)
 
 AP_test.o : $(OBJS) 
-AP_MCMC_wcdm.o : $(OBJS) 
+AP_MCMC.o : $(OBJS) 
 AP_test: $(OBJS) AP_test.o
-AP_MCMC_wcdm: $(OBJS) AP_MCMC_wcdm.o
+AP_MCMC: $(OBJS) AP_MCMC.o
 
 
 $(EXE1): $(OBJS) AP_test.o
 	$(F90C)  -o $(EXE1) $(OBJS) AP_test.o 
-$(EXE2): $(OBJS) AP_MCMC_wcdm.o
-	$(F90C)  -o $(EXE2) $(OBJS) AP_MCMC_wcdm.o -I/home/xiaodongli/software/delib/mods -lde
+$(EXE2): $(OBJS) AP_MCMC.o
+	$(F90C)  -o $(EXE2) $(OBJS) AP_MCMC.o -I/home/xiaodongli/software/delib/mods -lde
 $(EXE3): $(OBJS) AP_grid.o
 	$(F90C)  -o $(EXE3) $(OBJS) AP_grid.o -I/home/xiaodongli/software/delib/mods -lde
 
@@ -33,7 +33,3 @@ $(EXE3): $(OBJS) AP_grid.o
 clean :
 	rm -rf *.o *.mod *.a *.so  $(EXE1) $(EXE2) $(EXE3)
 	
-#$(EXE1): $(OBJS) AP_test.f90
-#	$(F90C)   $(OBJS) AP_test.f90 -lde -I/home/xiaodongli/software/delib/mods 
-#$(EXE2): $(OBJS) AP_MCMC_wcdm.f90
-#	$(F90C)   $(OBJS) AP_MCMC_wcdm.f90 -lde -I/home/xiaodongli/software/delib/mods 
