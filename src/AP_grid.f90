@@ -21,6 +21,7 @@ implicit none
   integer :: nowmodel
   logical :: smutabstds_inited, debug=.false., print_allinfo=.false.
 
+!!! Next step: write this for wbinned model!!!
 
   ommin=0.1;  ommax=0.4; 
   w0min=-1.4; w0max=-0.3; 
