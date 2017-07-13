@@ -21,10 +21,11 @@
 
 \title{Dynamical dark energy constraints via clustering shells of SDSS-III BOSS galaxies}
 
-\author{ Xiao-Dong Li,$^{1,\dagger}$
+\author{ 
+Xiao-Dong Li,$^{1}$
 Cristiano G. Sabiu,$^{2}$
 Changbom Park,$^{1}$
-Yuting Wang,$^{3,\star}$
+Yuting Wang,$^{3}$
 Gong-bo Zhao,$^{3}$
 Hyunbae Park,$^{2}$
 Arman Shafieloo,$^{2}$
@@ -37,18 +38,18 @@ and Sungwook E. Hong$^{2}$}
   \affiliation{Center for Advanced Computation, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-gu, Seoul 130-722, Korea}
 
 \begin{abstract}
-We use the anisotropic {\it clustering shells} of 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
-12 spanning the redshift range $0.15<z<0.69$ to place constraints on the expansion history of the Universe. 
-Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy $w=w_0+w_a\frac{z}{1+z}$,
+We use the small scale anisotropic clustering signal of 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
+12, spanning the redshift range $0.15<z<0.69$ to place constraints on the expansion history of the Universe. 
+Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$,
 while improving upon earlier works \citep{Li2016}, 
 we present a novel use of the Alcock-Paczynski (AP) test via the small scales clustering difference between redshift bins. 
-This differential measure appears to be a robust statistical tool which mitigates many systematic effects, 
-allowing for competitive and unbiased constrains. 
-A combination of CMB+BAO+SNIa+$H_0$+AP yields
-$\Omega_m = 0.301 \pm 0.008,\ w_0 = -1.042 \pm 0.067,\ w_a = -0.07 \pm 0.29$ (68.3\% CL).
-Adding the AP method reduces the $w_0-w_a$ contour area by 50\%.
-The method can be combined with the standard BAO method, 
-increasing the science output of ongoing and future galaxy surveys by a factor of 2.
+This differential measure is shown to be a robust statistical tool that mitigates many systematic effects, 
+allowing for competitive and unbiased constrains to be placed on cosmological parameters.
+We find that our results, in combination with the CMB, BAO, SNIa and $H_0$ from Cepheid data yield, 
+$\Omega_m = 0.301 \pm 0.008,\ w_0 = -1.042 \pm 0.067,\ w_a = -0.07 \pm 0.29$ (68.3\% CL). 
+Adding our new AP measurements to the aforementioned results reduced the $w_0-w_a$ 2-$\sigma$ contour area by 50\%.
+The AP method can be combined with the standard BAO method, 
+greatly increasing the power of ongoing and future galaxy surveys in probing dark energy.
 \end{abstract}
 
 \pacs{95.36.+x, 98.80.–k}
@@ -57,11 +58,9 @@ increasing the science output of ongoing and future galaxy surveys by a factor o
 
 %\section{Introduction}
 {\it Introduction.}---
-The  origin  of  the  accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. 
-Proposed mechanisms include  evolving  scalar  fields  remnant  from  the  big  bang, 
-modifications to gravity,  and a  non-zero  vacuum energy \cite[see][for a comprehensive review]{2012IJMPD..2130002Y}. 
+The  origin  of  the late-time accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. Theoretical explanations for this phenomena are many and range from a non-zero  vacuum energy and evolving  scalar  fields  remnant  from  the  big  bang, to modifications of Einstein's General Relativity\cite{2012IJMPD..2130002Y}. 
 Considering the wealth of theoretical explanations, it is crucial to obtain precise and unbiased measurements of the expansion history of the Universe allowing us to 
-differentiate between competing dark energy models.
+differentiate between competing models. 
 
 In recent years the Alcock-Paczynski (AP) test \citep{AP1979} applied to galaxy redshift samples \citep{Outram2004,Blake2011,Alam2016}, 
 has allowed tight constraints to be placed on the background averaged distance scales, $D_A(z)$ and $H^{-1}(z)$.  
@@ -76,33 +75,43 @@ Measuring the ratio of galaxy clustering in the radial and transverse directions
 %This results in estimates of the cosmic observables at fewer redshifts and with access to fewer Fourier modes. 
 %This reduction of information hinders our attempts to test dark energy models. 
 
-The main caveat of the AP test is due to the fact that 
+The main caveat in applying the AP test is due to the fact that 
 the radial distances of galaxies are inferred from observed redshifts.
-Thus AP tests are inevitably affected by peculiar motions of galaxies,
+Thus AP tests are inevitably affected by peculiar the motions of galaxies,
 which leads to apparent anisotropy in the clustering signal, even if the adopted cosmology is correct.
 The effect, known as redshift-space distortions (RSD),
-is notoriously difficult to model accurately in the 2-point statistics of galaxy clustering \citep{Ballinger1996}.
+is notoriously difficult to model accurately in the statistics of galaxy clustering \citep{Ballinger1996}.
 
-As alternative methods, \cite{Marinoni2010} proposed using the symmetry properties of galaxy pairs;
+The symmetry properties of galaxy pairs\cite{Marinoni2010}  could also be used to probe the AP effect;
 however, since the peculiar velocity distorts the redshifts and changes the apparent tilt angles of galaxy pairs,
 this method is also seriously limited by RSD \citep{Jennings2011}.
-\cite{Ryden1995} and \cite{LavausWandelt1995} proposed another method using the apparent stretching of voids.
-This approach has the advantage that the void regions are easier to model compared with dense regions,
-but has limitations in that it utilizes only low density regions of the LSS and requires large samples to achieve competitive constraints \citep{Qingqing2016}.
+
+In an effort to minimise RSD contamination, the shape of void regions\cite{Ryden1995,LavausWandelt1995}  has been 
+proposed as an AP probe. This approach has the advantage that the void regions are easier to model compared with dense regions, but has limitations in that it utilizes only low density regions of the LSS and requires large samples to achieve competitive constraints \citep{Qingqing2016}.
 
 %In an effort to overcome the RSD problem, 
 %\citep{Li2016} proposed to apply the AP effect to clustering on small scales. 
 %However, redshift space distortions affect the angular clustering of galaxies, mimicking a signal similar to the AP effect, 
 %thus contaminating the cosmological information.
 
-In an effort to mitigate the RSD effect, \cite{Li2014} proposed utilizing the {\it redshift dependence} of the AP effect. 
-The clustering anisotropies produced by are, although large, close to uniform in magnitude over a wide range in redshift. 
-However, if cosmological parameters are incorrectly chosen resulting in an AP effect, 
-the anisotropy in the clustering signal has a clear redshift dependence. 
-In a later work, \cite{Li2015} developed an AP methodology 
+Previously, we proposed to use the  {\it redshift dependence} of the AP distortion\cite{Li2014} as a way of mitigating the RSD effect. The clustering anisotropies produced by RSD are, although large, close to uniform in magnitude over a wide range in redshift.  However, if cosmological parameters are incorrectly chosen resulting in an AP effect, 
+the anisotropy in the clustering signal has a clear redshift dependence
+(as an illustration, Fig.\ref{fig_xy} shows how the shape distortion of objects varies with distance (i.e., redshift) 
+when incorrect cosmologies are used to infer distances).
+In a later work\cite{Li2015}, we developed an AP methodology 
 that utilises the redshift dependence of the galaxy 2-point correlation function (2pCF), 
 measured as a function of angle between the galaxy pair and line-of-sight (LoS).
-As an illustration, Fig.\ref{fig_xy} shows how the shape distortion of objects (anisotropy of clustering signal) varies with distance (or redshift) when incorrect values of  $w_0$ or $w_a$ are used to infer distances.
+
+
+In an earlier work\citep{Li2016} we applied this AP method to galaxies from the 3rd incarnation of the Sloan Digital Sky Survey (SDSS-III). 
+Combining the method with measurements of the Cosmic Microwave Background (CMB), type Ia supernovae (SNIa), 
+baryon acoustic oscillations (BAO), and $H_0$,
+we obtained very tight constraints of $ \Omega_m = 0.301 \pm 0.006,\ w=-1.054 \pm 0.025$.
+In reducing the RSD effect, 
+we were able to use galaxy clustering on scales down to 6 $h^{-1}$Mpc,
+which is a major advance in extracting cosmological information 
+on small scales where galaxy clustering is strong and there are many independent structures.
+
 
 \begin{figure*}
    \centering{
@@ -113,8 +122,8 @@ As an illustration, Fig.\ref{fig_xy} shows how the shape distortion of objects (
    %\includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_xy}
-   The distance dependence of the shape distortion in four wrongly assumed cosmologies,
-   assuming a true cosmology of $\Omega_m=0.31$, $w=-1$.
+   The distance dependence of the shape distortion in four wrongly assumed cosmologies.
+   Assuming a true cosmology of $\Omega_m=0.31$, $w=-1$.
    There are four perfect squares with their true shapes plotted in blue dashed lines.
    They are measured by an observer located at the origin, and the distances are reprojected in the four wrong cosmologies.
    The apparently distorted shapes are plotted in red solid lines.
@@ -122,34 +131,16 @@ As an illustration, Fig.\ref{fig_xy} shows how the shape distortion of objects (
 \end{figure*}
 
 
-%$\xi_{\Delta s}(\mu)\equiv \int_{s_{\rm min}}^{s_{\rm max}} xi(s,\mu) ds$
-%($s$ is the clustering scale).
-%The RSD effect significantly distorts the shape of $\xi_{\Delta s}(mu)$ but exhibits much less redshift evolution 
-%compared to the amount of change in due to incorrectly adopted cosmologies .
 
-%When incorrect cosmological parameters are adopted, the shape of $\xi(\mu)$
-%appears anisotropic due to the AP effect, and the amplitude
-%is shifted by the change in comoving volume; both effects
-%have significant redshift dependence. We test the method
-%using the 2pCF on mock surveys drawn from HR3 and
-%find the constraints obtained are tighter than those from
-%the methodology of Li et al. (2014).
-
-\citep{Li2016} applied their AP method to galaxies from the 3rd incarnation of the Sloan Digital Sky Survey (SDSS-III).
-Combining their method with measurements of the Cosmic Microwave Background (CMB), type Ia supernovae (SNIa), 
-baryon acoustic oscillations (BAO), and $H_0$,
-they obtained very tight constraints of $ \Omega_m = 0.301 \pm 0.006,\ w=-1.054 \pm 0.025$.
-In reducing the RSD effect, 
-they were able to use galaxy clustering on scales down to 6 $h^{-1}$Mpc,
-which is a major advance in extracting cosmological information 
-on small scales where galaxy clustering is strong and there are many independent structures.
-
-In this paper, we continue to develop our previous methodology and proceed to infer the constraints on dynamical dark energy. We will present a slightly improved methodology to that of \citep{Li2016}, 
+In this paper, we continue to develop our previous methodology and proceed to infer the constraints on dynamical dark energy. 
+We will present a slightly improved methodology to that of our previous work\citep{Li2016}, 
 allowing for faster likelihood estimation and thus the exploration of larger, higher dimensional parameter spaces. 
 The methodology we will present here, can be applied to any model of dynamical dark energy, 
 or indeed any appropriately chosen parametric or non-parametric decomposition of the cosmic expansion history. 
-However, as a first step, in this paper we will focus on the widely used Chevallier-Polarski-Linder (CPL) parametrization
-$w(z) = w_0 + w_a \frac{z}{1+z}$. 
+However, as a first step, in this paper we will focus on the widely used Chevallier-Polarski-Linder (CPL) parametrization\cite{CPL_CP,CPL_L},
+\begin{equation}
+w(z) = w_0 + w_a (1-a) = w_0 + w_a \frac{z}{1+z}.
+\end{equation}
 
 
 %The paper is organised as follows; 
@@ -175,8 +166,8 @@ In the clustering analysis we use 1,133,326 galaxies, split into six, non-overla
 $0.150<z_1<0.274<z_2<0.351<z_3<0.430<z_4<0.511<z_5<0.572<z_6<0.693$.
 The number density of galaxies and the redshift binning scheme is plotted in the left panel of Fig.\ref{fig_TpCF}.
 
-Following our previous methodology \citep{Li2016}, the information of small-scale anisotropic clustering is computed
-\footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
+Following our previous methodology \citep{Li2016}, the information of small-scale anisotropic clustering is computed.
+%\footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
 as $\xi_{\Delta s} (\mu) \equiv \int_{s_{\rm min}}^{s_{\rm max}} \xi (s,\mu)\ ds$, 
 with $s_{\rm min}=6 h^{-1} {\rm Mpc},\ s_{\rm max}=40 h^{-1} {\rm Mpc}$.
 We then normalise these {\em clustering shells} as 
@@ -204,22 +195,24 @@ For the removal of fiber collision and the strong FoG effect near the LOS we tak
 
 Systematics effects are estimated using mock catalogues derived from Horizon Run 4 (HR4) \cite{HR4},
 an N-body simulation with box size $L={3150}$ $h^{-1}$Mpc, number of particles $6300^3$,   
-initial redshift $z_{i}=100$, and WMAP5 cosmological parameters 
-$(\Omega_{b},\Omega_{m},\Omega_\Lambda,h,\sigma_8,n_s)$  = (0.044, 0.26, 0.74, 0.72, 0.79, 0.96) \citep[]{komatsu 2011}. 
+initial redshift $z_{i}=100$, and WMAP5\citep{komatsu2011} cosmological parameters 
+$(\Omega_{b},\Omega_{m},\Omega_\Lambda,h,\sigma_8,n_s)$  = (0.044, 0.26, 0.74, 0.72, 0.79, 0.96). 
 Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \citep{hong2016}. 
-The covariance matrix ${\bf Cov}$ is computed from the 2,000 sets of MultiDark PATCHY mock catalogues \citep{MDPATCHY}.
+The covariance matrix, ${\bf Cov}$, is computed from the 2,000 sets of MultiDark PATCHY mock catalogues \citep{MDPATCHY}.
 The statistical bias and scattering in the likelihood function (due to the finite number of mocks in covariance estimation) 
-are corrected following \citet{Hartlap} and \citet{Percival2014}.
+are adequately corrected\citet{Hartlap,Percival2014}.
 
-In \cite{Li2016} the likelihood contour of $\Omega_m-w$ was constructed by
+In our earlier work\cite{Li2016}, the likelihood contour of $\Omega_m-w$ was constructed by
 measuring the 2PCF 3,375 times,
 using 3D positions of BOSS galaxies computed in 71$\times$45 sets of cosmological parameters.
 %with $0.06\leq \Omega_m\leq 0.41$, $-1.5 \leq w \leq -0.4$.
-This procedure took 1 month using 500 cores of the KIAS {\texttt baekdu} cluster.
-It would be too expensive to do such a computation on a 3D grid of $\Omega_m-w_0-w_a$,
-so here we take an approach  of ``approximate 2PCF'', described as follows.
+This procedure took 1 month using 500 cores of the KIAS {\texttt {baekdu}} cluster.
+It would be computationally intractable to attempt a full MCMC of all relevant cosmological parameters using this approach. 
+Thus we adopt an ``approximate 2PCF'' by transforming our measurements from one cosmology to another.
+%It would be too expensive to do such a computation on a 3D grid of $\Omega_m-w_0-w_a$,
+%so here we take an approach  of ``approximate 2PCF'', described as follows.
 
-The number of pairs are only counted in a fiducial cosmology
+In detail, the number of pairs are only counted in a fiducial cosmology
 -- which is taken as the $\Omega_m=0.26$ $\Lambda$CDM --
 and ``translated'' to the measurements in a ``target'' cosmology using the relations, 
 \begin{eqnarray}
@@ -239,12 +232,14 @@ and these small ``pixels'' are grouped to infer
 the number counts in other cosmologies, 
 in large pixels of $\Delta s = 1 {\rm Mpc/h}$, $\Delta \mu = 1/120$.
 %in the fiducial cosmology and group the bins in the target cosmology.
-In the case when one small pixel belongs to more than one larger pixel (``edge effect'' ),
+In the case when one small pixel belongs to more than one larger pixel,
 a correction is applied by computing the fraction of the overlapping area.
+
 We found when using the approximate method the computed 
 $\hat\xi_{\Delta s}(\mu)$ in a non-fiducial cosmology suffers from
 an error of $\approx0.5\%$, which is 10 times smaller than 
 the statistical noise in the 2pCF.
+As a result, the approximate method reproduces the results presented in \cite{Li2016} quite well.
 
 %\section{Reproducing wCDM Constraints}\label{wcdm_constraint}
 %As a first trial, we firstly try to reproduce the constraints on $\Omega_m$ and $w$ in \citep{Li2016}:
@@ -293,50 +288,50 @@ the statistical noise in the 2pCF.
    \includegraphics[width=7cm,]{fig_2pcf.eps}
    }
    \caption{\label{fig_TpCF}
+   Spliting the SDSS galaxies into six redshiftbins, and measuring the correlation function.
    Left panel: We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
    The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
-   The vertical dashed lines define the six redshift bins that are used to cut the samples.
-%   Their redshift ranges are listed.                                       .
+   The vertical dashed lines define the six redshift bins that are used to cut the samples.                                       .
    The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
    Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
       in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
     The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
-    %The correlation functions have rather large values on small sales such as $s=5$ $h^{-1}$Mpc,
-    %  and monotonically decreases to smaller values on larger scales due to weaker clustering.
     The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
    }
 \end{figure*}
 
 
-
-
+The CPL parametrization characterizes dark energy equation-of-state (EoS) by two free parameters.
+$w_0$ determines the present-day value, while parameter $w_a$ characterizes the first-order derivative of $w$ with respect to $a$. 
+The CPL parametrization has many obvious advantages, for instance, a manageable parameter space, 
+the bounded behavior at high redshift, 
+and the ability to accurately reconstruct many dark energy theories\cite{CPL_L}. 
+So it was widely used in the literature to reconstruct dark energy from observations.
 The Planck team has released the {\texttt {COSMOMC}} \citep{LB2002} outputs of four MCMC ``chains'' in the CPL model, 
 using a combination of four datasets:
 the full-mission Planck observations of CMB temperature and polarization anisotropies \cite{Planck2015},
 the BAO distance priors measured from SDSS DR11 \citep{Anderson2013}, 6dFGS \citep{6dFGS} and SDSS MGS \citep{MGS},
 the ``JLA'' SNIa sample \citep{JLA},
 and the Hubble Space Telescope measurement of $H_0=70.6\pm3.3$ \cite{Riess2011,E14H0}.
-\footnote{http://pla.esac.esa.int/pla/\#cosmology}.
 These MCMC chains contain the CMB+BAO+SNIa+$H_0$ likelihood computed for $\sim$37,000 sets of cosmological parameters,
-yielding constraints of 
+yielding constraints of %$ \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41$.
 \begin{equation}
  \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41.
 \end{equation}
-%To include the AP method into the constraints,
-We then compute the likelihood of the LOWZ+CMASS AP measurements for each of the parameter combinations provided in the Planck chain. After multiplying the sample likelihoods with ours, while also changing the sample weights {\bf (HOW CHANGE?)}, we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters,
+%To derive the constraints combined with our AP method,
+%we then compute the likelihood of the SDSS LOWZ+CMASS AP measurements for each of the parameter combinations provided in the Planck chain. 
+%To do this, we splited the 1,133,326 galaxies from the SDSS DR12 into six redshift bins,
+%measured the 2pCF (on scales of 6-40 $h^{-1}$Mpc) in these redshift bins (see Fig.\ref{fig_nbar}).
+%This enables us investigating the redshift evolution of anisotropic clustering.
+%We subtracted the systematic effects based on estimations from mocks made from Horizon Run 4 simulations \citep{HR4},
+%and used a $\chi^2$ function to assess the redshift dependence.
+%(see Methods for further explanations).
+After adding the log-likelihoods of the Planck team sample with ours, 
+while also multiply the sample weights by our likelihoods, 
+we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters, %$\Omega_m = 0.301 \pm 0.008, w_0 = -1.042 \pm 0.067, w_a = -0.07 \pm 0.29$.
 \begin{equation}
-%\Omega_m = 0.300 \pm 0.008, w_0 = -1.056 \pm 0.061, w_a = -0.04 \pm 0.27,
-    %1  0.2999656E+00  0.7616334E-02  0.2958745E+00  0.3035033E+00  0.2878169E+00  0.3132870E+00   \Omega_m
-    %2  0.6904801E+00  0.8675444E-02  0.6808558E+00  0.6993898E+00  0.6722945E+00  0.7052207E+00   h
-    %3 -0.1056468E+01  0.6096323E-01 -0.1116874E+01 -0.9965903E+00 -0.1175041E+01 -0.9287388E+00   w
-    %4 -0.3808376E-01  0.2716607E+00 -0.3105235E+00  0.2321461E+00 -0.6033103E+00  0.4782076E+00   w_a    
 \Omega_m = 0.301 \pm 0.008, w_0 = -1.042 \pm 0.067, w_a = -0.07 \pm 0.29.
-%    1  0.3014353E+00  0.7759923E-02  0.2974325E+00  0.3048882E+00  0.2889838E+00  0.3152269E+00   \Omega_m
-%    2  0.6887652E+00  0.8760036E-02  0.6797134E+00  0.6978279E+00  0.6703971E+00  0.7044224E+00   h
-%    3 -0.1041626E+01  0.6732817E-01 -0.1107730E+01 -0.9768319E+00 -0.1172149E+01 -0.8979017E+00   w
-%    4 -0.7173374E-01  0.2860547E+00 -0.3572176E+00  0.2107347E+00 -0.6775045E+00  0.4558817E+00   w_a    
 \end{equation}
-%$$.
 While the central values of parameters do not shift appreciably,
 the error bars of $w_0$ and $w_a$ are reduced by 38.4\% and 29.7\%, respectively.% $$-40\%$ by adding our method into the analysis.
 
@@ -345,13 +340,25 @@ Adding our new AP constraints significantly reduces the allowable parameter spac
 This can also be visualise as allowable bands in $w(z)$ as can be seen in the right panel of Fig.\ref{fig_con}.  
 
 The derived cosmological constraints are fully consistent with a cosmological constant dark energy component having no evolution.
-Adding the new AP method to the CMB+BAO+SNIa+$H_0$ constraints reduces the statistical errors by $\sim$30-40\%,
-and reduces the 95.4\% CL $w_0-w_a$ contour by 50\%.
+Adding the new AP method to the CMB+BAO+SNIa+$H_0$ constraints reduces the statistical errors on many parameters by $\sim$30-40\% 
+and reduces the $w_0-w_a$ (95.4\% CL) contour by 50\%.
 This reveals the constraining power of the small scale AP effect for probing the redshift evolution of dark energy.
 
-%\cite{Li2016} shows that the AP method outperforms SNIa in constraining the parameter space of $\Omega_m-w$.
-%Similarly we find it outperforms in constraining $w_0-w_a$, as shown in the middle panel of Fig.\ref{fig_TpCF}.
-
+We performed a thorough test of all the possible variables in our methodology.
+Figure \ref{fig_contest} shows that 
+the result is unaffected by the line-of-sight $\mu$-cut, 
+the number of angular bins, 
+the range of radial integration and the choice of fiducial cosmology. 
+%we adopt $\mu_{\rm max}=0.99\ (0.85)$ to include more (less) regions near the LOS,
+%decrease the number of angular bins to $n_{\mu}=15-20$,
+%change the range of clustering to $8-30 \rm Mpc/h$,
+%change the fiducial cosmology to $\Omega_m=0.26,\ w=-0.6$,
+%exclude 1 or 2 high redshift bins,
+%or reduce the number of mocks to 1000.
+The most striking point to note in our testing is that the 
+shift in contour position is very small even when we do not include the systematic correction.
+This is reassuring, since we may have worried that {\it cosmological dependence} 
+of the systematic correction could influence the final result. 
 
 \begin{figure*}
    \centering{
@@ -364,6 +371,7 @@ This reveals the constraining power of the small scale AP effect for probing the
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_con}
+   Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
    Left panel: 68.3\%, 95.4\% CL likelihood contours in the  $w_0-w_a$ plane.
    %Results are consistent with $\Lambda$CDM.
    The constrained area is significantly reduced after combined with the AP method.
@@ -375,71 +383,7 @@ This reveals the constraining power of the small scale AP effect for probing the
    }
 \end{figure*}
 
-In this short paper we have chosen to focus on the popular CPL parameterisation of dark energy, 
-however our methodology could be used with any model of cosmic expansion history.
 
-
-%%% To be written!!!
-%\section{Robustness Test}\label{sec:test}
-{\it Robustness Test.}---
-
-Analysing the same DR12 BOSS data, \citet{Li2016} obtained constraints on $\Omega_m$ and $w$
-\begin{equation}\label{eq:wcdm_constrain_default}
-\Omega_m=0.301\pm 0.006, w=-1.054\pm 0.025.
-\end{equation}
-In our new ``approximate 2pCF'' approach, while taking a fiducial cosmological model of $\Omega_m=0.26, w=-1$, we obtain consistent results of,
-\begin{equation}
-\Omega_m = 0.301 \pm 0.008,\ w=-1.053\pm 0.034.
-%    1  0.3010870E+00  0.7818562E-02  0.2973018E+00  0.3045011E+00  0.2883318E+00  0.3150334E+00   \Omega_m
-%    2  0.6886453E+00  0.8507156E-02  0.6802557E+00  0.6975813E+00  0.6708444E+00  0.7047652E+00   h
-%    3 -0.1053343E+01  0.3395215E-01 -0.1087474E+01 -0.1020395E+01 -0.1121890E+01 -0.9819443E+00   w
-\end{equation}
-Since we use a smaller $n_{\mu}$ value than that adopted by \citep{Li2016}
-\footnote{\citep{Li2016} adopted $n_{\mu}=25-35$ to achieve tighter constraints.
-Since we are using an approximate 2pCF, for robustness considerations we use $n_{\mu}=20-25$.}, 
-resulting in a slightly enlarged error bar. 
-The central values of the parameters agree quite well, demonstrating the reliability of the approximate 2pCF method.
-
-%\begin{figure*}
-%   \centering{
-%   \includegraphics[width=6cm]{figIO.eps}
-%   %\includegraphics[width=9cm,natwidth=4,natheight=4]{fig2b.pdf}
-%   %\includegraphics[height=8cm]{fig2b.pdf}
-%   %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
-%   %    \includegraphics[height=8cm]{smu.eps}
-%   }
-%   \caption{\label{fig_IO}
-%   Input-output test of the AP method. 
-%   The input cosmology (marker by green plus) is recovered at $\sim$0.5$\sigma$ 
-%   using 4 realizations.
-%   }
-%\end{figure*}
-
-We also performed an input-output test on four realizations of the HR4 mock catalogues \cite{hr4}.
-%In the framework of $w$CDM cosmology, %Figure \ref{fig_IO} shows 
-The input cosmology $\Omega_m=0.26$, $w=-1$ is recovered well, lying within the $\sim$0.5$\sigma$ CL region.
-
-
-Finally, we performed a thorough test of all the possible variables in our methodology.
-Figure \ref{fig_contest} shows that,
-the result does not change if 
-we adopt $\mu_{\rm max}=0.99\ (0.85)$ to include more (less) regions near the LOS,
-decrease the number of angular bins to $n_{\mu}=15-20$,
-change the range of clustering to $8-30 \rm Mpc/h$,
-change the fiducial cosmology to $\Omega_m=0.26,\ w=-0.6$,
-exclude 1 or 2 high redshift bins,
-or reduce the number of mocks to 1000.
-%Constraints get weaker if increase $s_{\rm min}$,
-%but are consistent with the original one.
-%Even if we choose an extremely unrealistic fiducial cosmology, i.e. 
-% $\Omega_m=0.11,\ w=-2.0$, the change in contour is still mild.
-The most striking point to note in our testing is that the 
-shift in contour position is very small even when we do not include the systematic correction.
-This is reassuring, since we may have worried that {\it cosmological dependence} on the systematic correction could influence on our final results. 
-
-%We measure the evolution of $\hat\xi_{\Delta s}$ in six redshift bins.
-%on scales of $s_{\rm min}=6$, $s_{\rm max}=40$.
-%Systematics subtracted with the help of HR4 simulation.
 %Covariance matrix 
 
 \begin{figure*}
@@ -451,7 +395,7 @@ This is reassuring, since we may have worried that {\it cosmological dependence}
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_contest}
-   Robustness test of the AP method. 
+   Robustness test of the results.
    For the ``default'' constraints (pink contours) are derived using six redshift bins, 
    $\mu_{\rm max}=0.97$, $n_{\mu}=15-20$, $s=6-40 \rm Mpc/h$,
    a fiducial cosmology $\Omega_m=0.26,\ w=-1.0$ for the measurement of 2pCF,
@@ -464,55 +408,27 @@ This is reassuring, since we may have worried that {\it cosmological dependence}
 %\section{Conclusion}\label{sec:conclusion}
 {\it Conclusion.}---
 
-In \cite{Li2016} we proposed to constrain cosmological parameters via 
-the redshift dependence of galaxy anisotropic clustering. 
-This enables a robust Alcock-Paczynski test on relatively small scales.
-In this paper we improved the methodology and obtained tight constraints on the CPL parametrization of dark energy using 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
-12 spanning the redshift range $0.15<z<0.69$ . 
-Adding our constraints to the CMB+SNIa+BAO+$H_0$ combination, the $w_0-w_a$ contour was reduced by $\sim50$\%.
-
+In summary, we previously proposed to constrain cosmological parameters via 
+the redshift dependence of anisotropic galaxy clustering\cite{Li2016}.
+This approach enables a robust AP test on relatively small scales.
+In this paper we improved the methodology and obtained tight constraints on the CPL parametrization of dark energy.
+%using 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
+%12 spanning the redshift range $0.15<z<0.69$ . 
+%Adding our constraints to the CMB+SNIa+BAO+$H_0$ combination, the $w_0-w_a$ contour was reduced by $\sim50$\%.
 The AP method presented in this work has many advantages over the `traditional' galaxy clustering method.
 Since it works with the redshift evolution of the anisotropic clustering signal it significantly reduces the effect of systematics. 
 It avoids the great difficulty in accurate modelling of the RSD, non-linear clustering and galaxy bias.
 It is applicable on much smaller scales, allowing for the inclusion of more $k$-modes and hence more information. 
 
+The presented method of clustering shells can be applied to many spectroscopic galaxy surveys. 
+The method is complimentary to the BAO method and the two methods can be combined together, 
+increasing (by roughly twice) the power of ongoing and future surveys, with little to no additional cost.
+We expect this approach will play an important role in helping us unveiling the mystery of dark energy.
+
+
 %By reducing the RSD effect the method enables using clustering information on scales of $s<6 \rm Mpc/h$.
 %This is a major advance in extracting cosmological information on relatively small scales clustering.
 
-
-
-%In sum, our AP method have many advantages:
-%\begin{itemize}
-%\item {\it It leads to very tight cosmological constraints (powerful)}. The 
-% \item {\it Focusing on the redshift evolution of anisotropy it successfully overcome the problem of RSD, 
-% which has long time been a limitation to the application of AP to LSS (successful).}
-% In traditional approaches it is very challenging to model the RSD and enable a robust AP test.
-% \item {\it It is robust against systematics (reliable)}. 
-% \cite{Li2016} shows that $\hat\xi_{\Delta s}$ is insensitive to RSD or galaxy bias.
-% Figure \ref{fig_con_tests} shows that the change in results is small even if we do not correct the systematics at all.
-% \item {\it It is a major advance in extracting cosmological information on relatively small scales clustering (unique).} 
-% Clustering of galaxies happen on all scales,
-%but the size and shape of BAO ring only captures information mostly on scales of $s=100-120 {\rm Mpc/h}$.
-%In the analysis of correlation function shape, people mostly use $s\gtrsim 40$ Mpc/h.
-%Our AP method enters much smaller scales.
-%
-% \item {\it It does not require complicate modeling of non-linear structure growth and RSD (simple).}
-% \item {\it It is complimentary to BAO (useful).}
-% The method explores much smaller clustering scales than BAO. 
-% \cite{Li2016} shows that, actually the directions of $\Omega_m-w$ contours of the two methods are orthogonal to each other.
-%\end{itemize}
-
-
-%While it is of essential importance to build larger experiments to 
-%explore more of our Universe,
-%the physical interpretation of the data is of equal importance.
-%Considering our method enables {\it twice as much as before} information about the cosmic expansion history extracted from LSS data.
-%This, in a way, significantly enhances the valuable data obtained from the very expensive experiments costing billions of dollars.
-
-The presented method of clustering shells can be applied to many spectroscopic galaxy surveys. 
-The method is complimentary to the BAO method and the two methods can be combined together, 
-increasing (by roughly twice) the science output of ongoing and future surveys, with little to no additional cost.
-We expect it play an important role in helping us unveiling the mystery of dark energy.
 
 \begin{acknowledgments}
 We thank the Korea Institute for Advanced Study for providing computing resources (KIAS Center for Advanced Computation Linux Cluster System).
