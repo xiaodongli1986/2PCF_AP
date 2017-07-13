@@ -19,25 +19,20 @@ implicit none
   type(omwpar) :: nowpar
   integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6, model_lcdm=7, model_olcdm=8
   integer :: nowmodel
-  logical :: smutabstds_inited, debug=.false., print_allinfo=.false.
+  logical :: smutabstds_inited, debug=.false., print_allinfo=.false., do_lcdm_constraint=.false.
 
 !!! Next step: write this for wbinned model!!!
 
-!  ommin=0.1;  ommax=0.4; 
-!  w0min=-1.4; w0max=-0.3; 
-!  wamin=-2.5; wamax=0.9;
-!  numom=120; numw0=120; numwa= 120 
-  ommin=0.01;  ommax=0.99; 
-  w0min=-1.4; w0max=-0.3; 
-  wamin=-2.5; wamax=0.9;
-  numom=150; numw0=120; numwa= 120 
-
-!  nowmodel = model_wcdm;   wamin=0.0;wamax=0.0;numwa=1
-  nowmodel = model_cpl; !ommin=0.31; ommax=0.31; numom=1
+  de_model_lab  = de_wcdm_lab
+  ommin=0.0;  ommax=1.0; 
+   numw0=1; numwa=1;
+!  print *, log(2.732); stop
+  nowmodel = model_wcdm;   wamin=0.0;wamax=0.0;numwa=1
+!  nowmodel = model_wcdm; !ommin=0.31; ommax=0.31; numom=1
 !  nowmodel = model_olcdm
 
- suffixstr = 'base1omws_om0.2600_w-1.0000_with_syscor_ext'!_fixom0.31'
-  !ommin=0.1; ommax=0.2; numom=34; 
+ 
+  !ommin=0.1; ommax=0.2; numom=34; suffixstr = 'base1omws_om0.2600_w-1.0000_1'!_fixom0.31'
   !ommin=0.20303030303d0; ommax=0.3; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_2'!_fixom0.31'
   !ommin=0.30303030303d0; ommax=0.4; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_3'!_fixom0.31'
 !  suffixstr = 'base1omws_om0.2600_w-1.0000_ExcludeLastThreeBins_B'
@@ -53,20 +48,18 @@ implicit none
   !--------------------------------
   ! Settings of the model
 
-  !mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
-  mcmcdir = './'
-  if(nowmodel .eq. model_wcdm) then! .or. nowmodel .eq. model_owcdm) then
-  	  de_model_lab = de_wCDM_lab
-          MCMCfilestr = 'base_w_AP'	  
-  elseif(nowmodel .eq. model_cpl ) then
-  	  de_model_lab = de_CPL_lab
-  	  MCMCfilestr = 'base_w_wa_AP'
+!! LCDM comments
+  if(do_lcdm_constraint) then
+    mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
+    MCMCfilestr = 'base_lcdm_'
+    numom = 2001
   else
-          print *, 'Wrong model : ', nowmodel
-          stop
+    mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
+    MCMCfilestr = 'base_Rhct_'
+    numom = 31; ommin=0.1; ommax=0.4;
   endif
-
-
+  
+  
 !---------------------------------------------------------
   !--------------------------------
   ! Preparation for the compute of AP likelihood
@@ -122,14 +115,14 @@ implicit none
     iline = 1
     call cpu_time(t0); t1=t0; dt = 60.0;
 
-    do iom = 1, numom
+    do iom = 0, numom
     do iw0 = 1, numw0
     do iwa = 1, numwa
       
       ! Begin model dependent
       nowom=ommin + (ommax-ommin)/max(dble(numom-1),1.0d0)*(iom-1);
-      noww0=w0min + (w0max-w0min)/max(dble(numw0-1),1.0d0)*(iw0-1); 
-      nowwa=wamin + (wamax-wamin)/max(dble(numwa-1),1.0d0)*(iwa-1);
+      noww0=-1.0
+      nowwa=0.0
       nowH0=70.0;nowomk=0.0
       
       ! Values of parameters
@@ -147,15 +140,31 @@ implicit none
       
       ! DAs & Hzs
       do iz = 1, nz
-        DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
-        Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
+      
+      !! LCDM comments
+        if(do_lcdm_constraint) then
+          DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
+          Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
+        else
+          if(iom.eq.0) then
+            print *, 'DA of LCDM / Rhct', de_Inte(zeffs(iz)) / (1.0+zeffs(iz)), log(1.0+zeffs(iz)) / (1.0+zeffs(iz))
+            print *, 'Hz of LCDM / Rhct', 100.0 / de_inv_e(zeffs(iz)) , 100.0 * (1.0+zeffs(iz))
+	    DAs(iz) =  log(1.0+zeffs(iz)) / (1.0+zeffs(iz))*CONST_C/100.d0
+	    Hs(iz) = 100.0 * (1.0+zeffs(iz))
+	    if(iz.eq.1) print *, 'Rhct model. '
+	  else
+	    DAs(iz) = de_Inte(zeffs(iz))*CONST_C/100.d0 / (1.0+zeffs(iz))
+            Hs(iz) = 100.0 / de_inv_e(zeffs(iz)) 
+	    if(iz.eq.1) print *, 'LCDM model. om = ', nowom
+	  endif
+	endif
         if(debug) then
           nowpar%omegam = 0.06_rt; nowpar%w=-1.5_rt
           DAs(iz) = DAz_wcdm(nowpar,zeffs(iz))
           Hs(iz)  = Hz_wcdm(nowpar,zeffs(iz))
         endif
-        !print *, 'Check DA: ', DAz_wcdm(nowpar,zeffs(iz)), DAs(iz)
-        !print *, 'Check H:  ', Hz_wcdm(nowpar,zeffs(iz)), Hs(iz)
+!        print *, 'Check DA: ', DAz_wcdm(nowpar,zeffs(iz)), DAs(iz)
+!        print *, 'Check H:  ', Hz_wcdm(nowpar,zeffs(iz)), Hs(iz)
         !Hs(iz) = Hz_wcdm(nowpar, zeffs(iz))
       enddo
 !      stop
@@ -170,8 +179,10 @@ implicit none
           chisqs_nosyscor_all, chisqs_syscor_all, & ! values of chisqs, averaged over all schemes, correction factor for covmat (D, m1, m2) considered
           weightedstds = .false., avg_counts = .false. &
           ) 
-!       APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
-        APlnlikes(iline) = sum(chisqs_nosyscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
+        APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
+        print *, 'Sys-corred:   ', real(chisqs_syscor_all(1:nz-1))* (4.0/5.0),  sum(chisqs_syscor_all(1:nz-1))* (4.0/5.0)
+        print *, 'Sys-uncorred: ', real(chisqs_nosyscor_all(1:nz-1))* (4.0/5.0),  sum(chisqs_nosyscor_all(1:nz-1))* (4.0/5.0)
+!        APlnlikes(iline) = sum(chisqs_nosyscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
       else
         APlnlikes(iline) = 0.0d0
       endif
@@ -188,7 +199,7 @@ implicit none
       if (t2-t1.gt.dt.or.print_allinfo) then
         write(*,'(f10.1,A,i5,A,f4.1,A)') (t2-t0)/dt, ' minutes passed.   #-parameters = ', &
            iline, ' (',100*float(iline)/float(nlines),'%)'
-        write(*,'(A,1x,6(f9.4))') '             Current set of wei / chi2 / APchi2 / par:  ', &
+        write(*,'(A,1x,6(f9.4))') '             Current set of APchi2 / par:  ', &
           APlnlikes(iline), nowom, nowH0/100.0, noww0, nowwa, nowomk
         t1=t2
       endif
@@ -209,8 +220,8 @@ implicit none
     do iwa = 1, numwa
       ! Begin model dependent
       nowom=ommin + (ommax-ommin)/max(dble(numom-1),1.0d0)*(iom-1);
-      noww0=w0min + (w0max-w0min)/max(dble(numw0-1),1.0d0)*(iw0-1); 
-      nowwa=wamin + (wamax-wamin)/max(dble(numwa-1),1.0d0)*(iwa-1);
+      noww0=-1.0
+      nowwa=0.0
       nowH0=70.0;nowomk=0.0
       
       nowlnlike = APlnlikes(iline)
