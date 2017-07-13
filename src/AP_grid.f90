@@ -22,17 +22,21 @@ implicit none
   logical :: smutabstds_inited, debug=.false., print_allinfo=.false.
 
 
-  ommin=0.1;  ommax=0.4; 
+!  ommin=0.1;  ommax=0.4; 
+!  w0min=-1.4; w0max=-0.3; 
+!  wamin=-2.5; wamax=0.9;
+!  numom=120; numw0=120; numwa= 120 
+  ommin=0.01;  ommax=0.99; 
   w0min=-1.4; w0max=-0.3; 
   wamin=-2.5; wamax=0.9;
-  numom=100; numw0=100; numwa=100  
+  numom=150; numw0=120; numwa= 120 
 
 !  nowmodel = model_wcdm;   wamin=0.0;wamax=0.0;numwa=1
   nowmodel = model_cpl; !ommin=0.31; ommax=0.31; numom=1
 !  nowmodel = model_olcdm
 
- 
-  !ommin=0.1; ommax=0.2; numom=34; suffixstr = 'base1omws_om0.2600_w-1.0000_1'!_fixom0.31'
+ suffixstr = 'base1omws_om0.2600_w-1.0000_with_syscor_ext'!_fixom0.31'
+  !ommin=0.1; ommax=0.2; numom=34; 
   !ommin=0.20303030303d0; ommax=0.3; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_2'!_fixom0.31'
   !ommin=0.30303030303d0; ommax=0.4; numom=33; suffixstr = 'base1omws_om0.2600_w-1.0000_3'!_fixom0.31'
 !  suffixstr = 'base1omws_om0.2600_w-1.0000_ExcludeLastThreeBins_B'
@@ -48,7 +52,8 @@ implicit none
   !--------------------------------
   ! Settings of the model
 
-  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
+  !mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
+  mcmcdir = './'
   if(nowmodel .eq. model_wcdm) then! .or. nowmodel .eq. model_owcdm) then
   	  de_model_lab = de_wCDM_lab
           MCMCfilestr = 'base_w_AP'	  
@@ -164,8 +169,8 @@ implicit none
           chisqs_nosyscor_all, chisqs_syscor_all, & ! values of chisqs, averaged over all schemes, correction factor for covmat (D, m1, m2) considered
           weightedstds = .false., avg_counts = .false. &
           ) 
-        APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
-!        APlnlikes(iline) = sum(chisqs_nosyscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
+!       APlnlikes(iline) = sum(chisqs_syscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
+        APlnlikes(iline) = sum(chisqs_nosyscor_all(1:nz-1)) / 2.0 * (4.0/5.0)
       else
         APlnlikes(iline) = 0.0d0
       endif
