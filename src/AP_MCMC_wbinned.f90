@@ -1,4 +1,7 @@
 
+!!! Processing binned-w chains.
+!!  File formats: omegabh2, omegach2, theta, tau, w1, w2, ..., w30, logA, ns...
+!   We can not obtain values of Omegam! Not possible to continue!...
 
 program main
 use LSS_ximu_tests
@@ -12,7 +15,7 @@ implicit none
   integer :: i,j,k,i1,i2,iz,num_MCMCchain,numomwstds,nlines
   
   
-  integer :: iomcol=1,iw0col=1,iwacol=1,iomkcol=1,iH0col=1,maxcol, ifile,iline
+  integer :: maxcol, ifile,iline
   
   real(rt) :: omegam, omstds(1000), wstds(1000), DAs(nz), Hs(nz), & 
     chisqs_nosyscor(n1,n2,nz-1), chisqs_syscor(n1,n2,nz-1), chisqs_nosyscor_all(nz-1), chisqs_syscor_all(nz-1), &
@@ -22,53 +25,28 @@ implicit none
   real(rt), allocatable :: APlnlikes(:), smutabstds(:,:,:,:,:)
   character(charlen) :: inputMCMCfile, outputMCMCfile, mcmcdir, nowchisqstr, fileindexstr, MCMCfilestr, suffixstr=''
   type(omwpar) :: nowpar
-  integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6, model_lcdm=7, model_olcdm=8
+!  integer,parameter :: model_wcdm=3, model_cpl=4, model_owcdm=5, model_ocpl=6, model_lcdm=7, model_olcdm=8
   integer :: nowmodel
-  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false., VolumeWeightedDAH=.false.
+  logical :: smutabstds_inited, debug=.false., avg_counts = .false., print_allinfo=.false., VolumeWeightedDAH=.true.
 
   if(.not. numgal_inited) call numgal_init()
-  !stop
 
-  nowmodel = model_wcdm
 !  nowmodel = model_cpl
-!  nowmodel = model_olcdm
-  suffixstr = 'base1omws_om0.2600_w-1.0000_HalfNorm'
+  suffixstr = 'base1omws_om0.2600_w-1.0000_VolumeWeightedDAH'
 !  print_allinfo = .true.
   
 !---------------------------------------------------------
   !--------------------------------
   ! Settings of the model
   
-  if(nowmodel .eq. model_wcdm) then! .or. nowmodel .eq. model_owcdm) then
-	  de_model_lab  = de_wcdm_lab
-	  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
-          MCMCfilestr = 'base_w_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'	  
-          iw0col=5; iH0col=37; iomcol=39; 
-  elseif(nowmodel .eq. model_cpl ) then
-  	  de_model_lab = de_CPL_lab
-  	  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
-  	  MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'
-  	  iw0col=5; iwacol=6; iH0col=38; iomcol=40; 
-  elseif(nowmodel .eq. model_olcdm ) then
-  	  de_model_lab = de_LCDM_lab
-  	  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
-  	  MCMCfilestr = 'base_omegak_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'
-  	  iw0col=1; iwacol=1; iH0col=37; iomcol=39; iomkcol=5;
-  else
-          print *, 'Wrong model : ', nowmodel
-          stop
-  endif
+!  if(nowmodel .eq. model_wcdm) then! .or. nowmodel .eq. model_owcdm) then
+!	  de_model_lab  = de_wcdm_lab
+!	  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
+ !         MCMCfilestr = 'base_w_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA'	  
+!          iw0col=5; iH0col=37; iomcol=39; 
 
-!  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA/'    
-  
-  ! Special setting for CMB+BAO chain
-  !if(.false.) then
-  ! mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/plikHM_TTTEEE_lowTEB_BAO/'
-  ! MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO'; iw0col=5; iwacol=6; iH0col=36; iomcol=38; 
-  !endif
-!   MCMCfilestr = 'base_w_wa_plikHM_TTTEEE_lowTEB_BAO_H070p6_JLA_post_lensing'
-
-  maxcol=max(iw0col,iwacol,iH0col,iomcol,iomkcol)+2
+  mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/chains/'
+  maxcol = 36+2
   num_MCMCchain = 4
 
   ! End of settings
@@ -79,16 +57,11 @@ implicit none
   ! Preparation for the compute of AP likelihood
   
   numomwstds = 1
-!  omstds(1)  = 0.11_rt;  wstds(1)  = -2.0_rt
   omstds(1)  = 0.26_rt;  wstds(1)  = -1.00_rt
   omstds(2)  = 0.26_rt;  wstds(2)  = -0.60_rt
-!  omstds(3)  = 0.26_rt;  wstds(3)  = -1.40_rt
-!  omstds(4)  = 0.26_rt;  wstds(4)  = -0.60_rt
-!  omstds(5)  = 0.31_rt;  wstds(5)  = -1.40_rt
-!  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
 
   print *, '(Begin) Load in necessary files.'
-!  call system('sleep 0'); print *, 'Compute/output covmats...';call calc_covmats();call output_covmats('_halfnorm')
+!  call system('sleep 0'); print *, 'Compute/output covmats...';call calc_covmats();call output_covmats()
   print *, '* Load in covmats:'
   call load_covmats()
   print *, '* Invert covmats:'
@@ -135,19 +108,9 @@ implicit none
       read(3293,*,end=100) tmpX(1:maxcol)
       
       ! Begin model dependent
-      nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2)
-      nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
+      !nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2)
+      !nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
       
-      if(nowmodel.eq.model_wcdm .or. nowmodel.eq.model_owcdm .or. &
-      	 nowmodel.eq.model_lcdm .or. nowmodel.eq.model_olcdm) &
-      	    nowwa = 0.0; 
-      	    
-      if(nowmodel.eq.model_wcdm .or. nowmodel.eq.model_cpl   .or. &
-         nowmodel.eq.model_lcdm)  &
-            nowomk = 0.0; 
-            
-      if(nowmodel.eq. model_lcdm .or. nowmodel.eq.model_olcdm) &
-            noww0 = 0
             
       ! Values of parameters
       de_CP%Ob0hsq  =  0.02253
@@ -243,19 +206,9 @@ implicit none
     iline = 1
     do while(.true.)
       read(3293,*,end=101) tmpX(1:maxcol)
-      nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2) ! model dependent
-      nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
+      !nowweight=tmpX(1); nowlnlike=tmpX(2); nowom=tmpX(iomcol+2); noww0=tmpX(iw0col+2); nowH0=tmpX(iH0col+2) ! model dependent
+      !nowwa=tmpX(iwacol+2); nowomk=tmpX(iomkcol+2)
       
-      if(nowmodel.eq.model_wcdm .or. nowmodel.eq.model_owcdm .or. &
-      	 nowmodel.eq.model_lcdm .or. nowmodel.eq.model_olcdm) &
-      	    nowwa = 0.0; 
-      	    
-      if(nowmodel.eq.model_wcdm .or. nowmodel.eq.model_cpl   .or. &
-         nowmodel.eq.model_lcdm)  &
-            nowomk = 0.0; 
-            
-      if(nowmodel.eq. model_lcdm .or. nowmodel.eq.model_olcdm) &
-            noww0 = 0
             
       nowAPlnlike = APlnlikes(iline)
       nowweight = nowweight * exp(APlnlikemin - nowAPlnlike)
