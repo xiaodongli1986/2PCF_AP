@@ -29,10 +29,10 @@ implicit none
   if(.not. numgal_inited) call numgal_init()
   !stop
 
-  nowmodel = model_wcdm
-!  nowmodel = model_cpl
+!  nowmodel = model_wcdm
+  nowmodel = model_cpl
 !  nowmodel = model_olcdm
-  suffixstr = 'base1omws_om0.2600_w-1.0000_HalfNorm'
+  suffixstr = 'base1omws_om0.2600_w-1.0000_Check'
 !  print_allinfo = .true.
   
 !---------------------------------------------------------
@@ -88,9 +88,9 @@ implicit none
 !  omstds(6)  = 0.31_rt;  wstds(6)  = -0.60_rt
 
   print *, '(Begin) Load in necessary files.'
-!  call system('sleep 0'); print *, 'Compute/output covmats...';call calc_covmats();call output_covmats('_halfnorm')
-  print *, '* Load in covmats:'
-  call load_covmats()
+!  call system('sleep 0'); print *, 'Compute/output covmats...';call calc_covmats();call output_covmats('_2sbin.s20')
+!  print *, '* Load in covmats:';  call load_covmats('_2sbin.s20')
+  print *, '* Load in covmats:'; call load_covmats('')
   print *, '* Invert covmats:'
   call invert_covmats()
   print *, '* Compute systematic correction:'
@@ -223,8 +223,31 @@ implicit none
       if (t2-t1.gt.dt.or.print_allinfo) then
         write(*,'(f10.1,A,i5,A,f4.1,A)') (t2-t0)/dt, ' minutes passed.   #-parameters = ', &
            iline, ' (',100*float(iline)/float(nlines),'%)'
-        write(*,'(A,e12.4,1x,f10.3,1x,6(f9.4))') '             Current set of wei / chi2 / APchi2 / par:  ', &
-          nowweight, nowlnlike, APlnlikes(iline), nowom, nowH0/100.0, noww0, nowwa, nowomk
+        write(*,'(A,e12.4,1x,f10.3,A,f10.3,A,f8.3,A,5x,5(f9.4))') '             Current set of wei / chi2 /  par:  ', &
+          nowweight, nowlnlike+APlnlikes(iline), '  (',nowlnlike, '  +', APlnlikes(iline), ' )', &
+          nowom, nowH0/100.0, noww0, nowwa, nowomk
+          
+!       0.2 minutes passed.   #-parameters =     1 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.1000E+01   6870.000  (  6833.867+    36.133)        0.2965   0.6927  -1.0644   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     2 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.3000E+01   6869.146  (  6833.193+    35.953)        0.2970   0.6908  -1.0478   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     3 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.1000E+01   6872.053  (  6835.938+    36.115)        0.2978   0.6918  -1.0667   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     4 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.1000E+01   6869.462  (  6833.537+    35.925)        0.2996   0.6895  -1.0601   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     5 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.2000E+01   6867.157  (  6830.227+    36.930)        0.3065   0.6820  -1.0364   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     6 ( 0.0%)
+!             Current set of wei / chi2 /  par:    0.1000E+01   6875.092  (  6838.224+    36.868)        0.3070   0.6818  -1.0398   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     7 ( 0.1%)
+!             Current set of wei / chi2 /  par:    0.4000E+01   6867.282  (  6830.157+    37.125)        0.3108   0.6778  -1.0218   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     8 ( 0.1%)
+!             Current set of wei / chi2 /  par:    0.1000E+01   6866.756  (  6829.730+    37.026)        0.3087   0.6799  -1.0294   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =     9 ( 0.1%)
+!             Current set of wei / chi2 /  par:    0.4000E+01   6867.033  (  6830.743+    36.290)        0.3031   0.6902  -1.0890   0.0000   0.0000
+!       0.2 minutes passed.   #-parameters =    10 ( 0.1%)
+!             Current set of wei / chi2 /  par:    0.3000E+01   6864.832  (  6828.445+    36.387)        0.3027   0.6909  -1.0907   0.0000   0.0000
+
         t1=t2
       endif
       iline = iline +1
