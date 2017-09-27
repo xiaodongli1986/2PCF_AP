@@ -1,22 +1,82 @@
-%\documentclass[preprint,prd,aps,amsmath,amssymb,nofootinbib]{revtex4}
+%%% On-going present
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL Draft0.8.tex   Tue Jul  4 10:36:59 2017
-%DIF ADD Draft0.9.tex   Tue Jul  4 11:56:31 2017
-%\documentclass[prd,aps,amsmath,amssymb,nofootinbib]{revtex4}
-%\documentclass[aps,twocolumn,showpacs,floatfix,superscriptaddress]{revtex4}
-\documentclass[prl,twocolumn,superscriptaddress,aps,amsmath,amssymb,nofootinbib,altaffilletter]{revtex4}
-%\documentclass[prl,superscriptaddress,twocolumn,nopreprintnumbers,floatfix,preprintnumbers,altaffilletter]{revtex4}
+%DIF DEL Draft1.1.tex   Wed Aug  2 11:18:00 2017
+%DIF ADD Draft1.2.tex   Thu Aug  3 12:21:39 2017
+%%
+%% Beginning of file 'sample.tex'
+%%
+%% Modified 2005 December 5
+%%
+%% This is a sample manuscript marked up using the
+%% AASTeX v5.x LaTeX 2e macros.
+
+%% The first piece of markup in an AASTeX v5.x document
+%% is the \documentclass command. LaTeX will ignore
+%% any data that comes before this command.
+
+%% The command below calls the preprint style  
+%% which will produce a one-column, single-spaced document.
+%% Examples of commands for other substyles follow. Use
+%% whichever is most appropriate for your purposes.
+%%
+%%\documentclass[12pt,preprint]{aastex}
+
+%% manuscript produces a one-column, double-spaced document:
+
+%%\documentclass[manuscript]{aastex}
+
+%% preprint2 produces a double-column, single-spaced document:
+
+ %\documentclass[preprint2]{aastex}
+%\documentclass[preprint2]{aastex}
+%\documentclass[manuscript]{aastex}
+\documentclass[iop]{emulateapj}
+\renewcommand{\baselinestretch}{0.95}
+%% Sometimes a paper's abstract is too long to fit on the
+%% title page in preprint2 mode. When that is the case,
+%% use the longabstract style option.
+
+%% \documentclass[preprint2,longabstract]{aastex}
+
+%% If you want to create your own macros, you can do so
+%% using \newcommand. Your macros should appear before
+%% the \begin{document} command.
+%%
+%% If you are submitting to a journal that translates manuscripts
+%% into SGML, you need to follow certain guidelines when preparing
+%% your macros. See the AASTeX v5.x Author Guide
+%% for information.
+
+\usepackage{enumitem} 
+
+\newcommand{\hMsun}{{\ifmmode{h^{-1}{\rm
+        {M_{\odot}}}}\else{$h^{-1}{\rm{M_{\odot}}}$~}\fi}} 
+\newcommand{\hMpc}{{\ifmmode{h^{-1}{\rm Mpc}}\else{$h^{-1}$Mpc }\fi}}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
 
 
-\usepackage{graphicx}
-\usepackage{subfigure}
-\usepackage{bm}
-\usepackage{amsmath}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{float}
-\usepackage{color}
-\graphicspath{{figs/}}
+%% You can insert a short comment on the title page using the command below.
+
+%\slugcomment{Not to appear in Nonlearned J., 45.}
+
+%% If you wish, you may supply running head information, although
+%% this information may be modified by the editorial offices.
+%% The left head contains a list of authors,
+%% usually a maximum of three (otherwise use et al.).  The right
+%% head is a modified title of up to roughly 44 characters.
+%% Running heads will not print in the manuscript style.
+
+%\title[]
+%{}
+
+\shorttitle{Significantly improved dark energy figure of merit from reshift dependence of AP effect}
+\shortauthors{X.-D. Li, C. Park, C.G. Sabiu, H. Park, D.H. Weinberg, J. Kim, S.E. Hong}
+
+%% This is the end of the preamble.  Indicate the beginning of the
+%% paper itself with \begin{document}.
 %DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
 %DIF UNDERLINE PREAMBLE %DIF PREAMBLE
 \RequirePackage[normalem]{ulem} %DIF PREAMBLE
@@ -39,50 +99,159 @@
 
 \begin{document}
 
+%% LaTeX will automatically break titles if they run longer than
+%% one line. However, you may use \\ to force a line break if
+%% you desire.
+
 \title{Cosmological constraints from the redshift dependence of the Alcock-Paczynski effect: 
-\DIFdelbegin \DIFdel{constraining }\DIFdelend \DIFaddbegin \DIFadd{significant improvement in }\DIFaddend the \DIFdelbegin \DIFdel{linear evolution of }\DIFdelend dark energy \DIFaddbegin \DIFadd{figure of merit}\DIFaddend }
+significant improvement in the dark energy figure of merit}
 
-\author{ 
-Xiao-Dong Li,$^{1}$
-Cristiano G. Sabiu,$^{2}$
-Changbom Park,$^{1}$
-Yuting Wang,$^{3}$
-Gong-bo Zhao,$^{3}$
-Hyunbae Park,$^{2}$
-Arman Shafieloo,$^{2}$
-Juhan Kim,$^{4}$
-and Sungwook E. Hong$^{2}$}
 
-  \affiliation{School of Physics, Korea Institute for Advanced Study, 85 Heogi-ro, Dongdaemun-gu, Seoul 02455, Korea}
-  \affiliation{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
-  \affiliation{National Astronomy Observatories, Chinese Academy of Science, Beijing, 100012, P.R.China}
-  \affiliation{Center for Advanced Computation, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-gu, Seoul 02455, Korea}
+%\author{Xiao-Dong~Li\altaffilmark{1}, Changbom~Park\altaffilmark{1}, J.~E.~Forero-Romero\altaffilmark{2} and Juhan Kim%\altaffilmark{3}}
+%\affil{\altaffilmark{1}School of Physics, Korea Institute for Advanced Study, Heogiro 85, Seoul 130-722, Korea }
+%\affil{\altaffilmark{2}Departamento de F\'{i}sica, Universidad de los Andes, Cra. 1 No. 18A-10, Edificio Ip, Bogot\'a, %Colombia}
+%\affil{\altaffilmark{3}Center for Advanced Computation, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-%gu, Seoul 130-722, Korea }
+%\affil{\it (xiaodongli@kias.re.kr, cbp@kias.re.kr, je.forero@uniandes.edu.co, kjhan@kias.re.kr)}
+
+%\author[Xiao-Dong~Li, Changbom~Park, Cristiano G. Sabiu, Juhan Kim and Sungwook E. Hong]
+%{ Xiao-Dong Li$^{1,\dagger}$, Changbom Park$^{1}$, Cristiano G. Sabiu$^{2}$, Juhan Kim$^{3,1,\star}$, Sungwook E. Hong$^{1}$\\
+%$^1$School of Physics, Korea Institute for Advanced Study, 85 Heogi-ro, Dongdaemun-gu, Seoul 130-722, Korea\\
+%$^2$Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 305-348, Korea\\
+%$^3$Center for Advanced Computation, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-gu, Seoul 130-722, Korea\\
+%$^{\dagger}$xiaodongli@kias.re.kr\\
+%$\star$Corresponding Author: ***@kasi.re.kr}
+
+\author{Xiao-Dong Li,}
+\affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
+\author{Cristiano G. Sabiu,}
+\affil{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
+\author{Changbom Park,}
+\affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
+\author{Yuting Wang, Gong-bo Zhao}
+\affil{National Astronomy Observatories, Chinese Academy of Science, Beijing, 100012, P.R.China}
+\author{Hyunbae Park, Arman Shafieloo,}
+\affil{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
+\author{Juhan Kim,}
+\affil{Center for Advanced Computation, Korea Institute for Advanced Study, 85 Hoegi-ro, Dongdaemun-gu, Seoul 02455, Korea}
+\author{and Sungwook E. Hong}
+\affil{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
+
+%\altaffiltext{1}{xiaodongli@kias.re.kr}
+%\altaffiltext{2}{cbp@kias.re.kr}
+%\altaffiltext{3}{csabiu@kasi.re.kr}
+%\altaffiltext{4}{\bf Hyunbae: your email}
+\altaffiltext{1}{Corresponding Author: kjhan@kias.re.kr}
+
+% \email{xiaodongli@kias.re.kr}
+% \email{cbp@kias.re.kr}
+% \email{je.forero@uniandes.edu.co}
+
+
+
+% \author{S. Djorgovski\altaffilmark{1,2,3} and Ivan R. King\altaffilmark{1}}
+% \affil{Astronomy Department, University of California,
+%     Berkeley, CA 94720}
+%
+% \author{C. D. Biemesderfer\altaffilmark{4,5}}
+% \affil{National Optical Astronomy Observatories, Tucson, AZ 85719}
+% \email{aastex-help@aas.org}
+%
+% \and
+%
+% \author{R. J. Hanisch\altaffilmark{5}}
+% \affil{Space Telescope Science Institute, Baltimore, MD 21218}
+%
+% %% Notice that each of these authors has alternate affiliations, which
+% %% are identified by the \altaffilmark after each name.  Specify alternate
+% %% affiliation information with \altaffiltext, with one command per each
+% %% affiliation.
+%
+% \altaffiltext{1}{Visiting Astronomer, Cerro Tololo Inter-American Observatory.
+% CTIO is operated by AURA, Inc.\ under contract to the National Science
+% Foundation.}
+% \altaffiltext{2}{Society of Fellows, Harvard University.}
+% \altaffiltext{3}{present address: Center for Astrophysics,
+%     60 Garden Street, Cambridge, MA 02138}
+% \altaffiltext{4}{Visiting Programmer, Space Telescope Science Institute}
+% \altaffiltext{5}{Patron, Alonso's Bar and Grill}
+
+%% Mark off your abstract in the ``abstract'' environment. In the manuscript
+%% style, abstract will output a Received/Accepted line after the
+%% title and affiliation information. No date will appear since the author
+%% does not have this information. The dates will be filled in by the
+%% editorial office after submission.
 
 \begin{abstract}
-We use the small scale anisotropic clustering signal of 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
+We use the anisotropic clustering signal of 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
 12, spanning the redshift range $0.15<z<0.69$ to place constraints on the expansion history of the Universe. 
-Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$,
-while improving upon earlier works \citep{Li2016}, 
-we present a novel use of the Alcock-Paczynski (AP) test via \DIFdelbegin \DIFdel{the small scales }\DIFdelend clustering difference between redshift bins \DIFaddbegin \DIFadd{on scales of 6-40 $h^{-1}\rm Mpc$}\DIFaddend .
-This differential measure is shown to be a robust statistical tool that mitigates many systematic effects, 
-allowing for competitive and unbiased constrains to be placed on cosmological parameters.
-We find that our results, in combination with the CMB, BAO, SNIa and $H_0$ from Cepheid data\DIFdelbegin \DIFdel{yield, }\DIFdelend \DIFaddbegin \DIFadd{, yield
+\DIFdelbegin \DIFdel{Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$,
+while improving upon earlier works \mbox{%DIFAUXCMD
+\citep{Li2016}}%DIFAUXCMD
+,
+we present a novel use of the }\DIFdelend %DIF > Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$,
+%DIF > while improving upon earlier works \citep{Li2016},
+%DIF > we present a novel use of the Alcock-Paczynski (AP) test via clustering difference between redshift bins on scales of 6-40 $h^{-1}\rm Mpc$.
+%DIF > This differential measure is shown to be a robust statistical tool that mitigates many systematic effects, 
+%DIF > allowing for competitive and unbiased constrains to be placed on cosmological parameters.
+\DIFaddbegin \DIFadd{The }\DIFaddend Alcock-Paczynski (AP) test \DIFdelbegin \DIFdel{via clustering difference between redshift bins }\DIFdelend \DIFaddbegin \DIFadd{was performed via the redshift dependence of clustering }\DIFaddend on scales of 6-40 $h^{-1}\rm Mpc$.
+\DIFdelbegin \DIFdel{This differential measure is shown to be a robust statistical tool that mitigates many systematic effects, 
+allowing for competitive and unbiased constrains to be placed on }\DIFdelend \DIFaddbegin \DIFadd{We improve the methodology of \mbox{%DIFAUXCMD
+\cite{Li2016} }%DIFAUXCMD
+by significantly reducing its computation time. 
+This enables us to efficiently explore three or more }\DIFaddend cosmological parameters.
+%DIF <  The Alcock-Paczynski (AP) test was performed via the redshift dependence of clustering on scales of 6-40 $h^{-1}\rm Mpc$.
+%DIF <  We improve the methodology of \citep{Li2016} by significantly reducing its computation time, 
+%DIF <  which enables us to explore three or more cosmological parameters.
+%DIF <  We applied the improved method on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$.
+\DIFdelbegin \DIFdel{We find that our results, in }\DIFdelend \DIFaddbegin \DIFadd{We then apply the improved method on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$.
+In }\DIFaddend combination with the CMB, BAO, SNIa and $H_0$ from Cepheid data, \DIFdelbegin \DIFdel{yield
+}\DIFdelend \DIFaddbegin \DIFadd{we obtain
 }\DIFaddend $\Omega_m = 0.301 \pm 0.008,\ w_0 = -1.042 \pm 0.067,\ w_a = -0.07 \pm 0.29$ (68.3\% CL). 
 Adding our new AP measurements to the aforementioned results 
 reduces the error bars by $\sim$30-40\%,
-\DIFdelbegin \DIFdel{and reduces the area of $w_0-w_a$ contour by 50\%.
-}\DIFdelend %DIF > and reduces the area of $w_0-w_a$ contour by 50\%.
-\DIFaddbegin \DIFadd{and improves the dark energy figure of merit by a factor of 2. 
-}\DIFaddend The AP method can \DIFdelbegin \DIFdel{be combined with the standard BAO method,
-greatly increasing }\DIFdelend %DIF > be combined with the standard BAO method,
-\DIFaddbegin \DIFadd{greatly increase }\DIFaddend the power of ongoing and future galaxy surveys in probing dark energy\DIFdelbegin \DIFdel{, 
-improving the figure of merit constraints on $(w_0,w_a)$ by a factor of 2. 
-}\DIFdelend \DIFaddbegin \DIFadd{.
+%and reduces the area of $w_0-w_a$ contour by 50\%.
+and improves the dark energy figure of merit by a factor of 2. 
+%DIF <  We carefully checked the robustness of the results.
+\DIFdelbegin \DIFdel{The AP method can %DIF < be combined with the standard BAO method,
+greatly increase the power of ongoing and future galaxy surveys in probing dark energy.
+}\DIFdelend \DIFaddbegin \DIFadd{We checked the robustness of the results.
+%DIF > The AP method may %be combined with the standard BAO method,
+%DIF > greatly increase the power of ongoing and future galaxy surveys in probing dark energy.
 }\DIFaddend \end{abstract}
 
-\pacs{95.36.+x, 98.80.–k}
-\maketitle
+%% Keywords should appear after the \end{abstract} command. The uncommented
+%% example has been keyed in ApJ style. See the instructions to authors
+%% for the journal to which you are submitting your paper to determine
+%% what keyword punctuation is appropriate.
 
+\keywords{large-scale structure of Universe --- dark energy --- cosmological parameters}
+
+%% From the front matter, we move on to the body of the paper.
+%% In the first two sections, notice the use of the natbib \citep
+%% and \citet commands to identify citations.  The citations are
+%% tied to the reference list via symbolic KEYs. The KEY corresponds
+%% to the KEY in the \bibitem in the reference list below. We have
+%% chosen the first three characters of the first author's name plus
+%% the last two numeral of the year of publication as our KEY for
+%% each reference.
+
+
+%% Authors who wish to have the most important objects in their paper
+%% linked in the electronic edition to a data center may do so by tagging
+%% their objects with \objectname{} or \object{}.  Each macro takes the
+%% object name as its required argument. The optional, square-bracket
+%% argument should be used in cases where the data center identification
+%% differs from what is to be printed in the paper.  The text appearing
+%% in curly braces is what will appear in print in the published paper.
+%% If the object name is recognized by the data centers, it will be linked
+%% in the electronic edition to the object data available at the data centers
+%%
+%% Note that for sources with brackets in their names, e.g. [WEG2004] 14h-090,
+%% the brackets must be escaped with backslashes when used in the first
+%% square-bracket argument, for instance, \object[\[WEG2004\] 14h-090]{90}).
+%%  Otherwise, LaTeX will issue an error.
+
+\section{Introduction}
 
 \begin{figure*}
    \centering{
@@ -101,8 +270,6 @@ improving the figure of merit constraints on $(w_0,w_a)$ by a factor of 2.
    }
 \end{figure*}
 
-%\section{Introduction}
-{\it Introduction.}---
 The  origin  of  the late-time accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. 
 Theoretical explanations for this phenomena are many and range from a non-zero  vacuum energy and evolving  scalar  fields  remnant  from  the  big  bang, 
 to modifications of Einstein's General Relativity\cite{2012IJMPD..2130002Y}. 
@@ -113,9 +280,9 @@ differentiate between competing models.
 In recent years the Alcock-Paczynski (AP) test \citep{AP1979} applied to galaxy redshift samples \citep{Outram2004,Blake2011,Alam2016}, 
 has allowed tight constraints to be placed on the background averaged distance scales, $D_A(z)$ and $H^{-1}(z)$.  
 Assuming an incorrect cosmological model for the coordinate transformation between redshift space and comoving space
-\DIFdelbegin \DIFdel{, }\DIFdelend produces residual geometric distortions in the resultant galaxy distribution \DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{(}\DIFaddend see  Fig.\ref{fig_xy}\DIFaddbegin \DIFadd{)}\DIFaddend . 
+produces residual geometric distortions in the resultant galaxy distribution (see  Fig.\ref{fig_xy}). 
 These distortions are induced by the fact that measured distances along 
-and perpendicular to the line of sight are fundamentally different. 
+and perpendicular to the line of sight are connected with cosmological parameters differently. 
 Measuring the ratio of galaxy clustering in the radial and transverse directions provides a probe of this AP effect.
 
 %The BAO standard ruler method for obtaining estimates of $D_A(z)$ and $H^{-1}(z)$ is widely used and accepted by the community.
@@ -135,7 +302,7 @@ The symmetry properties of galaxy pairs\cite{Marinoni2010}  could also be used t
 however, since the peculiar velocity distorts the redshifts and changes the apparent tilt angles of galaxy pairs,
 this method is also seriously limited by RSD \citep{Jennings2011}.
 
-In an effort to \DIFdelbegin \DIFdel{minimise }\DIFdelend \DIFaddbegin \DIFadd{minimize }\DIFaddend RSD contamination, the shape of void regions\cite{Ryden1995,LavausWandelt1995}  has been 
+In an effort to minimize RSD contamination, the shape of void regions\cite{Ryden1995,LavausWandelt1995}  has been 
 proposed as an AP probe. This approach has the advantage that the void regions are easier to model compared with dense regions, but has limitations in that it utilizes only low density regions of the LSS and requires large samples to achieve competitive constraints \citep{Qingqing2016}.
 
 %In an effort to overcome the RSD problem, 
@@ -148,7 +315,7 @@ the anisotropy in the clustering signal has a clear redshift dependence
 (as an illustration, Fig.\ref{fig_xy} shows how the shape distortion of objects varies with distance (i.e., redshift) 
 when incorrect cosmologies are used to infer distances).
 In a later work\cite{Li2015}, we developed an AP methodology 
-that \DIFdelbegin \DIFdel{utilises }\DIFdelend \DIFaddbegin \DIFadd{utilizes }\DIFaddend the redshift dependence of the galaxy 2-point correlation function (2pCF), 
+that utilizes the redshift dependence of the galaxy 2-point correlation function (2pCF), 
 measured as a function of angle between the galaxy pair and line-of-sight (LoS).
 
 
@@ -174,25 +341,23 @@ w(z) = w_0 + w_a (1-a) = w_0 + w_a \frac{z}{1+z}.
 \end{equation}
 This parametrization characterizes dark energy equation-of-state (EoS) by two free parameters.
 $w_0$ determines the present-day value, while parameter $w_a$ characterizes the first-order derivative of $w$ with respect to $a$. 
+The possible redshift evolution of dark energy EoS is not considered in the analysis of \cite{Li2016}. 
 
 The CPL parametrization has many obvious advantages, for instance, a manageable parameter space, 
 the bounded behavior at high redshift, 
 and the ability to accurately reconstruct many dark energy theories\cite{CPL_L}. 
 So it was widely used in the literature to reconstruct dark energy from observations.
-\DIFdelbegin \DIFdel{Especially, the DETF }\DIFdelend \DIFaddbegin \DIFadd{The constraining power is usually quantified by the DETF (Dark Energy Task Force) \mbox{%DIFAUXCMD
-\cite{DETF} }%DIFAUXCMD
-}\DIFaddend figure of merit\DIFdelbegin \DIFdel{(FoM) is defined }\DIFdelend \DIFaddbegin \DIFadd{, 
-defined as }\DIFaddend the reciprocal of the area of the error ellipse enclosing the 95\% confidence limit \DIFdelbegin \DIFdel{in the $w_0–w_a$ plane. 
-This quantity quantifies the progress in measuring the properties of dark energy.
-Larger FoM indicates greater accuracy.
-}\DIFdelend \DIFaddbegin \DIFadd{(CL) in the $w_0-w_a$ plane. 
-}\DIFaddend Fig.\ref{fig_xy} shows that redshift dependence of shape distortion is sensitive to both $w_0$ and $w_a$.
+The constraining power is usually quantified by the DETF (Dark Energy Task Force) \cite{DETF} figure of merit, 
+defined as the reciprocal of the area of the error ellipse enclosing the 95\% confidence limit (CL) in the $w_0-w_a$ plane. 
+Fig.\ref{fig_xy} shows that redshift dependence of shape distortion is sensitive to both $w_0$ and $w_a$.
 So we expect these two parameters effectively constrained by our method.
 
+%{\bf AMTB: Please chose one kind of tense of verbs. It changes from sentences to sentences!}
+%{\bf AMTB: How many mock BOSS samples are made from HR4?}
 
-%\section{Methodology}\label{sec:method}
-{\it Methodology.}---
 
+
+\section{Methodology}
 The spectroscopic galaxy sample of SDSS-III BOSS (Baryon Oscillation Spectroscopic Survey) has two primary catalogues:
 %the LOWZ at $z\leq0.4$, and CMASS covering $0.4\leq z \leq 0.7$. %of galaxies.
 the LOWZ sample, designed as an extension of the SDSS-I/II luminous red galaxy sample to $z\approx 0.4$ and fainter luminosities,
@@ -210,7 +375,8 @@ The number density of galaxies and the redshift binning scheme is plotted in the
    \includegraphics[width=9.0cm,]{fig_2pcf.eps}
    }
    \caption{\label{fig_TpCF}
-   \DIFdelbeginFL \DIFdelFL{Spliting }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Splitting }\DIFaddendFL the SDSS galaxies into six \DIFdelbeginFL \DIFdelFL{redshiftbins}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{redshift bins}\DIFaddendFL , and measuring the correlation function.
+   Splitting the SDSS galaxies into six redshift bins, and measuring the correlation function
+   (similar figures already presented in \cite{Li2016}).
    Left panel: We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
    The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
    The vertical dashed lines define the six redshift bins that are used to cut the samples.
@@ -226,7 +392,7 @@ Following our previous methodology \citep{Li2016}, the information of small-scal
 %\footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
 as $\xi_{\Delta s} (\mu) \equiv \int_{s_{\rm min}}^{s_{\rm max}} \xi (s,\mu)\ ds$, 
 with $s_{\rm min}=6 h^{-1} {\rm Mpc},\ s_{\rm max}=40 h^{-1} {\rm Mpc}$.
-We then \DIFdelbegin \DIFdel{normalise }\DIFdelend \DIFaddbegin \DIFadd{normalize }\DIFaddend these {\em clustering shells} as 
+We then normalize these {\em clustering shells} as 
 $\hat\xi_{\Delta s}(\mu) \equiv \frac{\xi_{\Delta s}(\mu)}{\int_{0}^{\mu_{\rm max}}\xi_{\Delta s}(\mu)\ d\mu}$
 to nullify the amplitude information of the clustering signal, 
 which is not associated with the Alcock-Paczynski test and is mostly sensitive to the galaxy bias.
@@ -236,7 +402,7 @@ The right panel of Fig.\ref{fig_TpCF} shows the contour map of $\xi(s,\mu)$ meas
 The contour lines are not horizontal due to the effects of peculiar velocity,
 and the RSD effect clearly manifest itself through the tilting of contour lines.
 However, the shape of the tilted lines remain similar at different redshifts, a fact that enables us  to mitigate the RSD effect by focusing on the redshift dependence of the anisotropic clustering signal.
-The ``correct'' cosmological model is selected by \DIFdelbegin \DIFdel{minimising }\DIFdelend \DIFaddbegin \DIFadd{minimizing }\DIFaddend the amount of redshift evolution of $\hat\xi_{\Delta s}$,
+The ``correct'' cosmological model is selected by minimizing the amount of redshift evolution of $\hat\xi_{\Delta s}$,
 via a $\chi^2$ function of 
 \begin{equation}
  \chi^2\equiv \sum_{i=2}^{6} \sum_{j_1=1}^{n_{\mu}} \sum_{j_2=1}^{n_{\mu}} {\bf p}(z_i,\mu_{j_1}) ({\bf Cov}_{i}^{-1})_{j_1,j_2}  {\bf p}(z_i,\mu_{j_2})
@@ -254,13 +420,11 @@ Systematics effects are estimated using mock catalogues derived from Horizon Run
 an N-body simulation with box size $L={3150}$ $h^{-1}$Mpc, number of particles $6300^3$,   
 initial redshift $z_{i}=100$, and WMAP5\citep{komatsu2011} cosmological parameters 
 $(\Omega_{b},\Omega_{m},\Omega_\Lambda,h,\sigma_8,n_s)$  = (0.044, 0.26, 0.74, 0.72, 0.79, 0.96). 
-\DIFaddbegin \DIFadd{As presented in \mbox{%DIFAUXCMD
-\cite{Li2016}}%DIFAUXCMD
-, the value of $\left[\hat\xi_{\Delta s}(z_i,\mu_j)-\hat\xi_{\Delta s}(z_1,\mu_j)\right]_{\rm sys}$
+As presented in \cite{Li2016}, the value of $\left[\hat\xi_{\Delta s}(z_i,\mu_j)-\hat\xi_{\Delta s}(z_1,\mu_j)\right]_{\rm sys}$
 (mainly comes from redshift evolution of RSD and galaxy bias)
 reaches 4-6\% at the highest redshift bin,
 and is minor ($\lesssim2\%$) at the other redshift bins.
-}\DIFaddend Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \citep{hong2016}. 
+Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \citep{hong2016}. 
 The covariance matrix, ${\bf Cov}$, is computed from the 2,000 sets of MultiDark PATCHY mock catalogues \citep{MDPATCHY}.
 The statistical bias and scattering in the likelihood function (due to the finite number of mocks in covariance estimation) 
 are adequately corrected \citep{Hartlap,Percival2014}.
@@ -268,7 +432,7 @@ are adequately corrected \citep{Hartlap,Percival2014}.
 
 
 
-\DIFaddbegin \begin{figure*}
+\begin{figure*}
    \centering{
    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
    \includegraphics[height=5cm,natwidth=6,natheight=4.5]{figCPL_b.pdf}
@@ -279,20 +443,20 @@ are adequately corrected \citep{Hartlap,Percival2014}.
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_con}
-   \DIFaddFL{Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
+   Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
    Left panel: 68.3\%, 95.4\% CL likelihood contours in the  $w_0-w_a$ plane.
-   %DIF > Results are consistent with $\Lambda$CDM.
+   %Results are consistent with $\Lambda$CDM.
    The constrained area is significantly reduced after combined with the AP method.
-   %DIF > This shows the power of the AP method in constraining dynamical dark energy.
-   %DIF > Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
-   %DIF > When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
+   %This shows the power of the AP method in constraining dynamical dark energy.
+   %Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
+   %When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
    Right panel: Redshift evolution of $w(z)$, with/without adding the AP constraint.
    Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
-   }}
+   }
 \end{figure*}
 
 
-%DIF > Covariance matrix 
+%Covariance matrix 
 
 \begin{figure*}
    \centering{
@@ -303,17 +467,23 @@ are adequately corrected \citep{Hartlap,Percival2014}.
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_contest}
-   \DIFaddFL{Robustness test of the results.
+   Robustness test of the results.
    For the ``default'' constraints (pink contours) are derived using six redshift bins, 
    $\mu_{\rm max}=0.97$, $n_{\mu}=15-20$, $s=6-40 \rm Mpc/h$,
    a fiducial cosmology $\Omega_m=0.26,\ w=-1.0$ for the measurement of 2pCF,
    systematic effects estimated from Horizon Run 4 simulations, 
    and covariance estimated using 2,000 MultiDark PATCHY mocks.
-   When altering these options, the results remain robust (black contours).
-   }}
+   When we alters one of these options by using $\mu_{\rm max}=0.99$, 
+   $\mu_{\rm max}=0.85$, $n_{\mu}=15-20$, $s=8-30 \rm Mpc/h$, 
+   a fiducial cosmology of $\Omega_m=0.26,\ w=-0.6$, 
+   excluding the last redshift bin in the analysis, 
+   discarding the systematics correction, 
+   or reducing the number of mocks in the estimation of covariance matrix,
+   the results remain robust (black contours).
+   }
 \end{figure*}
 
-\DIFaddend In our earlier work\cite{Li2016}, the likelihood contour of $\Omega_m-w$ was constructed by
+In our earlier work\cite{Li2016}, the likelihood contour of $\Omega_m-w$ was constructed by
 measuring the 2PCF 3,375 times,
 using 3D positions of BOSS galaxies computed in 71$\times$45 sets of cosmological parameters.
 %with $0.06\leq \Omega_m\leq 0.41$, $-1.5 \leq w \leq -0.4$.
@@ -326,15 +496,17 @@ Thus we adopt an ``approximate 2PCF'' by transforming our measurements from one 
 In detail, the number of pairs are only counted in a fiducial cosmology
 -- which is taken as the $\Omega_m=0.26$ $\Lambda$CDM --
 and ``translated'' to the measurements in a ``target'' cosmology using the relations, 
-\begin{eqnarray}
- s_{\rm target} = s_{\rm fiducial} \sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}+\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}, \\
- \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}{\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial} +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
+\begin{eqnarray}\label{eq:smumap}
+ s_{\rm target} = s_{\rm fiducial} \sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2+\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}, \\
+ \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}{\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2 +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
 \end{eqnarray}
 where $\alpha_{\bot}\equiv D_{A,\rm target}/D_{A,\rm fiducial}$,
 $\alpha_{\parallel}\equiv H_{\rm fiducial}/H_{\rm target}$.
 and values of $D_A$ and $H$ are computed in the effective redshifts of the six redshift bins.
+%The left panel of Figure \ref{fig_method} shows how 
+%$\xi(s,\mu)$ is mapped from the fiducial cosmology to another cosmology using the above relations.
 In the fiducial cosmology
-we measure $\xi(s,\mu)$ in an ultra high resolution of
+we measure $\xi(s,\mu)$ with a high resolution of
 $\Delta s = 0.2 {\rm Mpc/h}$, $\Delta \mu = 1/600$,
 %Let us call this ``approximate 2pCF'' method.
 %to obtain the accurate number counts 
@@ -344,80 +516,70 @@ in large pixels of $\Delta s = 1 {\rm Mpc/h}$, $\Delta \mu = 1/120$.
 %in the fiducial cosmology and group the bins in the target cosmology.
 In the case when one small pixel belongs to more than one larger pixel,
 a correction is applied by computing the fraction of the overlapping area.
+%\footnote{A dense grid can effectively reduce the ``edge effect'' produced when we map $\xi(s,\mu)$ from one cosmology to another.
+%The edge effect would introduce artificial correlations between nearby pixels, smooth $\xi(s,\mu)$ a little bit, 
+%reduce the value of $\chi^2$, and change the obtained cosmological constriants.
+%We found that, using $\Delta s = 1 {\rm Mpc/h}$ and $\Delta \mu = 1/120$, 
+%the cosmological constraints of \cite{Li2016} can not be properly reproduced.}.
 
 We found when using the approximate method the computed 
 $\hat\xi_{\Delta s}(\mu)$ in a non-fiducial cosmology suffers from
 an error of $\lesssim0.5\%$, which is 10 times smaller than the statistical noise.
 We checked that the approximate method can reproduce the results presented in \cite{Li2016} quite well.
+% We checked that the approximate method can reproduce the results of precise method quite well.
+% The right panel of Figure \cite{fig_method} shows the  $\Omega_m$-$w_0$ constraints obtained 
+%  using the precise and approximate 2pCFs (here we fix $w_a=0$). 
+%  They agree with each other quite well.
 
-%DIF > It should be mentioned that simply using a linear interpolation to infer the values of $\xi$ in a new cosmology does {\it not} work.
-%DIF > The interpolation introduces an artificial smoothing in the inferred $\xi$, and reduces the 
-\DIFaddbegin 
-
-\DIFaddend %\section{Results}\label{sec:results}
-{\it Results.}---
-
-
-\DIFdelbegin %DIFDELCMD < \begin{figure*}
-%DIFDELCMD <    \centering{
-%DIFDELCMD <    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
-%DIFDELCMD <    \includegraphics[height=6cm,natwidth=6,natheight=4.5]{figCPL_b.pdf}
-%DIFDELCMD <    %\includegraphics[width=5.5cm,natwidth=4,natheight=4]{figCPL_b_BAOSNIaAP.pdf}
-%DIFDELCMD <    \includegraphics[height=6cm,natwidth=6,natheight=4.5]{figCPL_d.pdf}
-%DIFDELCMD <    %\includegraphics[height=8cm]{fig2b.pdf}
-%DIFDELCMD < %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
-%DIFDELCMD < %    \includegraphics[height=8cm]{smu.eps}
-%DIFDELCMD <    }
-%DIFDELCMD <    %%%
-%DIFDELCMD < \caption{%
-{%DIFAUXCMD
-%DIFDELCMD < \label{fig_con}
-%DIFDELCMD <    %%%
-\DIFdelFL{Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
-   Left panel: 68.3\%, 95.4\% CL likelihood contours in the  $w_0-w_a$ plane.
-   %DIF < Results are consistent with $\Lambda$CDM.
-   The constrained area is significantly reduced after combined with the AP method.
-   %DIF < This shows the power of the AP method in constraining dynamical dark energy.
-   %DIF < Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
-   %DIF < When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
-   Right panel: Redshift evolution of $w(z)$, with/without adding the AP constraint.
-   Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
+%DIF < \begin{figure*}
+%DIF <    \centering{
+%DIF <    \includegraphics[width=6cm]{fig_smu.eps}
+%DIF <    \includegraphics[width=10.5cm]{fig_comp.eps}
+%DIF <    }
+%DIF <    \caption{\label{fig_method}
+%DIF <    Left panel: Mapping $\xi(s,\mu)$ from the fiducial cosmology to four other cosmologies. 
+%DIF <  The number counts are measured in the fiducial cosmology in a uniform grid (blue dashed.
+%DIF <   Just for illustration; the grid adopted in real analysis is much denser).
+%DIF <  In the four cosmologies with $(\Omega_m,w) = (0.31,-1.5),\ (0.31,-0.5),\ (0.41,-1.0)\ \rm and\ (0.21,-1.0)$, 
+%DIF <  %due to the distortion of geometry,
+%DIF <  the distribution of number counts in $(s, \mu)$ space becomes the red solid grid ({\bf Check}).
+%DIF <  We utilize the mapping realtion to approximate the 2pCF in vaiours cosmologies, without re-conducting the 2pCF statistics. 
+%DIF <  Right panel: Cosmological constraints in the $\Omega_m$-$w_0$ plane, with the value of $w_a$ fixed as zero.
+%DIF <  Results obtained using the precise 2pCFs (gray filled) 
+%DIF <  and approximate 2pCFs (blue solid) 2pCFs matches each other quite well.
+%DIF <    }
+%DIF < \end{figure*}
+\DIFaddbegin \begin{figure*}
+   \centering{
+   \includegraphics[width=6cm]{fig_smu.eps}
+   \includegraphics[width=10.5cm]{fig_comp.eps}
+   }
+   \caption{\label{fig_method}
+   \DIFaddFL{Left panel: Mapping $\xi(s,\mu)$ from the fiducial cosmology to four other cosmologies. 
+ The number counts are measured in the fiducial cosmology in the blue dashed grid (for illustration purpose 
+  the grid shown here is much sparser than the grid adopted in real analysis).
+ In the four cosmologies with $(\Omega_m,w) = (0.31,-1.5),\ (0.31,-0.5),\ (0.41,-1.0)\ \rm and\ (0.21,-1.0)$, 
+ %DIF > due to the distortion of geometry,
+ the distribution of number counts in $(s, \mu)$ space becomes the red solid grid.
+ We utilize the mapping realtion to infer the 2pCFs in vaiours cosmologies without re-conducting the 2pCF statistics. 
+ Right panel: Cosmological constraints in the $\Omega_m$-$w_0$ plane, with the value of $w_a$ fixed as zero.
+ Results obtained using the precise 2pCFs (gray filled) 
+ and approximate 2pCFs (blue solid) 2pCFs agree with each other quite well.
    }}
-%DIFAUXCMD
-%DIFDELCMD < \end{figure*}
-%DIFDELCMD < 
+\end{figure*}
+\DIFaddend 
 
-%DIFDELCMD < %%%
-%DIF < Covariance matrix 
-%DIFDELCMD < 
+%
 
-%DIFDELCMD < \begin{figure*}
-%DIFDELCMD <    \centering{
-%DIFDELCMD <    \includegraphics[width=16cm,natwidth=6,natheight=5]{fig_con_tests.pdf}
-%DIFDELCMD <    %\includegraphics[width=9cm,natwidth=4,natheight=4]{fig2b.pdf}
-%DIFDELCMD <    %\includegraphics[height=8cm]{fig2b.pdf}
-%DIFDELCMD < %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
-%DIFDELCMD < %    \includegraphics[height=8cm]{smu.eps}
-%DIFDELCMD <    }
-%DIFDELCMD <    %%%
-%DIFDELCMD < \caption{%
-{%DIFAUXCMD
-%DIFDELCMD < \label{fig_contest}
-%DIFDELCMD <    %%%
-\DIFdelFL{Robustness test of the results.
-   For the ``default'' constraints (pink contours) are derived using six redshift bins, 
-   $\mu_{\rm max}=0.97$, $n_{\mu}=15-20$, $s=6-40 \rm Mpc/h$,
-   a fiducial cosmology $\Omega_m=0.26,\ w=-1.0$ for the measurement of 2pCF,
-   systematic effects estimated from Horizon Run 4 simulations, 
-   and covariance estimated using 2,000 MultiDark PATCHY mocks.
-   When altering these options, the results remain robust (black contours).
-   }}
-%DIFAUXCMD
-%DIFDELCMD < \end{figure*}
-%DIFDELCMD < 
 
-%DIFDELCMD < %%%
-\DIFdelend The Planck team has released the {\texttt {COSMOMC}} \citep{LB2002} outputs of four MCMC ``chains'' in the CPL model, 
+
+%It should be mentioned that simply using a linear interpolation to infer the values of $\xi$ in a new cosmology does {\it not} work.
+%The interpolation introduces an artificial smoothing in the inferred $\xi$, and reduces the 
+
+
+\section{Result}
+
+The Planck team has released the {\texttt {COSMOMC}} \citep{LB2002} outputs of four MCMC ``chains'' in the CPL model, 
 using a combination of four datasets:
 the full-mission Planck observations of CMB temperature and polarization anisotropies \cite{Planck2015},
 the BAO distance priors measured from SDSS DR11 \citep{Anderson2013}, 6dFGS \citep{6dFGS} and SDSS MGS \citep{MGS},
@@ -425,25 +587,19 @@ the ``JLA'' SNIa sample \citep{JLA},
 and the Hubble Space Telescope measurement of $H_0=70.6\pm3.3$ km/s/Mpc \cite{Riess2011,E14H0}.
 These MCMC chains contain the CMB+BAO+SNIa+$H_0$ likelihood computed for $\sim$37,000 sets of cosmological parameters,
 yielding constraints of %$ \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41$.
-\DIFdelbegin \begin{align*}
- \DIFdel{\Omega_m }&\DIFdel{=}& \DIFdel{0.309 \pm 0.010,  }\\ \DIFdel{\nonumber
- w_0 }&\DIFdel{=}& \DIFdel{-0.938 \pm 0.109,  }\\ \DIFdel{\nonumber
- w_a }&\DIFdel{=}& \DIFdel{-0.38 \pm 0.41.
-}\end{align*}
-%DIFAUXCMD
-\DIFdelend %DIF > \begin{eqnarray}
-%DIF >  \Omega_m &=& 0.309 \pm 0.010,  \\ \nonumber
-%DIF >  w_0 &=& -0.938 \pm 0.109,  \\ \nonumber
-%DIF >  w_a &=& -0.38 \pm 0.41.
-%DIF > \end{eqnarray}
-\DIFaddbegin \small
+%\begin{eqnarray}
+% \Omega_m &=& 0.309 \pm 0.010,  \\ \nonumber
+% w_0 &=& -0.938 \pm 0.109,  \\ \nonumber
+% w_a &=& -0.38 \pm 0.41.
+%\end{eqnarray}
+\small
 \begin{equation}
- \DIFadd{\Omega_m = 0.309 \pm 0.010,\
+ \Omega_m = 0.309 \pm 0.010,\
  w_0 = -0.938 \pm 0.109,\
  w_a = -0.38 \pm 0.41.
-}\end{equation}
+\end{equation}
 \normalsize
-\DIFaddend %To derive the constraints combined with our AP method,
+%To derive the constraints combined with our AP method,
 %we then compute the likelihood of the SDSS LOWZ+CMASS AP measurements for each of the parameter combinations provided in the Planck chain. 
 %To do this, we splited the 1,133,326 galaxies from the SDSS DR12 into six redshift bins,
 %measured the 2pCF (on scales of 6-40 $h^{-1}$Mpc) in these redshift bins (see Fig.\ref{fig_nbar}).
@@ -454,39 +610,37 @@ yielding constraints of %$ \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w
 After adding the log-likelihoods of the Planck team sample with ours, 
 while also multiply the sample weights by our likelihoods, 
 we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters, %$\Omega_m = 0.301 \pm 0.008, w_0 = -1.042 \pm 0.067, w_a = -0.07 \pm 0.29$.
-\DIFdelbegin \begin{align*}
-\DIFdel{\Omega_m }&\DIFdel{=}& \DIFdel{0.301 \pm 0.008, }\\ \DIFdel{\nonumber
-w_0 }&\DIFdel{=}& \DIFdel{-1.042 \pm 0.067, }\\ \DIFdel{\nonumber
-w_a }&\DIFdel{=}& \DIFdel{-0.07 \pm 0.29.
-}\end{align*}
-%DIFAUXCMD
-\DIFdelend %DIF > \begin{eqnarray}
-%DIF > \Omega_m &=& 0.301 \pm 0.008, \\ \nonumber
-%DIF > w_0 &=& -1.042 \pm 0.067, \\ \nonumber
-%DIF > w_a &=& -0.07 \pm 0.29.
-%DIF > \end{eqnarray}
-\DIFaddbegin \small
+%\begin{eqnarray}
+%\Omega_m &=& 0.301 \pm 0.008, \\ \nonumber
+%w_0 &=& -1.042 \pm 0.067, \\ \nonumber
+%w_a &=& -0.07 \pm 0.29.
+%\end{eqnarray}
+\small
 \begin{equation}
- \DIFadd{\Omega_m = 0.301 \pm 0.008,\
+ \Omega_m = 0.301 \pm 0.008,\
  w_0 = -1.042 \pm 0.067,\
  w_a = -0.07 \pm 0.29.
-}\end{equation}
+\end{equation}
 \normalsize
-\DIFaddend While the central values of parameters do not shift appreciably,
+%While the central values of parameters do not shift appreciably,
+As a result of the additional constraint from our AP analysis,
 the error bars of $w_0$ and $w_a$ are reduced by 38.4\% and 29.7\%, respectively.% $$-40\%$ by adding our method into the analysis.
+It can be also noted that the central value of $w_a$ moved to zero appreciably.
 
-The \DIFdelbegin \DIFdel{marginalised }\DIFdelend \DIFaddbegin \DIFadd{marginalized }\DIFaddend constraints on $w_0-w_a$ are shown in the left panel of Fig.\ref{fig_con}.
+The marginalized constraints on $w_0-w_a$ are shown in the left panel of Fig.\ref{fig_con}.
 Adding our new AP constraints significantly reduces the allowable parameter space. 
-This can also be \DIFdelbegin \DIFdel{visualised }\DIFdelend \DIFaddbegin \DIFadd{visualized }\DIFaddend as allowable bands in $w(z)$ as can be seen in the right panel of Fig.\ref{fig_con}.  
+This can also be visualized as allowable bands in $w(z)$ as can be seen in the right panel of Fig.\ref{fig_con}.  
 
 The derived cosmological constraints are fully consistent with a cosmological constant dark energy component having no evolution.
+%\cite{Li2016} 
 Adding the new AP method to the CMB+BAO+SNIa+$H_0$ constraints reduces the statistical errors on many parameters by $\sim$30-40\% 
 and reduces the $w_0-w_a$ (95.4\% CL) contour by 50\%.
-This constitutes a significant increase in the figure of merit \DIFdelbegin \DIFdel{(FoM)  }\DIFdelend constraints on $(w_0, w_a)$. 
-This doubling of the \DIFdelbegin \DIFdel{FoM($w_o,w_a$) }\DIFdelend \DIFaddbegin \DIFadd{figure of merit }\DIFaddend comes at no additional cost or alteration to survey design, 
+This constitutes a significant increase in the figure of merit constraints on $(w_0, w_a)$. 
+This doubling of the figure of merit comes at no additional cost or alteration to data size, 
 thus greatly improving the overall cost-benefit consideration of large cosmological redshift surveys.
 
-We performed a thorough test of all the possible variables in our methodology.
+
+We performed a \DIFdelbegin \DIFdel{thorough }\DIFdelend test of all the possible variables in our methodology.
 Fig.\ref{fig_contest} shows that 
 the result is unaffected by the line-of-sight $\mu$-cut, 
 the number of angular bins, 
@@ -497,223 +651,451 @@ the range of radial integration and the choice of fiducial cosmology.
 %change the fiducial cosmology to $\Omega_m=0.26,\ w=-0.6$,
 %exclude 1 or 2 high redshift bins,
 %or reduce the number of mocks to 1000.
-The \DIFaddbegin \DIFadd{result does not change significantly if we remove the highest redshift bin,
+The result does not change significantly if we remove the highest redshift bin,
 where the estimated systematics is comparably large.
-The }\DIFaddend most striking point to note in our testing is that the 
-shift in contour position is very small even when we do not include the systematic correction.
-This is reassuring, since we may have worried that {\it cosmological dependence} 
-of the systematic correction could influence the final result. 
+The most striking point to note in our test is that the 
+shift in contour position is \DIFdelbegin \DIFdel{very small }\DIFdelend \DIFaddbegin \DIFadd{not significant }\DIFaddend even when %we do not include the systematic correction.
+the systematics are not corrected.
+%This is reassuring, since we may have worried that {\it cosmological dependence} 
+%of the systematic correction could influence the final result. 
+This indicates that, for the data analysis of current galaxy surveys,
+the systematic effects in our method may not be important.
+But it remains to be seen if this is true for future galaxy surveys,
+or when the cosmology dependence of the systematics effects is taken into account.
 
 
 %\section{Conclusion}\label{sec:conclusion}
-{\it Conclusion.}---
+\section{Conclusion}
 
-We previously proposed to constrain cosmological parameters via 
+In recent studies we have proposed to constrain cosmological parameters 
+governing the expansion history of the universe via 
 the redshift dependence of anisotropic galaxy clustering\cite{Li2016}.
 This approach enables a robust AP test on relatively small scales.
-In this paper we improved the methodology and obtained tight constraints on the CPL parametrization of dark energy.
+In this paper we improved the methodology and obtained a tight constraint 
+on the CPL parametrization of dark energy.
+%DIF < The derived cosmological constraints are fully consistent with a cosmological constant 
+%DIF < dark energy component having no redshift evolution.
+\DIFaddbegin \DIFadd{The derived cosmological constraints are fully consistent with a cosmological constant 
+dark energy component having no redshift evolution.
+}\DIFaddend 
+
 %using 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
 %12 spanning the redshift range $0.15<z<0.69$ . 
 %Adding our constraints to the CMB+SNIa+BAO+$H_0$ combination, the $w_0-w_a$ contour was reduced by $\sim50$\%.
 
-The AP method presented in this work has many advantages over the `traditional' galaxy clustering method.
+The AP method presented in this work has many advantages over the 
+`traditional' methods using galaxy clustering.
 Since it works with the redshift evolution of the anisotropic clustering signal it significantly reduces the effect of systematics. 
-It avoids the great difficulty in accurate \DIFdelbegin \DIFdel{modelling }\DIFdelend \DIFaddbegin \DIFadd{modeling }\DIFaddend of the RSD, non-linear clustering and galaxy bias.
-It is applicable on much smaller \DIFaddbegin \DIFadd{clustering }\DIFaddend scales, allowing for the inclusion of more $k$-modes and hence more information. 
-
-\DIFdelbegin \DIFdel{The }\DIFdelend \DIFaddbegin \DIFadd{We believe that the }\DIFaddend presented method of clustering shells \DIFdelbegin \DIFdel{can }\DIFdelend \DIFaddbegin \DIFadd{will }\DIFaddend be applied to many \DIFdelbegin \DIFdel{large }\DIFdelend spectroscopic galaxy surveys. 
-\DIFdelbegin \DIFdel{We show that }\DIFdelend \DIFaddbegin \DIFadd{The current }\DIFaddend figure of merit constraints on $(w_0, w_a)$ \DIFdelbegin \DIFdel{can be }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend increased by a factor of 2 
-when considering the small scale clustering shells information in combination with existing constraints. 
-The analysis we perform requires no change to the typical survey strategy of large cosmological redshift surveys, 
-thus we can increasing (by roughly twice) the power of ongoing and future surveys, with little to no additional cost.
-We expect this approach will play an important role in helping us unveiling the mystery of dark energy.
-
-\DIFaddbegin \DIFadd{\
+It avoids the great difficulty in accurate modeling of the RSD, non-linear clustering and galaxy bias.
+%It is applicable on much smaller clustering scales, allowing for the inclusion of more $k$-modes and hence more information. 
+Our method can use the galaxy clustering signal down to
+much smaller scales compared to other methods,
+providing much higher statistics\DIFaddbegin \DIFadd{.
 }
 
-\DIFaddend \begin{acknowledgments}
-We thank the Korea Institute for Advanced Study for providing computing resources (KIAS Center for Advanced Computation Linux Cluster System).
+
+%DIF > Yet there are still issues demanding more investigations.
+\DIFadd{In this analysis, the systematic effects and the covariance matrices are estimated using simulations performed in a certain cosmology.
+Their cosmological dependence needs to be investigated in future works to guarantee the robustness of the method}\DIFaddend .
+
+
+Combining our method with the CMB+SNIa+BAO+$H_0$ datasets,
+the dark energy figure of merit is improved by a factor of 2.
+%The method can be applied to many spectroscopic galaxy surveys.
+We expect the method will play an important role in deriving cosmological constraints from future spectroscopic galaxy surveys.
+
+
+
+\section*{Acknowledgments}
+
+We thank Korea Institute for Advanced Study for providing computing resources (KIAS Center for Advanced Computation Linux Cluster System).
 CGS acknowledges support from the National Research Foundation (NRF,  \#2017R1D1A1B03034900). 
 We thank Stephen Appleby, Seokcheon Lee, Maurice van Putten, Graziano Rossi and Yi Wang for helpful discussions.
-\DIFaddbegin 
 
-\DIFadd{Based on observations obtained with Planck (http://www.esa.int/Planck), 
+Based on observations obtained with Planck (http://www.esa.int/Planck), 
 an ESA science mission with instruments and contributions directly funded by 
 ESA Member States, NASA, and Canada.
-}
 
-\DIFadd{Funding for SDSS-III has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the
+
+Funding for SDSS-III has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the
 National Science Foundation, and the U.S. Department of Energy Office of Science. 
 The SDSS-III web site is http://www.sdss3.org/. 
 SDSS-III is managed by the Astrophysical Research Consortium for the Participating Institutions
-of the SDSS-III Collaboration.
-}\DIFaddend \end{acknowledgments}
+of the SDSS-III Collaboration including the University of Arizona, the Brazilian Participation Group, Brookhaven
+National Laboratory, Carnegie Mellon University, University of Florida, the French Participation Group, 
+the German Participation Group, Harvard University, the Instituto de Astrofisica de Canarias, the Michigan State/Notre
+Dame/JINA Participation Group, Johns Hopkins University, Lawrence Berkeley National Laboratory, Max Planck
+Institute for Astrophysics, Max Planck Institute for Extraterrestrial Physics, New Mexico State University, New
+York University, Ohio State University, Pennsylvania State
+University, University of Portsmouth, Princeton University,
+the Spanish Participation Group, University of Tokyo, University of Utah, Vanderbilt University, University of Virginia, 
+University of Washington, and Yale University.
 
+\
 
-%% After the acknowledgments section, use the following syntax and the
-%% \facility{} macro to list the keywords of facilities used in the research
-%% for the paper.  Each keyword will be checked against the master list during
-%% copy editing.  Individual instruments or configurations can be provided
-%% in parentheses, after the keyword, but they will not be verified.
+\
 
-%{\it Facilities:} \facility{Nickel}, \facility{HST (STIS)}, \facility{CXO (ASIS)}.
-
-%% Appendix material should be preceded with a single \appendix command.
-%% There should be a \section command for each appendix. Mark appendix
-%% subsections with the same markup you use in the main body of the paper.
-
-%% Each Appendix (indicated with \section) will be lettered A, B, C, etc.
-%% The equation counter will reset when it encounters the \appendix
-%% command and will number appendix equations (A1), (A2), etc.
-
-
-%% The reference list follows the main body and any appendices.
-%% Use LaTeX's thebibliography environment to mark up your reference list.
-%% Note \begin{thebibliography} is followed by an empty set of
-%% curly braces.  If you forget this, LaTeX will generate the error
-%% "Perhaps a missing \item?".
-%%
-%% thebibliography produces citations in the text using \bibitem-\cite
-%% cross-referencing. Each reference is preceded by a
-%% \bibitem command that defines in curly braces the KEY that corresponds
-%% to the KEY in the \cite commands (see the first section above).
-%% Make sure that you provide a unique KEY for every \bibitem or else the
-%% paper will not LaTeX. The square brackets should contain
-%% the citation text that LaTeX will insert in
-%% place of the \cite commands.
-
-%% We have used macros to produce journal name abbreviations.
-%% AASTeX provides a number of these for the more frequently-cited journals.
-%% See the Author Guide for a list of them.
-
-%% Note that the style of the \bibitem labels (in []) is slightly
-%% different from previous examples.  The natbib system solves a host
-%% of citation expression problems, but it is necessary to clearly
-%% delimit the year from the author name used in the citation.
-%% See the natbib documentation for more details and options.
-
-%\bibitem[Canizares et al.(1978)]{can78} Canizares, C. R.,
-%    Grindlay, J. E., Hiltner, W. A., Liller, W., \&
-%    McClintock, J. E.  1978, \apj, 224, 39
-
-%Wang Q H, Lindon O, Hardle W. 
-%Semiparametric regression analysis with missing response at random. 
-%J Am Stat Assoc, 2004, 99: 334－345 
-
+\
 
 \begin{thebibliography}{}
-%\citep{Riess:1998}
-%[astro-ph/0205436].
-\bibitem{Li2016}%[Li et al.(2016)]
-Li, X.-D., Park, C., \& Sabiu, C.G., et al. 2016, ApJ, 832, 103
 
-\bibitem{2012IJMPD..2130002Y}%[Yoo \& Watanabe(2012)]
-Yoo, J., \& Watanabe, Y.\ 2012, International Journal of Modern Physics D, 21, 1230002 
+\bibitem[Ade et al. (2015)]{Planck2015}
+Ade, P.A.R., Aghanim, N., \& Arnaud, M., et al. arXiv:1502.01589
 
-\bibitem{AP1979}%[Alcock \& Paczynski(1979)]
-Alcock, C., \& Paczynski, B. 1979, Nature, 281, 358  
-
-\bibitem{Outram2004}%[Outram et al.(2004)]
-Outram, P.J., Shanks, T., Boyle, B.J., Croom, S.M., Hoyle, F., Loaring, N.S., 
-Miller, L., \& Smith, R.J. 2004, MNRAS, 348, 745  
-
-\bibitem{Blake2011}%[Blake et al.(2011)]
-Blake, C., Glazebrook, K., \& Davis, T. M., 2011, MNRAS, 418, 1725  
-
-\bibitem{Alam2016}%[Alam et al.(2016)]
+\bibitem[Alam et al.(2016)]{Alam2016}
 Alam, S., Ata, M., \& Bailey, S., et al. 2016,
 submitted to MNRAS (arXiv:1607.03155)
 
-\bibitem{Ballinger1996}%[Ballinger, Peacock \& Heavens 1996]
+\bibitem[Albrecht et al.(2006)]{DETF}
+Albrecht, A., Bernstein, G., \& Cahn, R., et al. 2006. [astro-ph/0609591].
+
+
+%\bibitem[{{Alam} {et~al}\mbox{.}(2015{\natexlab{a}}){Alam}, {Albareti},
+%  {Allende Prieto}, {Anders}, {Anderson}, {Anderton}, {Andrews}, {Armengaud},
+%  {Aubourg}, {Bailey}, \& et~al.}]{dr12}
+%{Alam} S., Albareti, F.D.,\& Allende Prieto, C., {et~al.}, 2015,  ApJS, 219, 12
+
+\bibitem[Alcock \& Paczynski(1979)]{AP1979}
+Alcock, C., \& Paczynski, B. 1979, Nature, 281, 358  
+
+%\bibitem[Anderson et al.(2012)]{2012MNRAS.427.3435A} 
+%Anderson, L., Aubourg, E., Bailey, S., et al.\ 2012, MNRAS, 427, 3435
+
+\bibitem[Anderson et al.(2013)]{Anderson2013}
+Anderson, L., Aubourg, \'E., \& Bailey, S. et al. 2014, MNRAS, 441, 24  
+
+%\bibitem[Bassett et al.(2002)]{Bassett2002}
+%Bassett, B.A., Kunz, M., Silk, J., \& Ungarelli, C. 2002, MNRAS, 336, 1217
+
+\bibitem[Ballinger, Peacock \& Heavens 1996]{Ballinger1996}
 Ballinger, W.E., Peacock, J.A., \& Heavens, A.F. 1996, MNRAS, 282, 877  
 
-\bibitem{Marinoni2010}%[Marinoni \& Buzzi(2010)]
-Marinoni, C., \& Buzzi, A. 2010, Nature, 468, 539  
-
-\bibitem{Jennings2011}%[Jennings et al.(2011)]
-Jennings, E., Baugh, C.M., \& Pascoli, S. 2011, MNRAS, 420, 1079  
-
-\bibitem{Ryden1995}%[Ryden(1995)]
-Ryden, B.S. 1995, ApJ, 452, 25  
-
-\bibitem{LavausWandelt1995}%[Lavaux \& Wandelt(2012)]
-Lavaux, G., \& Wandelt, B.D. 2012, ApJ, 754, 109  
-
-\bibitem{Qingqing2016}%[Mao et al. (2016)]
-Mao, Q., Berlind, A.A., Scherrer, R.J., et al. 2016, submitted to ApJ
-
-
-\bibitem{Li2014}%[Li et al.(2014)]
-Li, X.-D., Park, C., Forero-Romero, J., \& Kim, J. 2014, ApJ, 796, 137
-
-\bibitem{Li2015}%[Li et al.(2015)]
-Li, X.-D., Park, C., Sabiu, C.G., \& Kim, J. 2015, MNRAS, 450, 807 
-
-\bibitem{CPL_CP}
-Chevallier, M, \& Polarski, D. 2001, Int. J. Mod. Phys. D,  10, 213
-
-\bibitem{CPL_L}
-Linder, E. V. 2003, Phys. Rev. Lett, 90, 091301
-
-\bibitem{Reidetal:2016}%[Reid et al.(2016)]
-Reid, B., Ho, S., \& Padmanabhan, N., et al.  2016, MNRAS, 455, 1553
-
-\bibitem{HR4}%[Kim et al.(2015)]
-Kim, J., Park, C., L'Huillier, B., \& Hong, S. E. 2015, JKAS, 48, 213
-
-\bibitem{hong2016}%[Hong et al.(2016)]
-Hong, S.E., Park, C.,\&  Kim, J. 2016, ApJ, 823, 103
-
-\bibitem{MDPATCHY}%[Kitaura et al.(2015)]
-Kitaura, F.S., Rodriguez-Torres, S., Chuang, C.-H., et al.2016, MNRAS, 456, 4156
-
-\bibitem{Hartlap}%[Hartlap et al.(2006)]
-Hartlap\DIFaddbegin \DIFadd{, }\DIFaddend J., Simon\DIFdelbegin \DIFdel{P. \& Schneider }\DIFdelend \DIFaddbegin \DIFadd{, P., \& Schneider, }\DIFaddend P. [astro-ph/0608064].
-
-\bibitem{Percival2014}%[Percival et al.(2014)]
-Percival, W.J., Ross, A.J., \& S\'{a}nchez, A.G., et al. 2014, MNRAS, 439, 2531
-
-\bibitem{LB2002}%[Lewis \& Bridle (2002)]
-Lewis, A., \& Bridle, S. 2002, Phys. Rev. D, 66, 103511
-
-\bibitem{Planck2015}%[Ade et al. (2015)]
-Ade, P.A.R., Aghanim, N., \& Arnaud, M., et al. 2016, A\&A, 594, A13 
-
-\bibitem{Anderson2013}%[Anderson et al.(2013)]
-Anderson, L., Aubourg, \'E., \& Bailey, S. et al. 2014, MNRAS, 441, 24 
-
-\bibitem{6dFGS}%[Beutler et al.(2011)]
-Beutler, F., Blake, C., \& Colless, M., et al. 2011, MNRAS, 416, 3017
-
-\bibitem{MGS}%[Ross et al.(2015)]
-Ross, A.J., Samushia, L., \& Howlett, C., et al. 2015, MNRAS, 449, 835
-
-\bibitem{JLA}%[Betoule et al.(2014)]
+\bibitem[Betoule et al.(2014)]{JLA}
 Betoule, M., Kessler, R., \& Guy, J., et al. 2014, A\&A, 568, 32
 
-\bibitem{Riess2011}%[Riess et al.(2011)]
-Riess, A.G., Macri, L., \& Casertano, S., et al. 2011, ApJ, 730, 119
 
-\bibitem{E14H0}%[Efstathiou (2014)]
+\bibitem[Beutler et al.(2011)]{6dFGS}
+Beutler, F., Blake, C., \& Colless, M., et al. 2011, MNRAS, 416, 3017
+
+%\bibitem[Beutler et al.(2013)]{Beutler2013}
+%Beutler, F., Saito, S., \& Seo, H.-J., et al. 2013, MNRAS, 443, 1065
+
+%\bibitem[Beutler et al.(2016)]{Beutler2016}
+%Beutler, F., Seo, H.-J., \& Saito, S., et al. 2016,
+%arXiv:1607.03150
+
+\bibitem[Blake et al.(2011)]{Blake2011}
+Blake, C., Glazebrook, K., \& Davis, T. M., 2011, MNRAS, 418, 1725  
+
+%\bibitem[Blake et al.(2013)]{WiggleZtopoloy}
+%Blake, C., James, J.B., \& Poole, G.B. 2013, MNRAS, 437, 2488
+
+%\bibitem[Bolton et al.(2012)]{Bolton2012}
+%Bolton, A.S., Schlegel, \& D.J., Aubourg E., et al. 2012, AJ, 144, 144
+
+%\bibitem[Boylan-Kolchin et al.(2008)]{B08}
+%Boylan-Kolchin, M., Ma, C.-P., \& Quataert, E. 2008, MNRAS, 383, 93
+
+
+%\bibitem[Bueno Belloso et al. (2012)]{BB2012}
+%Bueno Belloso, A., Pettinari, G.W., Meures, N., \& Percival, W.J. 2012, Phys. Rev. D, 86, 023530
+
+\bibitem[Chevallier \& Polarski(2001)]{CPL_CP}
+Chevallier, M., Polarski, D. 2001, Int. J. Mod. Phys. D, 10, 213
+
+%\bibitem{CPL_CP}
+%Chevallier, M, \& Polarski, D. 2001, Int. J. Mod. Phys. D,  10, 213
+
+
+%\bibitem[Choi et al.(2010)]{choi 2010}
+%Choi, Y.-Y., Park, C., Kim, J., Gott, J.R., 
+%Weinberg, D.H., Vogeley, M.S., \& Kim, S.S. 2010, ApJS, 190, 181
+
+%\bibitem[Christensen et al.(2001)]{Bayesian}
+%Christensen, N., Meyer, R., Knox, L., \& Luey, B. 2001, Class. Quant. Grav., 18, 2677
+
+%\bibitem[Chuang et al.(2013)]{Chuang2013}
+%Chuang, C.-H., Prada, F., Beutler, F., et al. 2013, arXiv:1312.4889  
+
+%\bibitem[Chuang \& Wang(2012)]{ChuangWang2012}
+%Chuang, C.-H., \& Wang, Y. 2012, MNRAS, 426, 226  
+
+
+%\bibitem[Corasaniti \& Copeland(2003)]{Corasaniti2003}
+%Corasaniti, P.S., Copeland, E.J. 2003, Phys. Rev. D, 67, 063521
+
+%eBOSS: 
+%http://arxiv.org/abs/1508.04473
+%\bibitem[Dawson et al.(2015)]{eBOSS}
+%Dawson, K.S., Kneib, J.P., \& Percival, W.J., et al. 2015, accepted AJ
+
+%\bibitem[Dawson et al.(2012)]{Dawson et al. 2012}
+%Dawson, K.S., Schlegel, D.J., \& Ahn, C.P., et al. 2012, AJ, 145, 10
+
+\bibitem[Efstathiou (2014)]{E14H0}
 Efstathiou, G. 2014, MNRAS, 440, 1138
-\DIFaddbegin 
 
-\bibitem{DETF}
-\DIFadd{Albrecht, A., Bernstein, G., \& Cahn, R., et al. }[\DIFadd{astro-ph/0609591}]\DIFadd{.
-}\DIFaddend 
+%\bibitem[Eisenstein et al.(2011)]{Eisenstein et al. 2011}
+%Eisenstein, D.J.,  Weinberg, D.H., \& Agolet, E., et al. 2011, AJ, 142, 72
 
-%\bibitem{Lee12}
-%\bibinfo{author}{Lee}, E.~J., {Murray}, N., {Rahman}, M. 
-%\newblock \bibinfo{title}{Milky Way Star-forming Complexes and the Turbulent Motion of the Galaxy's Molecular Gas.}
-%\newblock{\it Astrophys. \ J.}{\bf\, 752}, 146-159 (2012).
+%\bibitem[Feldman, Kaiser \& Peacock (1994)]{1994ApJ...426...23F} 
+%Feldman, H.A., Kaiser, N., \& Peacock, J.A.\ 1994, ApJ, 426, 23 
+
+%\bibitem[Fukugita et al. (1996)]{Fukugita1996}
+%Fukugita, M., Ichikawa, T., \& Gunn, J.E., et al. 1996, AJ, 111, 1748
+%Publication:	
+%Astronomical Journal v.111, p.1748 
+
+%\bibitem[Gingold \& Monaghan(1977)]{GM1977}
+%Gingold, R.A., \& Monaghan, J.J. 1977, MNRAS, 181, 375  
+
+%\bibitem[Gott et al.(2009)]{gott 2009}
+%Gott, J.R., Choi, Y.-Y., Park, C., \& Kim, J. 2009, ApJ, 695, L45  
+
+%\bibitem[Gott et al.(2008)]{gott 2008}
+%Gott, J.R., Hambrick, D.C., Vogeley, M.S., Kim, J., Park, C., Choi, Y.-Y.,
+%Cen, R., Ostriker, J.P., \& Nagamine, K. 2008, ApJ, 675, 16  
 
 
+%\bibitem[Gunn et al. (1998)]{Gunn1998}	
+%Gunn, J.E., Carr, M., \& Rockosi, C. et al. 1998, AJ, 116, 3040
 
-%%%% For methods
+%\bibitem[Gunn et al.(2006)]{Gunn et al. 2006}
+%Gunn, J.E., Siegmund, W.A., \& Mannery, E.J., et al. 2006, AJ, 131, 2332
+
+%\bibitem[Guzzo et al.(2008)]{Guzzo2008}
+%Guzzo, L., Pierleoni, M., \& Meneux, B., et al. 2008, Nature, 451, 541
+
+\bibitem[Hartlap et al.(2006)]{Hartlap}
+Hartlap J., Simon P. \& Schneider P. [astro-ph/0608064].
 
 
-\bibitem{komatsu2011}%[Komatsu et al.(2011)]
+\bibitem[Hong et al.(2016)]{hong2016}
+Hong, S.E., Park, C.,\&  Kim, J. 2016, ApJ, 823, 103
+
+%\bibitem[Jackson (1972)]{FOG}
+%Jackson, J., 1972, MNRAS, 156, 1
+
+\bibitem[Jennings et al.(2011)]{Jennings2011}
+Jennings, E., Baugh, C.M., \& Pascoli, S. 2011, MNRAS, 420, 1079  
+
+%\bibitem[Jeong et al.(2014)]{Jeong2014}
+%Jeong, D., Dai, L., Kamionkowski, M., \& Szalay, A.S. 2014, arXiv:1408.4648
+
+%\bibitem[Jiang et al.(2008)]{jiang2008}
+%Jiang, C.Y., Jing, Y. P., \& Faltenbacher, A., et al. 2008, ApJ, 675, 1095
+
+%\bibitem[Kaiser (1987)]{Kaiser1987}
+%Kaiser, N. 1987, MNRAS, 227, 1
+
+
+%\bibitem[Kim \& Park(2006)]{kim and park 2006}
+%Kim, J., \& Park, C. 2006, ApJ, 639, 600  
+
+%\bibitem[Kim et al.(2009)]{2009ApJ...701.1547K} 
+%Kim, J., Park, C., Gott, J.R., III, \& Dubinski, J.\ 2009, ApJ, 701, 1547 
+
+\bibitem[Kim et al.(2015)]{HR4}
+Kim, J., Park, C., L'Huillier, B., \& Hong, S. E. 2015, JKAS, 48, 213
+
+%\bibitem[Kim et al.(2011)]{horizonrun}
+%Kim, J., Park, C., Rossi, G., Lee, S.M., \& Gott, J.R. 2011, JKAS, 44, 217  
+
+\bibitem[Kitaura et al.(2015)]{MDPATCHY}
+Kitaura, F.S., Rodrı\'{i}guez-Torres, S., Chuang, C.-H., et al. arXiv:1509.06400
+
+\bibitem[Komatsu et al.(2011)]{komatsu2011}
 Komatsu, E., Smith, K. M., \& Dunkley, J., et al. 2011, ApJS, 192, 18  
+
+%\bibitem[Lacey \& Cole(1993)]{LC93}
+%Lacey, C., \& Cole, S. 1993, MNRAS, 262, 627
+
+
+%\bibitem[Landy \& Szalay(1993)]{1993ApJ...412...64L} 
+%Landy, S.D., \& Szalay, A.S.\ 1993, ApJ, 412, 64 
+
+%EUCLID:
+%http://arxiv.org/abs/1110.3193
+%\bibitem[Laureijs et al.(2011)]{EUCLID}
+%Laureijs, R., Amiaux, J., \& Arduini, S., et al. 2011, arXiv:1110.3193
+
+\bibitem[Lavaux \& Wandelt(2012)]{LavausWandelt1995}
+Lavaux, G., \& Wandelt, B.D. 2012, ApJ, 754, 109  
+
+%\bibitem[Levi et al.(2013)]{2013arXiv1308.0847L} 
+%Levi, M., Bebek, C., Beers, T., et al.\ 2013, arXiv:1308.0847 
+
+\bibitem[Lewis \& Bridle (2002)]{LB2002}
+Lewis, A., \& Bridle, S. 2002, Phys. Rev. D, 66, 103511
+
+%\bibitem[L'Huillier et al.(2014)]{2014NewA...30...79L} 
+%L'Huillier, B., Park, C., \& Kim, J.\ 2014, New Astronomy, 30, 79 
+
+%\bibitem[Li et al.(2011)]{Li2011}
+%Li, M., Li, X.-D., Wang, S., \& Wang, Y. 2011, Commun. Theor. Phys., 56, 525
+
+\bibitem[Li et al.(2014)]{Li2014}
+Li, X.-D., Park, C., Forero-Romero, J., \& Kim, J. 2014, ApJ, 796, 137
+
+\bibitem[Li et al.(2015)]{Li2015}
+Li, X.-D., Park, C., Sabiu, C.G., \& Kim, J. 2015, MNRAS, 450, 807 
+
+\bibitem[Li et al.(2016)]{Li2016}%
+Li, X.-D., Park, C., \& Sabiu, C.G., et al. 2016, ApJ, 832, 103
+
+\bibitem[Linder(2003)]{CPL_L}
+Linder, E.V. 2003, Phys. Rev. Lett., 90, 091301
+
+%\bibitem[Linder et al.(2014)]{Linder2013}
+%Linder, E.V., Minji, O., Okumura, T., Sabiu, C.G., \& Song, Y.-S. 2014, Phys. Rev. D, 89, 063525  
+
+%\bibitem[L{\'o}pez-Corredoira(2014)]{2014ApJ...781...96L} 
+%L{\'o}pez-Corredoira, M.\ 2014, ApJ, 781, 96 
+
+\bibitem[Mao et al. (2016)]{Qingqing2016}
+Mao, Q., Berlind, A.A., Scherrer, R.J., et al. 2016, submitted to ApJ
+
+\bibitem[Marinoni \& Buzzi(2010)]{Marinoni2010}
+Marinoni, C., \& Buzzi, A. 2010, Nature, 468, 539  
+
+%\bibitem[Matsubara \& Suto(1996)]{Matsubara1996}
+%Matsubara T., \& Suto, Y. 1996, ApJ, 470, L1  
+
+%\bibitem[McCavana et al.(2012)]{M12}
+%McCavana, T., Micic, M., Lewis, G. F., et al. 2012, MNRAS, 424, 361
+
+
+%\bibitem[Morandi \& Sun (2016)]{MS2016}
+%Morandi, A., \& Sun, M. arXiv:1601.03741
+
+\bibitem[Outram et al.(2004)]{Outram2004}
+Outram, P.J., Shanks, T., Boyle, B.J., Croom, S.M., Hoyle, F., Loaring, N.S., 
+Miller, L., \& Smith, R.J. 2004, MNRAS, 348, 745  
+
+%\bibitem[Parejko et al.(2013)]{Parejko2013}
+%Parejko, J. K., Sunayama, T., Padmanabhan, N., et al. 2013, MNRAS, 429, 98  
+
+%\bibitem[Parejko et al.(2013)]{Parejko2013}
+%Parejko J.K., et al., 2013, MNRAS, 429, 98
+
+%\bibitem[Parihar et al. (2014)]{CMASSLSS2014}
+%Parihar, P., Vogeley, M.S., \& Gott, J.R., et al. 2014, ApJ, 796, 86
+
+%\bibitem[Park et al.(2005)]{park 2005}
+%Park, C., Kim, J., \& Gott, J.R. 2005, ApJ, 633, 1  
+
+%\bibitem[Park \& Kim(2010)]{topology}
+%Park, C., \& Kim, Y.-R. 2010, ApJL, 715, L185  
+
+%\bibitem[Park et al. (2012)]{Park2012}
+%Park, C., Choi, Y.-Y., Kim, J., Gott, J.R., Kim, S.S., \&
+%Kim, K.-S. 2012, ApJ, 759, 7
+
+%\bibitem[Park et al. (2015)]{Park2015}
+%Park, C., Song, H., Einasto, M., Lietzen, H., \&
+%Heinamaki, P. 2015, JKAS, 48, 75
+
+%\bibitem[Peebles \& Ratra(2003)]{PR2003}
+%Peebles, P.J.E., \& Ratra, B. 2003, Reviews of Modern Physics, 75, 559
+
+\bibitem[Percival et al.(2014)]{Percival2014}
+Percival, W.J., Ross, A.J., \& S\'{a}nchez, A.G., et al. 2014, MNRAS, 439, 2531
+
+%\bibitem[Perlmutter et al.(1999)]{Perl1999}
+%Perlmutter, S., Aldering, G., \& Goldhaber, G., et al. 1999, ApJ, 517, 565  
+
+%\bibitem[Press \& Shechter(1974)]{PS1974}
+%Press, W.H., \& Schechter, P.L. 1974, ApJ, 187, 425
+
+
+
+%\bibitem[Reid et al.(2012)]{Reid2012}
+%Reid, B., Samushia, L., \& White, M., et al. 2012, MNRAS, 426, 2719  
+
+\bibitem[Reid et al.(2016)]{Reidetal:2016}
+Reid, B., Ho, S., \& Padmanabhan, N., et al.  2016, MNRAS, 455, 1553
+
+%\bibitem[Riess et al.(1998)]{Riess1998}
+%Riess, A.G., Filippenko, A.V., \& Challis, P., et al. 1998, AJ, 116, 1009  
+
+\bibitem[Riess et al.(2011)]{Riess2011}
+Riess, A.G., Macri, L., \& Casertano, S., et al. 2011, ApJ, 730, 119
+A 3\% Solution: Determination of the Hubble Constant with the Hubble Space Telescope and Wide Field Camera
+
+%\bibitem[Ross et al.(2012)]{2012MNRAS.424..564R} 
+%Ross, A.J., Percival, W.J., \& S{\'a}nchez, A.G. et al.\ 2012, MNRAS, 424, 564 
+
+\bibitem[Ross et al.(2015)]{MGS}
+Ross, A.J., Samushia, L., \& Howlett, C., et al. 2015, MNRAS, 449, 835
+
+\bibitem[Ryden(1995)]{Ryden1995}
+Ryden, B.S. 1995, ApJ, 452, 25  
+
+%%\bibitem[Samushia et al.(2014)]{Samushia2014}
+%Samushia, L., Reid, B. A., White, M., et al. 2014, MNRAS, 439, 3504  
+
+%\bibitem[Sanchez et al.(2013)]{Sanchez2013}
+%Sanchez, A. G., Kazin, E. A., Beutler, F., et al. 2013, MNRAS, 433, 1202  
+
+%\bibitem[Sutter et al.(2014)]{Sutter2014}
+%Sutter, P.M., Pisani, A., Wandelt, B.D., \& Weinberg, D.H. 2014, MNRAS, 443, 2983
+
+
+%\bibitem[Sanchez et al.(2016)]{Sanchez2016}
+%Sanchez, A. G., Scoccimarro, R., \& Crocce, M., et al.
+%arXiv:1607.03147
+
+%\bibitem[Schlafly et al.(2010)]{Schlafly2010}
+%Schlafly E.F., Finkbeiner D.P., Schlegel D.J., et al. 2010, ApJ, 725, 1175
+
+%\bibitem[Schlafly \& Finkbeiner(2011)]{SF2011}
+%Schlafly E.F., \& Finkbeiner D.P. 2011, ApJ, 737, 103
+
+
+%DESI:
+%http://arxiv.org/abs/1106.1706
+%\bibitem[Schlegel et al.(2011)]{DESI}
+%Schlegel, D., Abdalla, F., \& Abraham, T., et al. 2011, arXiv:1106.1706
+
+%\bibitem[Smee et al.(2013)]{Smee2013}
+%Smee, S.A., Gunn, J.E., \& Uomoto, A., et al. 2013, AJ, 146, 32
+
+%\bibitem[Song et al.(2014)]{2014arXiv1407.2257S} 
+%Song, Y.S., Sabiu, C.G., 
+%Okumura, T., Oh, M., \& Linder, E.V.\ 2014, JCAP, 12, 005 
+
+%\bibitem[Speare et al. (2015)]{Speare2015}
+%Speare, R., Gott, J.R., Kim, J., \& Park, C.
+%2015, ApJ, 799, 176
+
+%\bibitem[Tojeiro \& Percival(2011)]{Tojeiro2011}
+%Tojeiro R., \& Percivial W.J. 2011, MNRAS, 417, 1114  
+
+%\bibitem[Tojeiro et al.(2012)]{Tojeiro2012}
+%Tojeiro, R., Percival, W. J., Wake, D. A., et al. 2012, MNRAS, 424, 136 
+
+%\bibitem[Viana \& Liddle(1996)]{VL1996}
+%Viana, P.T.P., \& Liddle, A.R. 1996, MNRAS, 281, 323
+
+%\bibitem[Villalobos et al.(2013)]{V13}
+%Villalobos, \'{A}., ́De Lucia, G., Weinmann, S.M., Borgani, S., \& Murante, G. 2013, MNRAS, 433, L49
+
+
+%\bibitem[Weinberg (1989)]{SW1989}
+%Weinberg, S. 1989, Reviews of Modern Physics, 61, 1
+
+%\bibitem[White (2011)]{White2011}
+%White M., et al. 2011, ApJ, 728, 126
+
+\bibitem[Yoo \& Watanabe(2012)]{2012IJMPD..2130002Y}%
+Yoo, J., \& Watanabe, Y.\ 2012, International Journal of Modern Physics D, 21, 1230002 
+
+%\bibitem[York et al.(2000)]{York et al. 2000}
+%York, D.G., Adelman, J., \& Anderson, J.E., et al. 2000, AJ, 120, 1579
+
+%\bibitem[Zehavi et al.(2011)]{zehavi2011}
+%Zehavi, I., Zheng, Z., \& Weinberg, D.H., et al. 2011, ApJ, 736, 59
+
 
 
 
