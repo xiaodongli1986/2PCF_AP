@@ -12,6 +12,7 @@
 
 ! Sys-uncorred:    14.5382814       18.5175323       12.0481081       9.10813332       11.9272099       66.1392657 22333093  
 
+
 program main
 use LSS_ximu_tests
 USE de_model_init
@@ -36,7 +37,7 @@ implicit none
 !!! Next step: write this for wbinned model!!!
 
   de_model_lab  = de_wcdm_lab
-  ommin=0.0;  ommax=1.0; 
+  ommin=0.2;  ommax=0.3; 
    numw0=1; numwa=1;
 !  print *, log(2.732); stop
   nowmodel = model_wcdm;   wamin=0.0;wamax=0.0;numwa=1
@@ -64,7 +65,7 @@ implicit none
   if(do_lcdm_constraint) then
     mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
     MCMCfilestr = 'base_lcdm_'
-    numom = 2001
+    numom = 21
   else
     mcmcdir = '/home/xiaodongli/software/cosmomcs/12Oct_generic/chains/wcdm/'
     MCMCfilestr = 'base_Rhct_'

@@ -1,7 +1,4 @@
 %%% On-going present
-%DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL Draft1.6.tex   Tue Aug 15 08:09:40 2017
-%DIF ADD Draft1.7.tex   Wed Sep 13 10:25:38 2017
 %%
 %% Beginning of file 'sample.tex'
 %%
@@ -77,25 +74,6 @@
 
 %% This is the end of the preamble.  Indicate the beginning of the
 %% paper itself with \begin{document}.
-%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
-%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
-\RequirePackage[normalem]{ulem} %DIF PREAMBLE
-\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
-\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
-\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
-%DIF SAFE PREAMBLE %DIF PREAMBLE
-\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
-\providecommand{\DIFaddend}{} %DIF PREAMBLE
-\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
-\providecommand{\DIFdelend}{} %DIF PREAMBLE
-%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
-\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
-\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
-\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
-\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
-\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
-\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
-%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -247,18 +225,11 @@ We check the robustness of the results.
    %\includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_xy}
-   \DIFdelbeginFL \DIFdelFL{The distance dependence }\DIFdelendFL %DIF > The distance dependence of the shape distortion in four wrongly assumed cosmologies,
-   %DIF > assuming a true cosmology of $\Omega_m=0.26$, $w=-1$.
-   %DIF > There are four perfect squares with their true shapes plotted in blue dashed lines.
-   %DIF > They are measured by an observer located at the origin, and the distances are reprojected in the four wrong cosmologies.
-   %DIF > The apparently distorted shapes are plotted in red solid lines.
-   \DIFaddbeginFL \DIFaddFL{Examples }\DIFaddendFL of the \DIFaddbeginFL \DIFaddFL{rectangular }\DIFaddendFL shape \DIFdelbeginFL \DIFdelFL{distortion in four wrongly assumed cosmologies,
-   }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{distorted by }\DIFaddendFL assuming \DIFdelbeginFL \DIFdelFL{a }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{incorrect 
-   cosmologies compared to the }\DIFaddendFL true \DIFaddbeginFL \DIFaddFL{fiducial }\DIFaddendFL cosmology \DIFdelbeginFL \DIFdelFL{of }\DIFdelendFL $\Omega_m=0.26$ \DIFdelbeginFL \DIFdelFL{, }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{and }\DIFaddendFL $w=-1$.
-   \DIFdelbeginFL \DIFdelFL{There are four perfect squares with their true shapes plotted in }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The }\DIFaddendFL blue dashed \DIFdelbeginFL \DIFdelFL{lines.
-   They are measured by an observer located at }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{boxes mark }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{origin, }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{reference rectangular shape
-   }\DIFaddendFL and the \DIFdelbeginFL \DIFdelFL{distances }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{red distorted boxes }\DIFaddendFL are \DIFdelbeginFL \DIFdelFL{reprojected in }\DIFdelendFL the \DIFdelbeginFL \DIFdelFL{four wrong cosmologies.
-   The apparently distorted }\DIFdelendFL shapes \DIFdelbeginFL \DIFdelFL{are plotted in red solid lines}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{observed at the coordinate origin}\DIFaddendFL .
+   The distance dependence of the shape distortion in four wrongly assumed cosmologies,
+   assuming a true cosmology of $\Omega_m=0.26$, $w=-1$.
+   There are four perfect squares with their true shapes plotted in blue dashed lines.
+   They are measured by an observer located at the origin, and the distances are reprojected in the four wrong cosmologies.
+   The apparently distorted shapes are plotted in red solid lines.
    }
 \end{figure*}
 
@@ -292,16 +263,15 @@ We check the robustness of the results.
    }
    \caption{\label{fig_fan}
    %We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
-   A patch of SDSS BOSS DR12 galaxies in the fan shape region \DIFdelbeginFL \DIFdelFL{$\rm 140^\circ < RA < 170 ^\circ$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{of 
-   $\rm 140^\circ < R.A. < 170 ^\circ$}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{$\rm 10^\circ < DEC < 13 ^\circ$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\rm 10^\circ < Decl. < 13 ^\circ$}\DIFaddendFL ,
-   split into six non-overlapping redshift bins (marked by the light green \DIFdelbeginFL \DIFdelFL{rings}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{arcs}\DIFaddendFL ) in order to \DIFdelbeginFL \DIFdelFL{probing }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{probe }\DIFaddendFL the redshift evolution of anisotropic clustering.
-   In the left and right panels, we plot the \DIFdelbeginFL \DIFdelFL{galaxies }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{galaxy }\DIFaddendFL positions computed in two cosmologies: the $\Omega_m$=0.26 $\Lambda$CDM, 
+   A patch of SDSS BOSS DR12 galaxies in the fan shape region $\rm 140^\circ < RA < 170 ^\circ$, $\rm 10^\circ < DEC < 13 ^\circ$,
+   split into six non-overlapping redshift bins (marked by the light green rings) in order to probing the redshift evolution of anisotropic clustering.
+   In the left and right panels, we plot the galaxies positions computed in two cosmologies: the $\Omega_m$=0.26 $\Lambda$CDM, 
    and a dynamical dark energy cosmology with $\Omega_m=0.26,\ w_0=-1,\ w_a=-2$.
    Redshifts and comoving distances (in unit of $h^{-1}\rm Mpc$) of the edges of redshift bins are listed.
    %The shape of structures look different in these two cosmologies. 
    In the dynamical dark energy cosmology, we see relative stretch of structures compared with the $\Lambda$CDM cosmology.
    The stretch is not significant in the first redshift bin, and becomes large in high redshift bins.
-   We use this \DIFdelbeginFL \DIFdelFL{phenomena }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{apparent distortion }\DIFaddendFL to discover the AP effect and place constraints on cosmologies.
+   We use this phenomena to discover the AP effect and place constraints on cosmologies.
    %By investigating how the anosotropy of galaxy distribution evolves in the six redshift bins,
    %we are able to distinguish different cosmologies.
    %The obtained galaxy distribution is different.
@@ -319,13 +289,9 @@ We check the robustness of the results.
 
 The  origin  of  the late-time accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. 
 Theoretical explanations for this phenomena are numerous and range from a non-zero  vacuum energy, an evolving  scalar  field  remnant  from  the  big  bang, 
-to modifications of Einstein's General Relativity \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
-\citep{2012IJMPD..2130002Y}}%DIFAUXCMD
-}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
-\citep{Li2011,2012IJMPD..2130002Y}}%DIFAUXCMD
-}\DIFaddend . 
+to modifications of Einstein's General Relativity \citep{2012IJMPD..2130002Y}. 
 Considering the wealth of theoretical explanations, 
-it is crucial to obtain precise and unbiased measurements of the expansion history of the Universe \DIFdelbegin \DIFdel{allowing }\DIFdelend \DIFaddbegin \DIFadd{which allows }\DIFaddend us to 
+it is crucial to obtain precise and unbiased measurements of the expansion history of the Universe allowing us to 
 differentiate between competing models. 
 
 In recent years the Alcock-Paczynski (AP) test \citep{AP1979} applied to galaxy redshift samples \citep{Outram2004,Blake2011,Alam2016}, 
@@ -553,7 +519,7 @@ They have been adopted for statistical analysis of BOSS data in a series of work
  Left panel: Input-output test of the AP methodology using four sets of BOSS DR12 galaxy mock catalogues constructed from the HR4 simulation.
  The approximate 2PCFs are adopted in the analysis.
  The inferred cosmological constraints from the method, shown in the cyan contours, are consistent with the input cosmology
- (the simulation cosmology, i.e. the $\Omega_m=0.26$ $\Lambda$CDM; marked by the black plus \DIFaddbeginFL \DIFaddFL{sign}\DIFaddendFL ).
+ (the simulation cosmology, i.e. the $\Omega_m=0.26$ $\Lambda$CDM; marked by the black plus).
  Right panel: Cosmological constraints from the BOSS DR12 galaxies, assuming a $w$CDM cosmology 
  (i.e., the value of $w_a$ fixed as zero).
  Results obtained using the precise 2PCFs (cyan filled) 
@@ -606,7 +572,8 @@ In detail, the number of galaxy pairs are only counted in a fiducial cosmology
 and ``translated'' to the measurements in a ``target'' cosmology using the following relations, 
 \begin{eqnarray}\label{eq:smumap}
  s_{\rm target} = s_{\rm fiducial} \sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2+\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}, \\
- \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}{\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2 +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
+ \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}
+ {\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2 +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
 \end{eqnarray}
 where $\alpha_{\bot}\equiv D_{A,\rm target}/D_{A,\rm fiducial}$,
 $\alpha_{\parallel}\equiv H_{\rm fiducial}/H_{\rm target}$.
@@ -698,8 +665,8 @@ we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters. %$\Omega_m = 
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_con}
-   Cosmological \DIFaddbeginFL \DIFaddFL{parameter }\DIFaddendFL constraints on the CPL dark energy parametrization $w=w_0+w_a {z}/{(1+z)}$.
-   \DIFaddbeginFL \DIFaddFL{The }\DIFaddendFL 68.3\%, 95.4\% CL likelihood contours in the $\Omega_m - w_0$  and $w_0 - w_a$ planes are plotted in the left and right panels, respectively.
+   Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a {z}/{(1+z)}$.
+   68.3\%, 95.4\% CL likelihood contours in the $\Omega_m - w_0$  and $w_0 - w_a$ planes are plotted in the left and right panels, respectively.
    Results from the AP method alone (brown filled), CMB+BAO (cyan filled), CMB+BAO+SNIa+$H_0$ (blue filled)
    and CMB+BAO+SNIa+$H_0$+AP (magenta filled) are shown.
    To see the effect of systematic effect, we also plot the AP alone and CMB+BAO+SNIa+$H_0$+AP constraints 
@@ -946,7 +913,7 @@ Alcock, C., \& Paczynski, B. 1979, Nature, 281, 358
 
 \bibitem[Anderson et al.(2013)]{Anderson2013}
 Anderson, L., Aubourg, \'E., \& Bailey, S. et al. 2014, MNRAS, 441, 24  
-
+  
 %\bibitem[Bassett et al.(2002)]{Bassett2002}
 %Bassett, B.A., Kunz, M., Silk, J., \& Ungarelli, C. 2002, MNRAS, 336, 1217
 
@@ -1118,11 +1085,8 @@ Lewis, A., \& Bridle, S. 2002, Phys. Rev. D, 66, 103511
 %\bibitem[L'Huillier et al.(2014)]{2014NewA...30...79L} 
 %L'Huillier, B., Park, C., \& Kim, J.\ 2014, New Astronomy, 30, 79 
 
-%DIF < \bibitem[Li et al.(2011)]{Li2011}
-%DIF < Li, M., Li, X.-D., Wang, S., \& Wang, Y. 2011, Commun. Theor. Phys., 56, 525
-\DIFaddbegin \bibitem[Li et al.(2011)]{Li2011}
-\DIFadd{Li, M., Li, X.-D., Wang, S., \& Wang, Y. 2011, Commun. Theor. Phys., 56, 525
-}\DIFaddend 
+%\bibitem[Li et al.(2011)]{Li2011}
+%Li, M., Li, X.-D., Wang, S., \& Wang, Y. 2011, Commun. Theor. Phys., 56, 525
 
 \bibitem[Li et al.(2014)]{Li2014}
 Li, X.-D., Park, C., Forero-Romero, J., \& Kim, J. 2014, ApJ, 796, 137

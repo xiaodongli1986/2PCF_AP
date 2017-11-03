@@ -1,4 +1,7 @@
 %%% On-going present
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL Draft1.2.tex   Thu Aug  3 12:23:02 2017
+%DIF ADD Draft1.4.tex   Mon Aug  7 14:06:42 2017
 %%
 %% Beginning of file 'sample.tex'
 %%
@@ -74,6 +77,25 @@
 
 %% This is the end of the preamble.  Indicate the beginning of the
 %% paper itself with \begin{document}.
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -100,12 +122,16 @@ significant improvement in the dark energy figure of merit}
 %$\star$Corresponding Author: ***@kasi.re.kr}
 
 \author{Xiao-Dong Li,}
-\affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
-\author{Cristiano G. Sabiu,}
+\DIFdelbegin %DIFDELCMD < \affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 02455, Korea}
+\DIFaddend \author{Cristiano G. Sabiu,}
 \affil{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
 \author{Changbom Park,}
-\affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
-\author{Yuting Wang, Gong-bo Zhao}
+\DIFdelbegin %DIFDELCMD < \affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 130-722, Korea}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \affil{School of Physics, Korea Institute for Advanced Study, 85 Heogiro, Dongdaemun-gu, Seoul 02455, Korea}
+\DIFaddend \author{Yuting Wang, Gong-bo Zhao}
 \affil{National Astronomy Observatories, Chinese Academy of Science, Beijing, 100012, P.R.China}
 \author{Hyunbae Park, Arman Shafieloo,}
 \affil{Korea Astronomy and Space Science Institute, 776, Daedeokdae-ro, Yuseong-gu, Daejeon, 34055, Korea}
@@ -118,7 +144,9 @@ significant improvement in the dark energy figure of merit}
 %\altaffiltext{2}{cbp@kias.re.kr}
 %\altaffiltext{3}{csabiu@kasi.re.kr}
 %\altaffiltext{4}{\bf Hyunbae: your email}
-%\altaffiltext{1}{Corresponding Author: kjhan@kias.re.kr}
+\DIFdelbegin %DIFDELCMD < \altaffiltext{1}{Corresponding Author: kjhan@kias.re.kr}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > \altaffiltext{1}{Corresponding Author: kjhan@kias.re.kr}
 
 % \email{xiaodongli@kias.re.kr}
 % \email{cbp@kias.re.kr}
@@ -160,16 +188,18 @@ significant improvement in the dark energy figure of merit}
 %% editorial office after submission.
 
 \begin{abstract}
-We use the anisotropic clustering signal of 1,133,326 galaxies from the Sloan Digital Sky Survey Data Release 
-12, spanning the redshift range $0.15<z<0.69$ to place constraints on the expansion history of the Universe. 
+We \DIFdelbegin \DIFdel{use the anisotropic clustering signal of }\DIFdelend \DIFaddbegin \DIFadd{perform the Alcock-Paczynski (AP) test via the redshift dependence of clustering on scales of 6--40 $h^{-1}\rm Mpc$
+to place constraints on the expansion history of the Universe.
+We use }\DIFaddend 1,133,326 galaxies \DIFdelbegin \DIFdel{from the }\DIFdelend Sloan Digital Sky Survey Data Release 12 \DIFaddbegin \DIFadd{galaxies}\DIFaddend , spanning the redshift range $0.15<z<0.69$\DIFdelbegin \DIFdel{to place constraints on the expansion history of the Universe}\DIFdelend .
 %Concentrating on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$,
 %while improving upon earlier works \citep{Li2016},
 %we present a novel use of the Alcock-Paczynski (AP) test via clustering difference between redshift bins on scales of 6-40 $h^{-1}\rm Mpc$.
 %This differential measure is shown to be a robust statistical tool that mitigates many systematic effects, 
 %allowing for competitive and unbiased constrains to be placed on cosmological parameters.
-The Alcock-Paczynski (AP) test was performed via the redshift dependence of clustering on scales of 6--40 $h^{-1}\rm Mpc$.
-We improve the methodology of \cite{Li2016} by significantly reducing its computation time. 
-This enables us to efficiently explore three or more cosmological parameters.
+\DIFdelbegin \DIFdel{The Alcock-Paczynski (AP) test was performed via the redshift dependence of clustering on scales of 6-40 $h^{-1}\rm Mpc$.
+}\DIFdelend We improve the methodology of \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Li2016} }%DIFAUXCMD
+by significantly reducing its computation time. This enables us }\DIFdelend \DIFaddbegin \DIFadd{Li et al. }\DIFaddend to efficiently explore three or more cosmological parameters.
 We then apply the improved method on the Chevallier-Polarski-Linder parametrization of dark energy, $w=w_0+w_a\frac{z}{1+z}$.
 In combination with the CMB, BAO, SNIa and $H_0$ from Cepheid data, we obtain
 $\Omega_m = 0.301 \pm 0.008,\ w_0 = -1.042 \pm 0.067,\ w_a = -0.07 \pm 0.29$ (68.3\% CL). 
@@ -226,7 +256,7 @@ We checked the robustness of the results.
    }
    \caption{\label{fig_xy}
    The distance dependence of the shape distortion in four wrongly assumed cosmologies.
-   Assuming a true cosmology of $\Omega_m=0.26$, $w=-1$.
+   Assuming a true cosmology of \DIFdelbeginFL \DIFdelFL{$\Omega_m=0.31$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Omega_m=0.26$}\DIFaddendFL , $w=-1$.
    There are four perfect squares with their true shapes plotted in blue dashed lines.
    They are measured by an observer located at the origin, and the distances are reprojected in the four wrong cosmologies.
    The apparently distorted shapes are plotted in red solid lines.
@@ -234,25 +264,26 @@ We checked the robustness of the results.
 \end{figure*}
 
 
-%\begin{figure*}
-%   \centering{
-%   %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
-%   \includegraphics[height=6.5cm]{fig_nbar.eps}
-%   \includegraphics[width=9.0cm,]{fig_2pcf.eps}
-%   }
-%   \caption{\label{fig_TpCF}
-%   Splitting the SDSS galaxies into six redshift bins, and measuring the correlation function
-%   (similar figures already presented in \cite{Li2016}).
-%   Left panel: We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
-%   The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
-%   The vertical dashed lines define the six redshift bins that are used to cut the samples.
-%   The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
-%   Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
-%      in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
-%    The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
-%    The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
-%   }
-%\end{figure*}
+%DIF > \begin{figure*}
+%DIF >    \centering{
+%DIF >    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
+%DIF >    \includegraphics[height=6.5cm]{fig_nbar.eps}
+%DIF >    \includegraphics[width=9.0cm,]{fig_2pcf.eps}
+%DIF >    }
+%DIF >    \caption{\label{fig_TpCF}
+%DIF >    Splitting the SDSS galaxies into six redshift bins, and measuring the correlation function
+%DIF >    (similar figures already presented in \cite{Li2016}).
+%DIF >    Left panel: We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
+%DIF >    The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
+%DIF >    The vertical dashed lines define the six redshift bins that are used to cut the samples.
+%DIF >    The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
+%DIF >    Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
+%DIF >       in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
+%DIF >     The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
+%DIF >     The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
+%DIF >    }
+%DIF > \end{figure*}
+\DIFaddbegin 
 
 \begin{figure*}
    \centering{
@@ -262,36 +293,39 @@ We checked the robustness of the results.
    %\includegraphics[width=8.5cm]{fig_fan_2.eps}
    }
    \caption{\label{fig_fan}
-   %We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
-   A patch of BOSS DR12 glaxies located in the fan shape region $\rm 140^\circ < RA < 170 ^\circ$, $\rm 10^\circ < DEC < 13 ^\circ$.
+   %DIF > We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
+   \DIFaddFL{A patch of BOSS DR12 glaxies located in the fan shape region $\rm 140^\circ < RA < 170 ^\circ$, $\rm 10^\circ < DEC < 13 ^\circ$.
    We split the sample into six non-overlapping redshift bins
    (marked by the light green rings) in order to probing the redshift evolution of anisotropic clustering.
    In the left and right panels, we plot the galaxies postions computed in two cosmologies: the $\Omega_m$=0.26 $\Lambda$CDM, 
-   and the SCDM cosmology with no dark energy.
+   and a dynamical dark energy cosmology with $\Omega_m=0.26,\ w_0=-1,\ w_a=-2$.
    The redshifts and comoving distances (in unit of $h^{-1}\rm Mpc$) of the redshift bins are listed.
-   %The shape of structures look different in these two cosmologies. 
-   In SCDM cosmology, we see apprent relative compression of structures compared with the $\Lambda$CDM cosmology.
-   The compression is not significant in the first redshift bin, 
-   and becomes large in the higher redshift bins.
+   %DIF > The shape of structures look different in these two cosmologies. 
+   In the dynamical dark energy cosmology, we see apprent relative stretch of structures compared with the $\Lambda$CDM cosmology.
+   The stretch is not significant in the first redshift bin, and becomes large in the higher redshift bins.
    We use this phenomena to discover the AP effect and place constraints on cosmologies.
-   %By investigating how the anosotropy of galaxy distribution evolves in the six redshift bins,
-   %we are able to distinguish different cosmologies.
-   %The obtained galaxy distribution is different.
-   %
-   %The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
-   %The vertical dashed lines define the six redshift bins that are used to cut the samples.
-   %The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
-   %Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
-   %   in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
-   % The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
-   % The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
-   }
+   %DIF > By investigating how the anosotropy of galaxy distribution evolves in the six redshift bins,
+   %DIF > we are able to distinguish different cosmologies.
+   %DIF > The obtained galaxy distribution is different.
+   %DIF > 
+   %DIF > The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
+   %DIF > The vertical dashed lines define the six redshift bins that are used to cut the samples.
+   %DIF > The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
+   %DIF > Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
+   %DIF >    in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
+   %DIF >  The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
+   %DIF >  The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
+   }}
 \end{figure*}
 
 
-The  origin  of  the late-time accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. 
+\DIFaddend The  origin  of  the late-time accelerating  expansion  of  the  universe  is  one of  the  most  salient  questions  in  contemporary cosmology. 
 Theoretical explanations for this phenomena are many and range from a non-zero  vacuum energy and evolving  scalar  fields  remnant  from  the  big  bang, 
-to modifications of Einstein's General Relativity\cite{2012IJMPD..2130002Y}. 
+to modifications of Einstein's General Relativity \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{2012IJMPD..2130002Y}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{2012IJMPD..2130002Y}}%DIFAUXCMD
+}\DIFaddend . 
 Considering the wealth of theoretical explanations, 
 it is crucial to obtain precise and unbiased measurements of the expansion history of the Universe allowing us to 
 differentiate between competing models. 
@@ -299,7 +333,7 @@ differentiate between competing models.
 In recent years the Alcock-Paczynski (AP) test \citep{AP1979} applied to galaxy redshift samples \citep{Outram2004,Blake2011,Alam2016}, 
 has allowed tight constraints to be placed on the background averaged distance scales, $D_A(z)$ and $H^{-1}(z)$.  
 Assuming an incorrect cosmological model for the coordinate transformation between redshift space and comoving space
-produces residual geometric distortions in the resultant galaxy distribution (see  Figure \ref{fig_xy}). 
+produces residual geometric distortions in the resultant galaxy distribution (see  \DIFdelbegin \DIFdel{Fig.}\DIFdelend \DIFaddbegin \DIFadd{Figure }\DIFaddend \ref{fig_xy}). 
 These distortions are induced by the fact that measured distances along 
 and perpendicular to the line of sight are connected with cosmological parameters differently. 
 Measuring the ratio of galaxy clustering in the radial and transverse directions provides a probe of this AP effect.
@@ -317,38 +351,53 @@ which leads to apparent anisotropy in the clustering signal, even if the adopted
 The effect, known as redshift-space distortions (RSD),
 is notoriously difficult to model accurately in the statistics of galaxy clustering \citep{Ballinger1996}.
 
-The symmetry properties of galaxy pairs\cite{Marinoni2010}  could also be used to probe the AP effect;
+The symmetry properties of galaxy pairs\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Marinoni2010}  }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Marinoni2010}  }%DIFAUXCMD
+}\DIFaddend could also be used to probe the AP effect;
 however, since the peculiar velocity distorts the redshifts and changes the apparent tilt angles of galaxy pairs,
 this method is also seriously limited by RSD \citep{Jennings2011}.
 
 
 
-In an effort to minimize RSD contamination, the shape of void regions\cite{Ryden1995,LavausWandelt1995}  has been 
-proposed as an AP probe. This approach has the advantage that the void regions are easier to model compared with dense regions, but has limitations in that it utilizes only low density regions of the LSS and requires large samples to achieve competitive constraints \citep{Qingqing2016}.
+In an effort to minimize RSD contamination, the shape of void regions\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Ryden1995,LavausWandelt1995}  }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Ryden1995,LavausWandelt1995}  }%DIFAUXCMD
+}\DIFaddend has been 
+proposed as an AP probe. This approach has the advantage that the void regions are easier to model compared with dense regions, 
+but has limitations in that it utilizes only low density regions of the LSS and requires large samples to achieve competitive constraints \citep{Qingqing2016}.
 
 %In an effort to overcome the RSD problem, 
 %\citep{Li2016} proposed to apply the AP effect to clustering on small scales. 
 %However, redshift space distortions affect the angular clustering of galaxies, mimicking a signal similar to the AP effect, 
 %thus contaminating the cosmological information.
 
-Previously, we proposed to use the {\it redshift dependence} of the AP distortion\cite{Li2014} as a way of mitigating the RSD effect. The clustering anisotropies produced by RSD are, although large, close to uniform in magnitude over a wide range in redshift.  However, if cosmological parameters are incorrectly chosen resulting in an AP effect, 
+Previously, we proposed to use the {\it redshift dependence} of the AP distortion\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Li2014} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Li2014} }%DIFAUXCMD
+}\DIFaddend as a way of mitigating the RSD effect. 
+The clustering anisotropies produced by RSD are, although large, close to uniform in magnitude over a wide range in redshift.  
+However, if cosmological parameters are incorrectly chosen resulting in an AP effect, 
 the anisotropy in the clustering signal has a clear redshift dependence
-(as an illustration, Figure \ref{fig_xy} shows how the shape distortion of objects varies with distance (i.e., redshift) 
+(as an illustration, \DIFdelbegin \DIFdel{Fig.}\DIFdelend \DIFaddbegin \DIFadd{Figure }\DIFaddend \ref{fig_xy} shows how the shape distortion of objects varies with distance (i.e., redshift) 
 when incorrect cosmologies are used to infer distances).
-In a later work\cite{Li2015}, we developed an AP methodology 
+In \DIFdelbegin \DIFdel{a later work}\DIFdelend \cite{Li2015}, we developed an AP methodology 
 that utilizes the redshift dependence of the galaxy 2-point correlation function (2pCF), 
 measured as a function of angle between the galaxy pair and line-of-sight (LoS).
 
 
 
-\begin{figure*}
+\DIFaddbegin \begin{figure*}
    \centering{
    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
-   \includegraphics[width=8.5cm]{fig_xi_cosmo1.eps}
-   \includegraphics[width=8.5cm]{fig_xi_cosmo2.eps}
+   \includegraphics[width=8.95cm]{fig_xi_cosmo1.eps}
+   \includegraphics[width=8.95cm]{fig_xi_cosmo2.eps}
    }
    \caption{\label{fig_xi}
-   $\hat\xi_{\Delta s}(\mu)$ measured from BOSS DR12 galaxies, in six redshift bins (three in LOWZ and three in CMASS).
+   \DIFaddFL{$\hat\xi_{\Delta s}(\mu)$ measured from BOSS DR12 galaxies, in six redshift bins (three in LOWZ and three in CMASS).
    This time we adopt the $\Omega_m=0.26$ $\Lambda$CDM cosmology and a more dark energy dominated cosmology, $\Omega_m=$0.11.
    The measurement in each redshift bin and the redshift evolution with respective to the measurement in first bin of LOWZ are shown.
    For comparison, the measurements in the HR4 mock catalogues (always in the $\Omega_m=0.26$ $\Lambda$CDM cosmology) are also plotted in green color.
@@ -361,11 +410,11 @@ measured as a function of angle between the galaxy pair and line-of-sight (LoS).
    For the $\Omega_m$=0.11 cosmology, we also plot the approximate 2pCFs (red dashed lines) 
      inferred using the technique described in Sec. \ref{sec:approx_2pcf}.
    The error induced in the approximate procedure is $\lesssim0.5\%$.
-   }
+   }}
 \end{figure*}
 
 
-In an earlier work\citep{Li2016} we applied this AP method to galaxies from the 3rd incarnation of the Sloan Digital Sky Survey (SDSS-III). 
+\DIFaddend In an earlier work\citep{Li2016} we applied this AP method to galaxies from the 3rd incarnation of the Sloan Digital Sky Survey (SDSS-III). 
 Combining the method with measurements of the Cosmic Microwave Background (CMB), type Ia supernovae (SNIa), 
 baryon acoustic oscillations (BAO), and $H_0$,
 we obtained very tight constraints of $ \Omega_m = 0.301 \pm 0.006,\ w=-1.054 \pm 0.025$.
@@ -381,7 +430,11 @@ We will present a slightly improved methodology to that of our previous work\cit
 allowing for faster likelihood estimation and thus the exploration of larger, higher dimensional parameter spaces. 
 The methodology we will present here, can be applied to any model of dynamical dark energy, 
 or indeed any appropriately chosen parametric or non-parametric decomposition of the cosmic expansion history. 
-However, as a first step, in this paper we will focus on the widely used Chevallier-Polarski-Linder (CPL) parametrization\cite{CPL_CP,CPL_L},
+However, as a first step, in this paper we will focus on the widely used Chevallier-Polarski-Linder (CPL) parametrization\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{CPL_CP,CPL_L}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{CPL_CP,CPL_L}}%DIFAUXCMD
+}\DIFaddend ,
 \begin{equation}
 w(z) = w_0 + w_a (1-a) = w_0 + w_a \frac{z}{1+z}.
 \end{equation}
@@ -391,11 +444,19 @@ The possible redshift evolution of dark energy EoS is not considered in the anal
 
 The CPL parametrization has many obvious advantages, for instance, a manageable parameter space, 
 the bounded behavior at high redshift, 
-and the ability to accurately reconstruct many dark energy theories\cite{CPL_L}. 
+and the ability to accurately reconstruct many dark energy theories\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{CPL_L}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{CPL_L}}%DIFAUXCMD
+}\DIFaddend . 
 So it was widely used in the literature to reconstruct dark energy from observations.
-The constraining power is usually quantified by the DETF (Dark Energy Task Force) \cite{DETF} figure of merit, 
+The constraining power is usually quantified by the DETF (Dark Energy Task Force) \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{DETF} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{DETF} }%DIFAUXCMD
+}\DIFaddend figure of merit, 
 defined as the reciprocal of the area of the error ellipse enclosing the 95\% confidence limit (CL) in the $w_0-w_a$ plane. 
-Figure \ref{fig_xy} shows that redshift dependence of shape distortion is sensitive to both $w_0$ and $w_a$.
+\DIFdelbegin \DIFdel{Fig.}\DIFdelend \DIFaddbegin \DIFadd{Figure }\DIFaddend \ref{fig_xy} shows that redshift dependence of shape distortion is sensitive to both $w_0$ and $w_a$.
 So we expect these two parameters effectively constrained by our method.
 
 %{\bf AMTB: Please chose one kind of tense of verbs. It changes from sentences to sentences!}
@@ -404,46 +465,97 @@ So we expect these two parameters effectively constrained by our method.
 
 
 \section{Methodology}
+\DIFaddbegin 
 
-\subsection{Quantifying the redshift dependece of AP distortion}
+\subsection{\DIFadd{Quantifying the redshift dependece of AP distortion}}
 
-The spectroscopic galaxy sample of SDSS-III BOSS (Baryon Oscillation Spectroscopic Survey) has two primary catalogues:
+\DIFaddend The spectroscopic galaxy sample of SDSS-III BOSS (Baryon Oscillation Spectroscopic Survey) has two primary catalogues:
 %the LOWZ at $z\leq0.4$, and CMASS covering $0.4\leq z \leq 0.7$. %of galaxies.
 the LOWZ sample, designed as an extension of the SDSS-I/II luminous red galaxy sample to $z\approx 0.4$ and fainter luminosities,
 and the CMASS sample covers a higher redshift ($0.4\lesssim z \lesssim 0.7$),
-targeted to be an approximately stellar mass limited sample of massive, luminous galaxies \cite{Reidetal:2016}.
+targeted to be an approximately stellar mass limited sample of massive, luminous galaxies \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Reidetal:2016}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Reidetal:2016}}%DIFAUXCMD
+}\DIFaddend .
 In the clustering analysis we use 1,133,326 galaxies, split into six, non-overlapping redshift bins, 
 $0.150<z_1<0.274<z_2<0.351<z_3<0.430<z_4<0.511<z_5<0.572<z_6<0.693$.
-%The number density of galaxies and the redshift binning scheme is plotted in the left panel of Figure \ref{fig_TpCF}.
+The \DIFdelbegin \DIFdel{number density of galaxies and the redshift binning scheme is plotted in the left panel of Fig. 
+\ref{fig_TpCF}.
+}\DIFdelend \DIFaddbegin \DIFadd{edges are determined so that the number of galaxies are roughly the same in different redshift bins 
+(for LOWZ and CMASS samples, respectively).
+}\DIFaddend 
 
-Figure \ref{fig_fan} shows the positions of a patch of 10,976 BOSS DR12 glaxies,
-computed in the $\Omega_m$=0.26 $\Lambda$CDM cosmology and the standard cold dark matter (SCDM) cosmology with no dark energy.
+\DIFdelbegin %DIFDELCMD < \begin{figure*}
+%DIFDELCMD <    \centering{
+%DIFDELCMD <    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
+%DIFDELCMD <    \includegraphics[height=6.5cm]{fig_nbar.eps}
+%DIFDELCMD <    \includegraphics[width=9.0cm,]{fig_2pcf.eps}
+%DIFDELCMD <    }
+%DIFDELCMD <    %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+%DIFDELCMD < \label{fig_TpCF}
+%DIFDELCMD <    %%%
+\DIFdelFL{Splitting the SDSS galaxies into six redshift bins, and measuring the correlation function
+   (similar figures already presented in \mbox{%DIFAUXCMD
+\cite{Li2016}}%DIFAUXCMD
+).
+   Left panel: We split the BOSS DR12 galaxies into six redshift bins to measure the evolution of shape distortion.
+   The blue and green solid histograms show the redshift density distribution of LOWZ and CMASS galaxies in the $\Omega_m=0.31$ $\Lambda$CDM. 
+   The vertical dashed lines define the six redshift bins that are used to cut the samples.
+   The number of LOWZ/CMASS galaxies in the three low/high redshift bins are listed.
+   Right panel: 2D contour map of measured $\xi$ as a function of $\mu$ and $s$, from the six redshift bins of LOWZ and CMASS samples, 
+      in the cosmology of $\Omega_m=0.31$ $\Lambda$CDM model.
+    The black dashed lines mark the clustering region 6-40\ Mpc/h studied in the AP method.
+    The six contour maps have rather similar appearance, implying small redshift evolution of $\xi$ from RSD.
+   }}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < %%%
+\DIFdelend %DIF > The number density of galaxies and the redshift binning scheme is plotted in the left panel of Figure \ref{fig_TpCF}.
+\DIFaddbegin 
+
+\DIFadd{Figure \ref{fig_fan} shows the positions of a patch of 10,976 BOSS DR12 glaxies,
+computed in the $\Omega_m$=0.26 $\Lambda$CDM cosmology and a dynamical dark energy cosmology with $\Omega_m=0.26,\ w_0=-1,\ w_a=-2$.
 The shape of structures look different in these two cosmologies. 
-In the SCDM cosmology, there is apprent compression of structures due to the wrong distance-redshift relation, 
+In the later cosmology, there is apprent stretch of structures, 
 and the degree of compression becomes more significant in higher redshift bins.
 By investigating how the anosotropy of galaxy distribution evolves in the six redshift bins,
-we are able to distinguish the SCDM cosmology from the $\Lambda$CDM cosmology.
+we are able to distinguish this cosmology from the $\Lambda$CDM cosmology.
+}\DIFaddend 
 
 
 
 
-
-Following our previous methodology \citep{Li2016}, the information of small-scale anisotropic clustering is computed as 
-%\footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
-\begin{equation}
-\xi_{\Delta s} (\mu) \equiv \int_{s_{\rm min}}^{s_{\rm max}} \xi (s,\mu)\ ds,
-\end{equation}
-with $s_{\rm min}=6 h^{-1} {\rm Mpc},\ s_{\rm max}=40 h^{-1} {\rm Mpc}$.
+Following our previous methodology \citep{Li2016}, the information of small-scale anisotropic clustering is computed \DIFdelbegin \DIFdel{.
+%DIF < \footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
+as 
+$\xi_{\Delta s} (\mu) \equiv \int_{s_{\rm min}}^{s_{\rm max}} \xi (s,\mu)\ ds$, 
+}\DIFdelend \DIFaddbegin \DIFadd{as 
+%DIF > \footnote{These correlations were computed using the public code \texttt{KSTAT} \citep{kstat}.} 
+}\begin{equation}
+\DIFadd{\xi_{\Delta s} (\mu) \equiv \int_{s_{\rm min}}^{s_{\rm max}} \xi (s,\mu)\ ds,
+}\end{equation}
+\DIFaddend with $s_{\rm min}=6 h^{-1} {\rm Mpc},\ s_{\rm max}=40 h^{-1} {\rm Mpc}$.
 We then normalize these {\em clustering shells} as 
-\begin{equation}
-\hat\xi_{\Delta s}(\mu) \equiv \frac{\xi_{\Delta s}(\mu)}{\int_{0}^{\mu_{\rm max}}\xi_{\Delta s}(\mu)\ d\mu}
-\end{equation}
-to nullify the amplitude information of the clustering signal, 
+\DIFdelbegin \DIFdel{$\hat\xi_{\Delta s}(\mu) \equiv \frac{\xi_{\Delta s}(\mu)}{\int_{0}^{\mu_{\rm max}}\xi_{\Delta s}(\mu)\ d\mu}$
+}\DIFdelend \DIFaddbegin \begin{equation}
+\DIFadd{\hat\xi_{\Delta s}(\mu) \equiv \frac{\xi_{\Delta s}(\mu)}{\int_{0}^{\mu_{\rm max}}\xi_{\Delta s}(\mu)\ d\mu}
+}\end{equation}
+\DIFaddend to nullify the amplitude information of the clustering signal, 
 which is not associated with the Alcock-Paczynski test and is mostly sensitive to the galaxy bias.
-%The right panel of Figure \ref{fig_TpCF} shows the contour map of $\xi(s,\mu)$ measured in the six redshift bins.
-%The contour lines are not horizontal due to the effects of peculiar velocity,
-%and the RSD effect clearly manifest itself through the tilting of contour lines.
-%However, the shape of the tilted lines remain similar at different redshifts, a fact that enables us  to mitigate the RSD effect by focusing on the redshift dependence of the anisotropic clustering signal.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdel{The right panel of Fig.\ref{fig_TpCF} shows the contour map of $\xi(s,\mu)$ measured in the six redshift bins.
+The contour lines are not horizontal due to the effects of peculiar velocity,
+and the RSD effect clearly manifest itself through the tilting of contour lines.
+However, the shape of the tilted lines remain similar at different redshifts, a fact that enables us  to mitigate the RSD effect by focusing on the redshift dependence of the anisotropic clustering signal.
+}\DIFdelend %DIF > The right panel of Figure \ref{fig_TpCF} shows the contour map of $\xi(s,\mu)$ measured in the six redshift bins.
+%DIF > The contour lines are not horizontal due to the effects of peculiar velocity,
+%DIF > and the RSD effect clearly manifest itself through the tilting of contour lines.
+%DIF > However, the shape of the tilted lines remain similar at different redshifts, a fact that enables us  to mitigate the RSD effect by focusing on the redshift dependence of the anisotropic clustering signal.
 The ``correct'' cosmological model is selected by minimizing the amount of redshift evolution of $\hat\xi_{\Delta s}$,
 via a $\chi^2$ function of 
 \begin{equation}
@@ -456,97 +568,175 @@ while subtracting systematic effects:
  &- \left[\hat\xi_{\Delta s}(z_i,\mu_j)-\hat\xi_{\Delta s}(z_1,\mu_j)\right]_{\rm sys}.
 \end{eqnarray}
 We use a number of $n_{\mu}$=20, 21, ... 25 bins for the value of $\hat\xi_{\Delta s}(\mu)$ at $0<\mu<\mu_{\rm max}$.
-For the removal of fiber collision and the strong finger of god (FoG) effect \cite{FOG} near the LOS we take a cut $\mu_{\rm max} = 0.97$.
+For the removal of fiber collision and the strong \DIFdelbegin \DIFdel{FoG effect }\DIFdelend \DIFaddbegin \DIFadd{finger of god (FoG) effect \mbox{%DIFAUXCMD
+\citep{FOG} }%DIFAUXCMD
+}\DIFaddend near the LOS we take a cut $\mu_{\rm max} = 0.97$.
 
-Systematics effects are estimated using mock catalogues derived from Horizon Run 4 (HR4) \cite{HR4},
+Systematics effects are estimated using mock catalogues derived from Horizon Run 4 (HR4) \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{HR4}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{HR4}}%DIFAUXCMD
+}\DIFaddend ,
 an N-body simulation with box size $L={3150}$ $h^{-1}$Mpc, number of particles $6300^3$,   
 initial redshift $z_{i}=100$, and WMAP5\citep{komatsu2011} cosmological parameters 
 $(\Omega_{b},\Omega_{m},\Omega_\Lambda,h,\sigma_8,n_s)$  = (0.044, 0.26, 0.74, 0.72, 0.79, 0.96). 
-As presented in \cite{Li2016}, the value of $\left[\hat\xi_{\Delta s}(z_i,\mu_j)-\hat\xi_{\Delta s}(z_1,\mu_j)\right]_{\rm sys}$
+\DIFaddbegin \DIFadd{Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \mbox{%DIFAUXCMD
+\citep{hong2016}}%DIFAUXCMD
+. 
+}\DIFaddend As presented in \cite{Li2016}, the value of $\left[\hat\xi_{\Delta s}(z_i,\mu_j)-\hat\xi_{\Delta s}(z_1,\mu_j)\right]_{\rm sys}$
 (mainly comes from redshift evolution of RSD and galaxy bias)
 reaches 4-6\% at the highest redshift bin,
 and is minor ($\lesssim2\%$) at the other redshift bins.
-Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \citep{hong2016}. 
+\DIFdelbegin \DIFdel{Mock galaxy samples are produced using a modified version of the one-to-one correspondence scheme \mbox{%DIFAUXCMD
+\citep{hong2016}}%DIFAUXCMD
+. 
+}\DIFdelend \DIFaddbegin 
 
 
-The covariance matrix, ${\bf Cov}$, is computed from the 2,000 sets of MultiDark PATCHY mock catalogues \citep{MDPATCHY}.
+\DIFaddend The covariance matrix, ${\bf Cov}$, is computed from the 2,000 sets of MultiDark PATCHY mock catalogues \citep{MDPATCHY}.
 The statistical bias and scattering in the likelihood function (due to the finite number of mocks in covariance estimation) 
 are adequately corrected \citep{Hartlap,Percival2014}.
 
+\DIFaddbegin \DIFadd{The MultiDark PATCHY  mocks are produced using approximate gravity solvers and analytical-statistical biasing models.
+They were calibrated to the BigMultiDark N-body simulation \mbox{%DIFAUXCMD
+\citep{K2014}}%DIFAUXCMD
+, which 
+uses $3\,840^3$ particles in a volume of $(2.5h^{-1}\rm Gpc)^3$,
+assuming a $\Lambda$CDM cosmology with 
+$(\Omega_{b},\Omega_{m},h,\sigma_8,n_s)$  = (0.048206, 0.307115, 0.6777, 0.8288, 0.9611). 
+%DIF > $\Omega_m = 0.307115$, $\Omega_b = 0.048206$, $\sigma_8 = 0.8288$, $n_s = 0.9611$, and $H_0 = 67.77 {\rm km}\ s^{-1} {\rm Mpc}^{-1}$.
+The mock surveys can well reproduce the number density, 
+selection function, survey geometry, and 2pCF measurement of the BOSS DR12 catalogues.
+They have been adopted for statistical analysis of BOSS data in a series of works (see \mbox{%DIFAUXCMD
+\cite{Alam2016} }%DIFAUXCMD
+and references therein).
+}
 
 
-\begin{figure*}
-   \centering{
+
+
+\DIFaddend \begin{figure*}
+   \DIFdelbeginFL %DIFDELCMD < \centering{
+%DIFDELCMD <    %\includegraphics[width=9cm,natwidth=4,natheight=4]{figCPL_a.pdf}
+%DIFDELCMD <    \includegraphics[height=5cm,natwidth=6,natheight=4.5]{figCPL_b.pdf}
+%DIFDELCMD <    %\includegraphics[width=5.5cm,natwidth=4,natheight=4]{figCPL_b_BAOSNIaAP.pdf}
+%DIFDELCMD <    \includegraphics[height=5cm,natwidth=6,natheight=4.5]{figCPL_d.pdf}
+%DIFDELCMD <    %\includegraphics[height=8cm]{fig2b.pdf}
+%DIFDELCMD < %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
+%DIFDELCMD < %    \includegraphics[height=8cm]{smu.eps}
+%DIFDELCMD <    }
+%DIFDELCMD <    %%%
+\DIFdelendFL \DIFaddbeginFL \centering{
    \includegraphics[width=12cm]{fig_smu.eps}
 %   \includegraphics[width=10.5cm]{fig_comp.eps}
    }
-   \caption{\label{fig_method}
-   Mapping $\xi(s,\mu)$ from the fiducial cosmology (taken as the $\Omega_m=0.26$ $\Lambda$CDM cosmology) to other cosmologies. 
- The number counts are measured in the fiducial cosmology in the blue dashed grid.
- In the four cosmologies with $(w_0,w_a) = (-1.5,0),\ (-0.5,0),\ (-1,2)\ \rm and\ (-1,-2)$,
- %due to the distortion of geometry,
+   \DIFaddendFL \caption{\DIFdelbeginFL %DIFDELCMD < \label{fig_con}
+%DIFDELCMD <    %%%
+\DIFdelFL{Cosmological constraints on }\DIFdelendFL \DIFaddbeginFL \label{fig_method}
+   \DIFaddFL{Mapping $\xi(s,\mu)$ from }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{fiducial cosmology (taken as the $\Omega_m=0.26$ $\Lambda$CDM cosmology) to other cosmologies}\DIFaddendFL . 
+ \DIFdelbeginFL \DIFdelFL{Left panel: 68.3\%, 95.4\% CL likelihood contours }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{The number counts are measured }\DIFaddendFL in the \DIFdelbeginFL \DIFdelFL{$w_0-w_a$ plane}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{fiducial cosmology in the blue dashed grid}\DIFaddendFL .
+ %DIF < Results are consistent with $\Lambda$CDM.
+   \DIFdelbeginFL \DIFdelFL{The constrained area is significantly reduced after combined }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{In the four cosmologies }\DIFaddendFL with \DIFaddbeginFL \DIFaddFL{$(w_0,w_a) = (-1.5,0),\ (-0.5,0),\ (-1,2)\ \rm and\ (-1,-2)$,
+ %DIF > due to the distortion of geometry,
  according to Equation \ref{eq:smumap},
- the distribution of measured number counts in $(s, \mu)$ space becomes the red solid grid,
- To ensure the accuracy, we count the number of pairs in 5 times smaller pixels (the small red pixels), 
+ }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{AP method.
+   %DIF < This shows the power of the AP method in constraining dynamical dark energy.
+   %DIF < Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
+   %DIF < When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
+   Right panel: Redshift evolution }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{distribution }\DIFaddendFL of \DIFdelbeginFL \DIFdelFL{$w(z)$, with/without adding }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{measured number counts in $(s, \mu)$ space becomes }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{AP constraint.
+   Adding AP tightens }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{red solid grid,
+ To ensure }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{constraints and reduces }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{accuracy, we count }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{redshift evolution }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{number }\DIFaddendFL of \DIFdelbeginFL \DIFdelFL{$w$ }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{pairs in 5 times smaller pixels }\DIFaddendFL (\DIFdelbeginFL \DIFdelFL{tilt of $w(z)$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{the small red pixels}\DIFaddendFL )\DIFaddbeginFL \DIFaddFL{, 
  and group them together to infer the values of $\xi(s, \mu)$ in blue dashed pixels.
  For illustration purpose, 
-  the blue and red grids are all 10 times sparser than the grids adopted in the real analysis.
+  the blue and red grids are all 10 times sparser than the grids adopted in the real analysis}\DIFaddendFL .
 }
 \end{figure*}
 
-\begin{figure*}
-   \centering{
-   \includegraphics[width=8.5cm]{fig_comp.eps}
+%DIF < Covariance matrix 
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \begin{figure*}
+   \DIFdelbeginFL %DIFDELCMD < \centering{
+%DIFDELCMD <    \includegraphics[width=18cm,natwidth=6,natheight=5]{fig_con_tests.pdf}
+%DIFDELCMD <    %\includegraphics[width=9cm,natwidth=4,natheight=4]{fig2b.pdf}
+%DIFDELCMD <    %\includegraphics[height=8cm]{fig2b.pdf}
+%DIFDELCMD < %   \includegraphics[height=8cm]{Tpcf--plot--Normed.eps}
+%DIFDELCMD < %    \includegraphics[height=8cm]{smu.eps}
+%DIFDELCMD <    }
+%DIFDELCMD <    %%%
+\DIFdelendFL \DIFaddbeginFL \centering{
    \includegraphics[width=8.5cm]{fig_IO.eps}
+   \includegraphics[width=8.5cm]{fig_comp.eps}
    }
-   \caption{\label{fig_Check}
- Left panel: Cosmological constraints from the BOSS DR12 galaxies, in the $\Omega_m$-$w_0$ plane. 
- The value of $w_a$ is fixed as zero.
- Results obtained using the precise 2pCFs (cyan filled) 
+   \DIFaddendFL \caption{\DIFdelbeginFL %DIFDELCMD < \label{fig_contest}
+%DIFDELCMD <    %%%
+\DIFdelFL{Robustness }\DIFdelendFL \DIFaddbeginFL \label{fig_Check}
+ \DIFaddFL{Left panel: Input-output }\DIFaddendFL test of the \DIFdelbeginFL \DIFdelFL{results.
+   For }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{methodology using four sets of mock catalogues of BOSS DR12 galaxies constructed from }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{``default'' constraints (pink contours) }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{HR4 simulation.
+ The approximate 2pCFs }\DIFaddendFL are \DIFdelbeginFL \DIFdelFL{derived using six redshift bins, 
+   $\mu_{\rm max}=0.97$, $n_{\mu}=15-20$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{adopted in the analysis.
+ The simulation cosmology}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{$s=6-40 \rm Mpc/h$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$\Omega_m=0.26$ $\Lambda$CDM}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{a fiducial cosmology $\Omega_m=0.26,\ w=-1.0$ for }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{is marked by }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{measurement of 2pCF,
+   systematic effects estimated }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{black plus.
+ The inferred cosmological constraints }\DIFaddendFL from \DIFdelbeginFL \DIFdelFL{Horizon Run 4 simulations}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{the method}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{and covariance estimated using 2}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{shown in the cygan contours}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{000 MultiDark PATCHY mocks}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{are consistent with the input cosmology}\DIFaddendFL .
+ \DIFdelbeginFL \DIFdelFL{When we alters one of these options by using $\mu_{\rm max}=0.99$, 
+   $\mu_{\rm max}=0.85$, $n_{\mu}=15-20$, $s=8-30 \rm Mpc/h$}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{Right panel: Cosmological constraints from the BOSS DR12 galaxies}\DIFaddendFL , \DIFaddbeginFL \DIFaddFL{assuming }\DIFaddendFL a \DIFdelbeginFL \DIFdelFL{fiducial }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$w$CDM }\DIFaddendFL cosmology 
+ \DIFdelbeginFL \DIFdelFL{of $\Omega_m=0.26,\ w=-0.6$, 
+   excluding the last redshift bin in the analysis, 
+   discarding the systematics correction}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{(i.e.}\DIFaddendFL , \DIFdelbeginFL \DIFdelFL{or reducing }\DIFdelendFL the \DIFdelbeginFL \DIFdelFL{number }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{value }\DIFaddendFL of \DIFdelbeginFL \DIFdelFL{mocks in }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{$w_a$ fixed as zero).
+ Results obtained using }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{estimation }\DIFdelendFL \DIFaddbeginFL \DIFaddFL{precise 2pCFs (cyan filled) 
  and approximate 2pCFs (red dashed) agree with each other quite well.
- The computation of precise 2pCFs is very expensive,
- so the comparison was done on a coarse grid of cosmological parameters with $\delta \Omega_m=0.025,\ \delta w=0.05$.
- Right panel: Input-output test of the methodology using four sets of mock catalogues of BOSS DR12 galaxies constructed from the HR4 simulation.
- The approximate 2pCFs are adopted in the analysis.
- The simulation cosmology, $\Omega_m=0.26$ $\Lambda$CDM, is marked by the black plus.
- The inferred cosmological constraints from the method, shown in the cygan contours, are consistent with the input cosmology.
+ The computation }\DIFaddendFL of \DIFdelbeginFL \DIFdelFL{covariance matrix}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{precise 2pCFs is very expensive}\DIFaddendFL ,
+ \DIFaddbeginFL \DIFaddFL{so }\DIFaddendFL the \DIFdelbeginFL \DIFdelFL{results remain robust (black contours)}\DIFdelendFL \DIFaddbeginFL \DIFaddFL{comparison was done on a coarse grid of cosmological parameters with $\delta \Omega_m=0.025,\ \delta w=0.05$}\DIFaddendFL .
    }
 \end{figure*}
 
-As an illustration,
+\DIFaddbegin \DIFadd{As an illustration,
 Figure \ref{fig_xi} shows how we us the above procedure to distinguish different cosmologies.
 Here we plot the value of $\hat\xi_{\Delta s}(\mu)$, as long as its redshift evolution, 
 measured from the BOSS DR12 galaxies in six redshift bins.
 Two $\Lambda$CDM cosmologies are adopted, 
 one with $\Omega_m=0.26$, and the other with obviously wrong value of $\Omega_m=0.11$.
+}
 
-The shape of $\hat \xi_{\Delta s}(\mu)$ is far away from a flat curve, 
+\DIFadd{The shape of $\hat \xi_{\Delta s}(\mu)$ is far away from a flat curve, 
 due to the apparent anisotropy produced by the peculiar montion of galaxies.
 In the $\Omega_m=0.11$ cosmology, 
 the shapes of $\hat\xi_{\Delta s}(\mu)$ are different from the measurements in the $\Omega_m=0.26$ cosmology,
 and the amount of difference systematically evolves with redshift.
 So we observe a large redshift evolution of $\hat\xi_{\Delta s}(\mu)$, 
 indicating that it is not likely to be the underlying true cosmology of our universe.
+}
 
-The green curves denote the 2pCFS measured from the HR4 mock catalogues
-(we always plot the {\it correct} measurement in the simulation cosmology, i.e. the $\Omega_m=0.26$ $\Lambda$CDM).
-%The small redshift evolution of $\hat \xi_{\Delta s}(\mu)$
+\DIFadd{The green curves denote the 2pCFS measured from the HR4 mock catalogues
+(we always plot the }{\it \DIFadd{correct}} \DIFadd{measurement in the simulation cosmology, i.e. the $\Omega_m=0.26$ $\Lambda$CDM).
+%DIF > The small redshift evolution of $\hat \xi_{\Delta s}(\mu)$
 The simulation results can well match the results from real observational data,
-indicating that the FoG and Kaiser \cite{Kaiser1987} effects are both well reproduced.
+indicating that the FoG \mbox{%DIFAUXCMD
+\citep{FOG} }%DIFAUXCMD
+and Kaiser \mbox{%DIFAUXCMD
+\citep{Kaiser1987} }%DIFAUXCMD
+effects are both well reproduced.
 Since there is no AP effect in the simulation measurements,
 all detected redshift evolution should be due to effects other than the cosmological effect; 
 so they are adopted as an estimation of the systematic effects of the method.
-The amount of systematics becomes relatively large only in the 6th redshift bin.
+The amount of systematics reaches 4-6\% in the 6th redshift bin,
+and is much smaller ($\lesssim2\%$) in the other bins.
+}
 
 
 
-\subsection{Approximating the 2pCFs in cosmologies other than the fiducial one}\label{sec:approx_2pcf}
+\subsection{\DIFadd{Approximating the 2pCFs in cosmologies other than the fiducial one}}\label{sec:approx_2pcf}
 
-In our earlier work\cite{Li2016}, the likelihood contour of $\Omega_m-w$ was constructed by
+\DIFaddend In our earlier work\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Li2016}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Li2016}}%DIFAUXCMD
+}\DIFaddend , the likelihood contour of $\Omega_m-w$ was constructed by
 measuring the 2PCF 3,375 times,
 using 3D positions of BOSS galaxies computed in 71$\times$45 sets of cosmological parameters.
 %with $0.06\leq \Omega_m\leq 0.41$, $-1.5 \leq w \leq -0.4$.
-This procedure took 1 month using 500 cores of the KIAS {\texttt {baekdu}} cluster.
+This procedure took 1 month using 500 cores of the \DIFdelbegin \DIFdel{KIAS }\DIFdelend \DIFaddbegin \DIFadd{Korea Institute for Advanced Study }\DIFaddend {\texttt {baekdu}} cluster.
 It would be computationally intractable to attempt a full MCMC of all relevant cosmological parameters using this approach. 
 Thus we adopt an ``approximate 2PCF'' by transforming our measurements from one cosmology to another.
 %It would be too expensive to do such a computation on a 3D grid of $\Omega_m-w_0-w_a$,
@@ -557,12 +747,13 @@ In detail, the number of pairs are only counted in a fiducial cosmology
 and ``translated'' to the measurements in a ``target'' cosmology using the relations, 
 \begin{eqnarray}\label{eq:smumap}
  s_{\rm target} = s_{\rm fiducial} \sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2+\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}, \\
- \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}
- {\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2 +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
+ \mu_{\rm target} = \mu_{\rm fiducial} \frac{\alpha_\parallel}{\sqrt{\alpha_{\parallel}^2 \mu_{\rm fiducial}^2 +\alpha_{\bot}^2(1-\mu_{\rm fiducial}^2)}}
 \end{eqnarray}
 where $\alpha_{\bot}\equiv D_{A,\rm target}/D_{A,\rm fiducial}$,
 $\alpha_{\parallel}\equiv H_{\rm fiducial}/H_{\rm target}$.
 and values of $D_A$ and $H$ are computed in the effective redshifts of the six redshift bins.
+%DIF < The left panel of Figure \ref{fig_method} shows how 
+%DIF < $\xi(s,\mu)$ is mapped from the fiducial cosmology to another cosmology using the above relations.
 In the fiducial cosmology
 we measure $\xi(s,\mu)$ with a high resolution of
 $\Delta s = 0.2 {\rm Mpc/h}$, $\Delta \mu = 1/600$,
@@ -571,38 +762,78 @@ $\Delta s = 0.2 {\rm Mpc/h}$, $\Delta \mu = 1/600$,
 and these small ``pixels'' are grouped to infer 
 the number counts in other cosmologies, 
 in large pixels of $\Delta s = 1 {\rm Mpc/h}$, $\Delta \mu = 1/120$.
+%DIF < in the fiducial cosmology and group the bins in the target cosmology.
 In the case when one small pixel belongs to more than one larger pixel,
 a correction is applied by computing the fraction of the overlapping area
-%in the fiducial cosmology and group the bins in the target cosmology.
-\footnote{A denser grid can significantly reduce the edge effect;
+\DIFdelbegin \DIFdel{.
+%DIF < \footnote{A dense grid can effectively reduce the ``edge effect'' produced when we map $\xi(s,\mu)$ from one cosmology to another.
+}\DIFdelend %DIF > in the fiducial cosmology and group the bins in the target cosmology.
+\DIFaddbegin \footnote{\DIFadd{A denser grid can significantly reduce the edge effect;
 if we use Equation \ref{eq:smumap} to do a simple interpolation on a grid with same resoultion does not work,
-the edge effect is so large that the derived cosmological constraints suffer from a significant error.}
-%The edge effect would introduce artificial correlations between nearby pixels, smooth $\xi(s,\mu)$ a little bit, 
+the edge effect is so large that the derived cosmological constraints suffer from a significant error.}}
+\DIFaddend %The edge effect would introduce artificial correlations between nearby pixels, smooth $\xi(s,\mu)$ a little bit, 
 %reduce the value of $\chi^2$, and change the obtained cosmological constriants.
 %We found that, using $\Delta s = 1 {\rm Mpc/h}$ and $\Delta \mu = 1/120$, 
 %the cosmological constraints of \cite{Li2016} can not be properly reproduced.}.
 
-The above procedure is illustrated in Figure \ref{fig_method}.
+\DIFdelbegin \DIFdel{We found when using the approximate method the computed 
+$\hat\xi_{\Delta s}(\mu)$ in a non-fiducial cosmologysuffers from
+an error of }\DIFdelend \DIFaddbegin \DIFadd{The above procedure is illustrated in Figure \ref{fig_method}.
 Using the relations given by Equation \ref{eq:smumap},
 we obtained the distribution of number counts in cosmologies other than the fiducial cosmology.
 To ensure the accuracy of mapping, the number counting is conducted using 5 times smaller pixels (the small red pixels), 
 and grouped together to infer the number counts in the standard resolution (the large blue dashed pixels).
+}
 
-%We checked that the approximate method can reproduce the results presented in \cite{Li2016} quite well.
+%DIF > We checked that the approximate method can reproduce the results presented in \cite{Li2016} quite well.
 
-Figure \ref{fig_xi} plots the approximate 2pCFS in the $\Omega_m=0.11$ $\Lambda$CDM cosmology.
-We find that, the approximation procedure only introduces a $\lesssim0.5\%$ error in the $\hat\xi_{\Delta s}(\mu)$, 
-which is 10 times smaller than the noise of $\hat\xi_{\Delta s}(\mu)$.
-So we expect that the approximate method can reproduce the results of precise method quite well.
-The left panel of Figure \ref{fig_Check} shows the  $\Omega_m$-$w_0$ constraints obtained 
-using the precise and approximate 2pCFs (here we fix $w_a=0$). 
-They agree with each other quite well.
+\DIFadd{Figure \ref{fig_xi} plots the approximate 2pCFS in the $\Omega_m=0.11$ $\Lambda$CDM cosmology.
+We find that, the approximation procedure only introduces a }\DIFaddend $\lesssim0.5\%$ \DIFaddbegin \DIFadd{error in the $\hat\xi_{\Delta s}(\mu)$}\DIFaddend , 
+which is 10 times smaller than the \DIFdelbegin \DIFdel{statistical noise .
+We checked }\DIFdelend \DIFaddbegin \DIFadd{noise of $\hat\xi_{\Delta s}(\mu)$.
+So we expect }\DIFaddend that the approximate method can reproduce the results \DIFdelbegin \DIFdel{presented in \mbox{%DIFAUXCMD
+\cite{Li2016} }%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{of precise method }\DIFaddend quite well.
+%DIF <  We checked that the approximate method can reproduce the results of precise method quite well.
+%DIF <  The right panel of Figure \cite{fig_method} shows the  $\Omega_m$-$w_0$ constraints obtained 
+%DIF <   using the precise and approximate 2pCFs (here we fix $w_a=0$). 
+%DIF <   They agree with each other quite well.
 
-To further check the robustness of the approximate method, 
-we did an input-output test using the four sets of mock catalogues of BOSS DR12 galaxies constructed from HR4 \cite{HR4}.
-The results are shown in the right panel of Figure \ref{fig_Check}. 
+
+\DIFdelbegin %DIFDELCMD < \begin{figure*}
+%DIFDELCMD <    \centering{
+%DIFDELCMD <    \includegraphics[width=6cm]{fig_smu.eps}
+%DIFDELCMD <    \includegraphics[width=10.5cm]{fig_comp.eps}
+%DIFDELCMD <    }
+%DIFDELCMD <    %%%
+%DIFDELCMD < \caption{%
+{%DIFAUXCMD
+%DIFDELCMD < \label{fig_method}
+%DIFDELCMD <    %%%
+\DIFdelFL{Left panel: Mapping $\xi(s,\mu)$ from the fiducial cosmology to four other cosmologies. 
+ The number counts are measured in the fiducial cosmology in the blue dashed grid (for illustration purpose 
+  the grid shown here is much sparser than the grid adopted in real analysis).
+ In the four cosmologies with $(\Omega_m,w) = (0.31,-1.5),\ (0.31,-0.5),\ (0.41,-1.0)\ \rm and\ (0.21,-1.0)$, 
+ %DIF < due to the distortion of geometry,
+ the distribution of number counts in $(s, \mu)$ space becomes the red solid grid.
+ We utilize the mapping realtion to infer the 2pCFs in vaiours cosmologies without re-conducting the 2pCF statistics. 
+ Right panel: Cosmological constraints in the $\Omega_m$-$w_0$ plane, with the value of $w_a$ fixed as zero.
+ Results obtained using the precise 2pCFs (gray filled) 
+ and approximate 2pCFs (blue solid) 2pCFs agree with each other quite well.
+   }}
+%DIFAUXCMD
+%DIFDELCMD < \end{figure*}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{An input-output test was performed using the four sets of mock catalogues of BOSS DR12 galaxies constructed from HR4 \mbox{%DIFAUXCMD
+\citep{HR4}}%DIFAUXCMD
+.
+The results are shown in the left panel of Figure \ref{fig_Check}. 
 The input cosmology is the simulation cosmology, i.e. $\Omega_m=0.26$ $\Lambda$CDM.
 It lies within the 1$\sigma$ conour of the inferred constraints.
+The right panel of Figure \ref{fig_Check} shows the cosmological constraints in case of fixing $w_a$ as 0 (hereafter $w$CDM).
+Results obtained using the precise and approximate 2pCFs agree quite well with each other.
+}\DIFaddend 
+
 
 %
 
@@ -613,9 +844,72 @@ It lies within the 1$\sigma$ conour of the inferred constraints.
 %The interpolation introduces an artificial smoothing in the inferred $\xi$, and reduces the 
 
 
-\section{Results}
+\section{\DIFdelbegin \DIFdel{Result}\DIFdelend \DIFaddbegin \DIFadd{Cosmoligical constraints}\DIFaddend }
 
 
+The Planck team has released the {\texttt {COSMOMC}} \citep{LB2002} outputs of four \DIFdelbegin \DIFdel{MCMC }\DIFdelend \DIFaddbegin \DIFadd{Markov Chain Monte Carlo (MCMC) 
+}\DIFaddend ``chains'' in the CPL model, 
+using a combination of four datasets:
+the full-mission Planck observations of CMB temperature and polarization anisotropies \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Planck2015}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Planck2015}}%DIFAUXCMD
+}\DIFaddend ,
+the BAO distance priors measured from SDSS DR11 \citep{Anderson2013}, 6dFGS \citep{6dFGS} and SDSS MGS \citep{MGS},
+the ``JLA'' SNIa sample \citep{JLA},
+and the Hubble Space Telescope measurement of $H_0=70.6\pm3.3$ km/s/Mpc \DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Riess2011,E14H0}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Riess2011,E14H0}}%DIFAUXCMD
+}\DIFaddend .
+These MCMC chains contain the CMB+BAO+SNIa+$H_0$ likelihood computed for $\sim$37,000 sets of cosmological parameters\DIFdelbegin \DIFdel{,
+yielding constraints of %DIF < $ \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41$.
+%DIF < \begin{eqnarray}
+%DIF <  \Omega_m &=& 0.309 \pm 0.010,  \\ \nonumber
+%DIF <  w_0 &=& -0.938 \pm 0.109,  \\ \nonumber
+%DIF <  w_a &=& -0.38 \pm 0.41.
+%DIF < \end{eqnarray}
+}%DIFDELCMD < \small
+%DIFDELCMD < %%%
+\begin{displaymath}
+ \DIFdel{\Omega_m = 0.309 \pm 0.010,\
+ w_0 = -0.938 \pm 0.109,\
+ w_a = -0.38 \pm 0.41.
+}\end{displaymath}
+%DIFAUXCMD
+%DIFDELCMD < \normalsize
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{.
+}\DIFaddend %To derive the constraints combined with our AP method,
+%we then compute the likelihood of the SDSS LOWZ+CMASS AP measurements for each of the parameter combinations provided in the Planck chain. 
+%To do this, we splited the 1,133,326 galaxies from the SDSS DR12 into six redshift bins,
+%DIF < measured the 2pCF (on scales of 6-40 $h^{-1}$Mpc) in these redshift bins (see Fig.\ref{fig_nbar}).
+%DIF > measured the 2pCF (on scales of 6-40 $h^{-1}$Mpc) in these redshift bins (see Figure \ref{fig_nbar}).
+%This enables us investigating the redshift evolution of anisotropic clustering.
+%We subtracted the systematic effects based on estimations from mocks made from Horizon Run 4 simulations \citep{HR4},
+%and used a $\chi^2$ function to assess the redshift dependence.
+%(see Methods for further explanations).
+After adding the log-likelihoods of the Planck team sample with ours, 
+while also multiply the sample weights by our likelihoods, 
+we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters\DIFdelbegin \DIFdel{, }\DIFdelend \DIFaddbegin \DIFadd{. }\DIFaddend %$\Omega_m = 0.301 \pm 0.008, w_0 = -1.042 \pm 0.067, w_a = -0.07 \pm 0.29$.
+%DIF < \begin{eqnarray}
+%DIF < \Omega_m &=& 0.301 \pm 0.008, \\ \nonumber
+%DIF < w_0 &=& -1.042 \pm 0.067, \\ \nonumber
+%DIF < w_a &=& -0.07 \pm 0.29.
+%DIF < \end{eqnarray}
+\DIFdelbegin %DIFDELCMD < \small
+%DIFDELCMD < %%%
+\begin{displaymath}
+ \DIFdel{\Omega_m = 0.301 \pm 0.008,\
+ w_0 = -1.042 \pm 0.067,\
+ w_a = -0.07 \pm 0.29.
+}\end{displaymath}
+%DIFAUXCMD
+%DIFDELCMD < \normalsize
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin 
+
+\subsection{\DIFadd{Results}}
 
 \begin{figure*}
    \centering{
@@ -629,24 +923,25 @@ It lies within the 1$\sigma$ conour of the inferred constraints.
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_con}
-   Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
+   \DIFaddFL{Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
    68.3\%, 95.4\% CL likelihood contours in the $\Omega_m-w_0$  and $w_0-w_a$ planes are plotted in the left and right panels, respectively.
    Results from the AP method alone (brown filled), CMB+BAO (cygan filled), CMB+BAO+SNIa+$H_0$ (blue filled)
    and CMB+BAO+SNIa+$H_0$+AP (magenta filled) are shown.
    To see the effect of systematic effect, we also plot the AP alone and CMB+BAO+SNIa+$H_0$+AP constraints 
-   before conducting the systematics correction procedure (the gray solid and black dashed lines, labeled by 'with sys').
-   The AP method leads to competitive constraints on the cosmological parameters.
-   Adding the AP method to the combination of CMB+BAO+SNIa+$H_0$, the contour area was reduced by about 50\%. %significantly reduced the area of contour.
-   If we discard the systematics correction, there is half-$\sigma$ shift of the AP alone contour.
-   The combined constraints are less affected.
-   This suggests that, for the data analysis of current galaxy surveys,
-   the systematic effects in our method is not significant.
-   %This shows the power of the AP method in constraining dynamical dark energy.
-   %Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
-   %When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
-   %Right panel: Redshift evolution of $w(z)$, with/without adding the AP constraint.
-   %Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
-   }
+   before conducting the systematics correction procedure (the gray solid and black dashed lines, labeled by ``with sys'').
+   %DIF > The AP method leads to competitive constraints on the cosmological parameters.
+   Adding the AP method to the combination of CMB+BAO+SNIa+$H_0$ reduces the contour area by about 50\%. %DIF > significantly reduced the area of contour.
+   Systematics does not have significant influence on the results.%DIF >  are less affected by systematics effect.
+   %DIF > If we discard the systematics correction, there is half-$\sigma$ shift of the AP alone contour.
+   %DIF > The combined constraints are less affected.
+   %DIF > This suggests that, for the data analysis of current galaxy surveys,
+   %DIF > the systematic effects in our method is not significant.
+   %DIF > This shows the power of the AP method in constraining dynamical dark energy.
+   %DIF > Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
+   %DIF > When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
+   %DIF > Right panel: Redshift evolution of $w(z)$, with/without adding the AP constraint.
+   %DIF > Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
+   }}
 \end{figure*}
 
 
@@ -661,84 +956,74 @@ It lies within the 1$\sigma$ conour of the inferred constraints.
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_wz}
-   %Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
-   %Left panel: 68.3\%, 95.4\% CL likelihood contours in the  $w_0-w_a$ plane.
-   %Results are consistent with $\Lambda$CDM.
-   %The constrained area is significantly reduced after combined with the AP method.
-   %This shows the power of the AP method in constraining dynamical dark energy.
-   %Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
-   %When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
-   Derived redshift evolution of $w(z)$, with/without adding the AP constraint.
+   %DIF > Cosmological constraints on the CPL dark energy parametrization $w=w_0+w_a\frac{z}{1+z}$.
+   %DIF > Left panel: 68.3\%, 95.4\% CL likelihood contours in the  $w_0-w_a$ plane.
+   %DIF > Results are consistent with $\Lambda$CDM.
+   %DIF > The constrained area is significantly reduced after combined with the AP method.
+   %DIF > This shows the power of the AP method in constraining dynamical dark energy.
+   %DIF > Middle panel: $w_0-w_a$ likelihood contours using datasets of CMB+BAO, CMB+BAO+SNIa+$H_0$ and CMB+BAO+AP+$H_0$.
+   %DIF > When combined with CMB+BAO, AP method yields much tighter constraints than SNIa.
+   \DIFaddFL{Derived redshift evolution of $w(z)$, with/without adding the AP constraint.
    The 68.3\% and 95.4\% CL regions are plotted.
    Adding the AP method tightens the constraints and reduces the redshift evolution of $w$ (the tilt of $w(z)$).
    There is no significant change in the results if we disgard the systematics correction procedure in the AP method analysis.
-   }
+   }}
 \end{figure*}
 
-The Planck team has released the {\texttt {COSMOMC}} \citep{LB2002} outputs of four MCMC ``chains'' in the CPL model, 
-using a combination of four datasets:
-the full-mission Planck observations of CMB temperature and polarization anisotropies \cite{Planck2015},
-the BAO distance priors measured from SDSS DR11 \citep{Anderson2013}, 6dFGS \citep{6dFGS} and SDSS MGS \citep{MGS},
-the ``JLA'' SNIa sample \citep{JLA},
-and the Hubble Space Telescope measurement of $H_0=70.6\pm3.3$ km/s/Mpc \cite{Riess2011,E14H0}.
-These MCMC chains contain the CMB+BAO+SNIa+$H_0$ likelihood computed for $\sim$37,000 sets of cosmological parameters,
-yielding constraints of %$ \Omega_m = 0.309 \pm 0.010, w_0 = -0.938 \pm 0.109, w_a = -0.38 \pm 0.41$.
-%\begin{eqnarray}
-% \Omega_m &=& 0.309 \pm 0.010,  \\ \nonumber
-% w_0 &=& -0.938 \pm 0.109,  \\ \nonumber
-% w_a &=& -0.38 \pm 0.41.
-%\end{eqnarray}
-\small
-\begin{equation}
- \Omega_m = 0.309 \pm 0.010,\
- w_0 = -0.938 \pm 0.109,\
- w_a = -0.38 \pm 0.41.
-\end{equation}
-\normalsize
-%To derive the constraints combined with our AP method,
-%we then compute the likelihood of the SDSS LOWZ+CMASS AP measurements for each of the parameter combinations provided in the Planck chain. 
-%To do this, we splited the 1,133,326 galaxies from the SDSS DR12 into six redshift bins,
-%measured the 2pCF (on scales of 6-40 $h^{-1}$Mpc) in these redshift bins (see Figure \ref{fig_nbar}).
-%This enables us investigating the redshift evolution of anisotropic clustering.
-%We subtracted the systematic effects based on estimations from mocks made from Horizon Run 4 simulations \citep{HR4},
-%and used a $\chi^2$ function to assess the redshift dependence.
-%(see Methods for further explanations).
-After adding the log-likelihoods of the Planck team sample with ours, 
-while also multiply the sample weights by our likelihoods, 
-we derive the CMB+BAO+SNIa+$H_0$+AP constraints on CPL parameters, %$\Omega_m = 0.301 \pm 0.008, w_0 = -1.042 \pm 0.067, w_a = -0.07 \pm 0.29$.
-%\begin{eqnarray}
-%\Omega_m &=& 0.301 \pm 0.008, \\ \nonumber
-%w_0 &=& -1.042 \pm 0.067, \\ \nonumber
-%w_a &=& -0.07 \pm 0.29.
-%\end{eqnarray}
-\small
-\begin{equation}
- \Omega_m = 0.301 \pm 0.008,\
- w_0 = -1.042 \pm 0.067,\
- w_a = -0.07 \pm 0.29.
-\end{equation}
-\normalsize
-%While the central values of parameters do not shift appreciably,
-As a result of the additional constraint from our AP analysis,
-the error bars of $w_0$ and $w_a$ are reduced by 38.4\% and 29.7\%, respectively.% $$-40\%$ by adding our method into the analysis.
-It can be also noted that the central value of $w_a$ moved to zero appreciably.
 
 
+\DIFaddend %While the central values of parameters do not shift appreciably,
+\DIFdelbegin \DIFdel{As a result of the additional constraint from our AP analysis, the error bars of $w_0$ and $w_a$ are reduced by 38.4}\DIFdelend %DIF > Covariance matrix 
+\DIFaddbegin 
 
 
-
-%Covariance matrix 
-
-
-Figure \ref{fig_con} shows the 68.3\% and 95.4\% CL likelihood contours in the $\Omega_m-w_0$  and $w_0-w_a$ planes,
+\DIFadd{Figure \ref{fig_con} shows the 68.3}\DIFaddend \% and \DIFdelbegin \DIFdel{29.7\%}\DIFdelend \DIFaddbegin \DIFadd{95.4\% CL likelihood contours in the $\Omega_m-w_0$  and $w_0-w_a$ planes,
 derived from the AP method alone, CMB+BAO, CMB+BAO+SNIa+$H_0$
-and CMB+BAO+SNIa+$H_0$+AP, respectively.
-The overlapping of different contours suggest that they are consistent with each other.
-Adding the new AP method to the CMB+BAO+SNIa+$H_0$ constraints reduces the statistical errors on many parameters by $\sim$30-40\%,
-and reduces the area of 95.4\% contours by 50\%.
-This constitutes a significant increase in the figure of merit constraints on $(w_0, w_a)$. 
-This doubling of the figure of merit comes at no additional cost or alteration to data size, 
-thus greatly improving the overall cost-benefit consideration of large cosmological redshift surveys.
+and CMB+BAO+SNIa+$H_0$+AP}\DIFaddend , respectively.
+%DIF <  $$-40\%$ by adding our method into the analysis.
+\DIFdelbegin \DIFdel{It can be also noted that the central value of $w_a$ moved to zero appreciably}\DIFdelend \DIFaddbegin \DIFadd{The overlapping of different contours suggest that they are consistent with each other}\DIFaddend .
+
+\DIFdelbegin \DIFdel{The marginalized constraints on $w_0-w_a$ are shown in the left panel of Fig.\ref{fig_con}.
+Adding our new AP constraints significantly reduces the allowable parameterspace.
+This can also be visualized as allowable bands in $w(z)$ as can be seen in the right panel of Fig.
+\ref{fig_con}}\DIFdelend \DIFaddbegin \DIFadd{Using AP method alone, we can lead to effective constraints on the parameter space in the $\Omega_m-w_0$ plan.
+Due to the inclusion of one extra free parameter, 
+the constrained area becomes larger than $w$CDM result \mbox{%DIFAUXCMD
+\citep{Li2016}}%DIFAUXCMD
+.
+Given the current galaxy surveys it is difficult to effectively constrain $w_a$ using only one technique.
+We have to combine various techniques}\DIFaddend .
+
+\DIFdelbegin \DIFdel{The derived cosmological constraints are fully consistent with a cosmological constant dark energy component having no evolution.
+%DIF < \cite{Li2016} 
+Adding the new AP method to the }\DIFdelend \DIFaddbegin \DIFadd{Combinig the four external techniques, i.e. }\DIFaddend CMB+BAO+SNIa+$H_0$\DIFdelbegin \DIFdel{constraints reduces the statistical errors on many parametersby $\sim$30-40\% 
+and reduces the $w_0-w_a$ (95.4\%CL) contour }\DIFdelend \DIFaddbegin \DIFadd{, leads to effective constraints on all parameters.
+The statistical mean values and 68.3\% uncertainties of these parameters are
+}\begin{eqnarray}
+&\DIFadd{\Omega_m = 0.309 \pm 0.010,}\\
+&\DIFadd{w_0 = -0.938 \pm 0.109,}\\
+&\DIFadd{w_a = -0.38 \pm 0.41,
+}\end{eqnarray}
+\DIFadd{while adding our AP method to this combination further tightens the constraints and yield to
+}\begin{eqnarray}
+&\DIFadd{\Omega_m = 0.301 \pm 0.008,}\\
+&\DIFadd{w_0 = -1.042 \pm 0.067,}\\
+&\DIFadd{w_a = -0.07 \pm 0.29.
+}\end{eqnarray}
+\DIFadd{The error bars are dramatically reduced by 30-40\%.
+The contour areas are reduced }\DIFaddend by 50\%\DIFdelbegin \DIFdel{.
+This constitutes a significant increase in the }\DIFdelend \DIFaddbegin \DIFadd{, i.e., the dark energy }\DIFaddend figure of merit \DIFdelbegin \DIFdel{constraints on $(w_0, w_a)$.
+This }\DIFdelend \DIFaddbegin \DIFadd{was improved by 100\%. 
+Notice that the AP constraints come from the BOSS DR12 data, which is already used in the BAO analysis.
+So the }\DIFaddend doubling of the figure of merit comes at no additional cost or alteration to data size,
+thus greatly improving the overall cost-benefit \DIFdelbegin \DIFdel{consideration }\DIFdelend of large cosmological redshift surveys.
+
+
+\DIFdelbegin \DIFdel{We }\DIFdelend \DIFaddbegin \DIFadd{It can be also noted that, after adding the AP method, the central value of $w_a$ moved to zero appreciably.
+This means the result becomes more consistent with a cosmological constant dark energy component having no evolution.
+Figure \ref{fig_wz} shows the redshift evolution of $w(z)$ derived from the cosmological constraints.
+Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
+}
 
 
 \begin{figure*}
@@ -750,7 +1035,7 @@ thus greatly improving the overall cost-benefit consideration of large cosmologi
 %    \includegraphics[height=8cm]{smu.eps}
    }
    \caption{\label{fig_contest}
-   Robustness test of the results.
+   \DIFaddFL{Robustness test of the results.
    For the ``default'' constraints (pink contours) are derived using six redshift bins, 
    $\mu_{\rm max}=0.97$, $n_{\mu}=20-25$, $s=6-40 \rm Mpc/h$,
    a fiducial cosmology $\Omega_m=0.26,\ w=-1.0$ for the measurement of 2pCF,
@@ -762,10 +1047,12 @@ thus greatly improving the overall cost-benefit consideration of large cosmologi
    excluding the last redshift bin in the analysis, 
    or reducing the number of mocks in the estimation of covariance matrix,
    the results remain robust (black contours).
-   }
+   }}
 \end{figure*}
 
-To see the effect of systematic effect, in Figure \ref{fig_con} we also plot the AP alone and CMB+BAO+SNIa+$H_0$+AP constraints 
+\subsection{\DIFadd{Robustness}}
+
+\DIFadd{To see the effect of systematic effect, in Figure \ref{fig_con,fig_wz} we also plot the AP alone and CMB+BAO+SNIa+$H_0$+AP constraints 
 before conducting the systematics correction procedure.
 If we discard the systematics correction, there is a half-$\sigma$ shift of the AP alone constraints,
 and the combined constraints are almost unaffected
@@ -774,22 +1061,21 @@ This indicates that, for the data analysis of current galaxy surveys,
 the systematic effects in our method is not significant.
 But it remains to be seen if this is true for future galaxy surveys,
 or when the cosmology dependence of the systematics effects is taken into account.
+The results are less affected by systematics.
+%DIF > \cite{Li2016} 
+}
 
 
-Figure \ref{fig_wz} shows the redshift evolution of $w(z)$ derived from the cosmological constraints.
-The derived $w(z)$ is fully consistent with a cosmological constant dark energy component having no evolution.
-Adding AP tightens the constraints and reduces the redshift evolution of $w$ (tilt of $w(z)$).
-The results are robust against systematics.
-%\cite{Li2016} 
-
-
-Finally, we performed a test of all the possible variables in our methodology.
-Figure \ref{fig_contest} shows that 
+\DIFadd{Finally, we }\DIFaddend performed a test of all the possible variables in our methodology.
+\DIFdelbegin \DIFdel{Fig.}\DIFdelend \DIFaddbegin \DIFadd{Figure }\DIFaddend \ref{fig_contest} shows that 
 the result is unaffected by the line-of-sight $\mu$-cut, 
-the number of angular bins,
-the range of radial integration, 
-the choice of fiducial cosmology in the mapping of $\xi(s,\mu)$,
+the \DIFdelbegin \DIFdel{number of angular bins, 
+the }\DIFdelend range of radial integration\DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{, 
+}\DIFaddend the choice of fiducial cosmology \DIFaddbegin \DIFadd{in the mapping of $\xi(s,\mu)$,
 and the number of mocks.
+Reduces the number of angular bins weakens the constraints a little bit,
+and enlarges the contour towards the lower-right direction 
+(the upper-left boundary is determined by the CMB+BAO+SNIa+$H_0$ constraints, so it is unaffected)}\DIFaddend .
 %we adopt $\mu_{\rm max}=0.99\ (0.85)$ to include more (less) regions near the LOS,
 %decrease the number of angular bins to $n_{\mu}=15-20$,
 %change the range of clustering to $8-30 \rm Mpc/h$,
@@ -798,6 +1084,15 @@ and the number of mocks.
 %or reduce the number of mocks to 1000.
 The result does not change significantly if we remove the highest redshift bin,
 where the estimated systematics is comparably large.
+\DIFdelbegin \DIFdel{The most striking point to note in our test is thatthe 
+shift in contour position }\DIFdelend \DIFaddbegin \DIFadd{This further justifies our conclusion that, the effect of systematics }\DIFaddend is not significant \DIFdelbegin \DIFdel{even when %DIF < we do not include the systematic correction.
+the systematics are not corrected.
+%DIF < This is reassuring, since we may have worried that {\it cosmological dependence} 
+%DIF < of the systematic correction could influence the final result. 
+This indicates that, for the data analysis of current galaxy surveys,
+the systematic effects in our method may not be important.
+But it remains to be seen if this is true for future galaxy surveys,
+or when the cosmology dependence of the systematics effects is taken into account}\DIFdelend \DIFaddbegin \DIFadd{in this analysis}\DIFaddend .
 
 
 %\section{Conclusion}\label{sec:conclusion}
@@ -805,7 +1100,11 @@ where the estimated systematics is comparably large.
 
 In recent studies we have proposed to constrain cosmological parameters 
 governing the expansion history of the universe via 
-the redshift dependence of anisotropic galaxy clustering\cite{Li2016}.
+the redshift dependence of anisotropic galaxy clustering\DIFdelbegin \DIFdel{\mbox{%DIFAUXCMD
+\cite{Li2016}}%DIFAUXCMD
+}\DIFdelend \DIFaddbegin \DIFadd{\mbox{%DIFAUXCMD
+\citep{Li2016}}%DIFAUXCMD
+}\DIFaddend .
 This approach enables a robust AP test on relatively small scales.
 In this paper we improved the methodology and obtained a tight constraint 
 on the CPL parametrization of dark energy.
@@ -827,18 +1126,18 @@ providing much higher statistics.
 
 
 %Yet there are still issues demanding more investigations.
-In this analysis, we find the systematic effects do not significantly affect the derived cosmological constraints.
+In this analysis, \DIFaddbegin \DIFadd{we find }\DIFaddend the systematic effects \DIFdelbegin \DIFdel{and the covariance matrices }\DIFdelend \DIFaddbegin \DIFadd{do not significantly affect the derived cosmological constraints.
 But it remains to be seen if this is true for future galaxy surveys,
 or when the cosmology dependence of the systematics effects is taken into account.
-Espeically, the systematic effects are estimated using simulations performed in a certain cosmology.
-The cosmological dependence remains to be investigated in future works.
+Espeically, the systematic effects }\DIFaddend are estimated using simulations performed in a certain cosmology.
+\DIFdelbegin \DIFdel{Their cosmological dependence needs }\DIFdelend \DIFaddbegin \DIFadd{The cosmological dependence remains }\DIFaddend to be investigated in future works\DIFdelbegin \DIFdel{to guarantee the robustness of the method}\DIFdelend .
 
 
-In this analysis, combining our method with the CMB+SNIa+BAO+$H_0$ datasets,
+\DIFdelbegin \DIFdel{Combining }\DIFdelend \DIFaddbegin \DIFadd{In this analysis, combining }\DIFaddend our method with the CMB+SNIa+BAO+$H_0$ datasets,
 the dark energy figure of merit is improved by a factor of 2.
 %The method can be applied to many spectroscopic galaxy surveys.
-This indicates the great power of the method in constraining the cosmic expansion history and probing the properties of dark energy.
-We expect the method will play an important role in deriving cosmological constraints from future spectroscopic galaxy surveys.
+\DIFaddbegin \DIFadd{This indicates the great power of the method in constraining the cosmic expansion history and probing the properties of dark energy.
+}\DIFaddend We expect the method will play an important role in deriving cosmological constraints from future spectroscopic galaxy surveys.
 
 
 
@@ -899,7 +1198,7 @@ Alcock, C., \& Paczynski, B. 1979, Nature, 281, 358
 
 \bibitem[Anderson et al.(2013)]{Anderson2013}
 Anderson, L., Aubourg, \'E., \& Bailey, S. et al. 2014, MNRAS, 441, 24  
-  
+
 %\bibitem[Bassett et al.(2002)]{Bassett2002}
 %Bassett, B.A., Kunz, M., Silk, J., \& Ungarelli, C. 2002, MNRAS, 336, 1217
 
@@ -1009,8 +1308,11 @@ Hartlap J., Simon P. \& Schneider P. [astro-ph/0608064].
 \bibitem[Hong et al.(2016)]{hong2016}
 Hong, S.E., Park, C.,\&  Kim, J. 2016, ApJ, 823, 103
 
-\bibitem[Jackson (1972)]{FOG}
-Jackson, J., 1972, MNRAS, 156, 1
+%DIF < \bibitem[Jackson (1972)]{FOG}
+%DIF < Jackson, J., 1972, MNRAS, 156, 1
+\DIFaddbegin \bibitem[Jackson (1972)]{FOG}
+\DIFadd{Jackson, J., 1972, MNRAS, 156, 1
+}\DIFaddend 
 
 \bibitem[Jennings et al.(2011)]{Jennings2011}
 Jennings, E., Baugh, C.M., \& Pascoli, S. 2011, MNRAS, 420, 1079  
@@ -1021,8 +1323,11 @@ Jennings, E., Baugh, C.M., \& Pascoli, S. 2011, MNRAS, 420, 1079
 %\bibitem[Jiang et al.(2008)]{jiang2008}
 %Jiang, C.Y., Jing, Y. P., \& Faltenbacher, A., et al. 2008, ApJ, 675, 1095
 
-\bibitem[Kaiser (1987)]{Kaiser1987}
-Kaiser, N. 1987, MNRAS, 227, 1
+%DIF < \bibitem[Kaiser (1987)]{Kaiser1987}
+%DIF < Kaiser, N. 1987, MNRAS, 227, 1
+\DIFaddbegin \bibitem[Kaiser (1987)]{Kaiser1987}
+\DIFadd{Kaiser, N. 1987, MNRAS, 227, 1
+}\DIFaddend 
 
 
 %\bibitem[Kim \& Park(2006)]{kim and park 2006}
@@ -1039,6 +1344,12 @@ Kim, J., Park, C., L'Huillier, B., \& Hong, S. E. 2015, JKAS, 48, 213
 
 \bibitem[Kitaura et al.(2015)]{MDPATCHY}
 Kitaura, F.S., Rodrı\'{i}guez-Torres, S., Chuang, C.-H., et al. arXiv:1509.06400
+\DIFaddbegin 
+
+\bibitem[Klypin et al.(2016)]{K2014}
+\DIFadd{Klypin, A., Yepes, G., Gottlober, S., Prada, F., \& Hess, S. 2016,
+MNRAS, 457, 4340%DIF > 
+}\DIFaddend 
 
 \bibitem[Komatsu et al.(2011)]{komatsu2011}
 Komatsu, E., Smith, K. M., \& Dunkley, J., et al. 2011, ApJS, 192, 18  

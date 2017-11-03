@@ -13,12 +13,13 @@ EXE6 = AP_grid_wcdm
 EXE7 = AP_coupled_de
 EXE8 = AP_grid_DAH
 
-OBJS = AP_tools.o
+OBJS = AP_ximu.o
 
 F90C = gfortran  
 F90FLAGS = 
 
-default: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5) $(EXE6) $(EXE7) $(EXE8)
+#default: $(EXE1) $(EXE2) $(EXE3) $(EXE4) $(EXE5) $(EXE6) $(EXE7) $(EXE8)
+default: $(EXE1) $(EXE3) $(EXE4) $(EXE5) $(EXE6) $(EXE7) $(EXE8)
 
 AP_test.o : $(OBJS) 
 AP_MCMC.o : $(OBJS) 
